@@ -36,7 +36,7 @@ class userController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'unique:users,email'],
+            'email' => ['required', 'unique:tb_user,email'],
             'password' => ['required', 'min:8']
         ]);
 
@@ -53,19 +53,19 @@ class userController extends Controller
         return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
     }
 
-    public function Login(Request $request)
-    {
-            $credentials = $request->only('email', 'password');
+    // public function Login(Request $request)
+    // {
+    //         $credentials = $request->only('email', 'password');
 
-        if (!Auth::attempt($credentials)) {
-           return response()->json(['message' => "credenciais inválidas"], 401);
-        }
+    //     if (!Auth::attempt($credentials)) {
+    //        return response()->json(['message' => "credenciais inválidas"], 401);
+    //     }
 
-        $request->session()->regenerate();
-        return redirect()->intended('/home');
+    //     $request->session()->regenerate();
+    //     return redirect()->intended('/home');
 
 
-    }
+    // }
 
     public function logout(Request $request, User $id)
     {
