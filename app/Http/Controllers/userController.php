@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class userController extends Controller
 {
@@ -17,9 +22,11 @@ class userController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+
     public function create()
     {
-        //
+        return view('home');
     }
 
     /**
@@ -27,7 +34,47 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'unique:users,email'],
+            'password' => ['required', 'min:8']
+        ]);
+
+        $user = new User;
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = Hash::make($validated['password']);
+        $user->save();
+
+
+        Auth::login($user);
+        $request->session()->regenerate();
+
+        return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+    }
+
+    public function Login(Request $request)
+    {
+            $credentials = $request->only('email', 'password');
+
+        if (!Auth::attempt($credentials)) {
+           return response()->json(['message' => "credenciais inválidas"], 401);
+        }
+
+        $request->session()->regenerate();
+        return redirect()->intended('/home');
+
+
+    }
+
+    public function logout(Request $request, User $id)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Você saiu com sucesso.');
     }
 
     /**
