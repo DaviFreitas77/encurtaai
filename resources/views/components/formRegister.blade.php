@@ -1,4 +1,5 @@
-  <form class="modal-content w-full" method="POST" action="/login">
+  <form class="modal-content w-full" method="POST" action="{{route('criar.store') }}">
+    @csrf
       <div class="flex flex-col gap-4 mb-2">
           <input name="name" type="text" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="Nome" required>
           
