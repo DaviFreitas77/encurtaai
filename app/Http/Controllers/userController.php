@@ -74,7 +74,7 @@ class userController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Você saiu com sucesso.');
+        return redirect('/login')->with('success', 'Você saiu com sucesso. voce venceuu!');
     }
 
     /**
