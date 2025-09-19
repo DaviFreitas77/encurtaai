@@ -8,8 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('home')->name('home');
 });
 
 Route::post('/criar', [userController::class, 'store'])->name('criar.store');
-

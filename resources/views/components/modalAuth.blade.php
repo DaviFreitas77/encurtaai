@@ -32,12 +32,12 @@
             </div>
         </div>
         <!-- Formulários -->
-        <div id="loginForm">
+        <div id="showLoginForm">
             @include('components.formLogin')
 
         </div>
 
-        <div id="registerForm" class="hidden">
+        <div id="showRegisterForm" class="hidden">
             @include('components.formRegister')
 
         </div>

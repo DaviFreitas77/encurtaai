@@ -16,14 +16,17 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="Encurtaái - Seu link, mais curto & inteligente">
     <meta property="og:description" content="Encurte URLs em segundos, compartilhe com facilidade e monitore cliques em tempo real. Tudo com segurança e QR Code integrado.">
-    
+
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="Encurtaái - Seu link, mais curto & inteligente">
     <meta property="twitter:description" content="Encurte URLs em segundos, compartilhe com facilidade e monitore cliques em tempo real. Tudo com segurança e QR Code integrado.">
-  
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
