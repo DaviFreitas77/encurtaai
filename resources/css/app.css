@@ -3,7 +3,7 @@
 
 
 :root {
-  --color-primary: #155DFC;
+  --color-primary: #2c5f9b;
   --color-secondary: #252525;
 
 }
@@ -21,7 +21,7 @@
 
 @keyframes marquee {
   0% {
-    transform: translateX(160%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
