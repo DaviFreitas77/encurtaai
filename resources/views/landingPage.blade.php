@@ -33,7 +33,7 @@
 
 <body class="max-w-[1920px] mx-auto bg-bg-primary">
     @include('components.header')
-    @include('components.modalAuth')
+    @include('components.modal-auth')
     <main class="flex  items-center flex-col h-screen justify-center">
         <section class="w-full max-w-[1920px] flex justify-between items-center px-10 gap-10">
 
