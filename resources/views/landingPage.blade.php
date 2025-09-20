@@ -32,34 +32,46 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]" >
+<body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]">
     @include('components.header')
     @include('components.modal-auth')
     <main class="flex items-center flex-col">
         <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-35 gap-10 mt-20">
-            <div class="w-full md:w-1/2">
-                <x-ui.badge text="Links curtos" />
-                <div class="w-full  flex flex-col justify-center mt-2 gap-5">
-                    <h1 class="text-5xl  font-bold  w-full text-[#031f39]">
-                        Seu link, mais curto & inteligente.
-                    </h1>
-                    <p class="max-w-[630px] text-[#ABABAB]">
-                        Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
-                    </p>
-                    <div class="w-full text-sm">
-                        <button class="bg-primary text-white px-4 py-2 rounded-sm hover:bg-blue-600      transition mr-3 cursor-pointer font-medium">
-                            Começar Agora
-                        </button>
-                        <button class="text-primary px-4 py-2 rounded-sm border border-primary cursor-pointer font-medium">
-                            Dev API
-                        </button>
-                    </div>
-                </div>
+            <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
+                <h1 class="text-5xl  font-bold  w-full text-center text-[#031f39]">
+                    Seu link, mais curto & inteligente.
+                </h1>
+                <p class="max-w-[630px] text-[#ABABAB]">
+                    Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
+                </p>
+
+                <section class="w-full max-w-4xl flex flex-col gap-5">
+                    <form>
+                        <input type="text" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 p-4 rounded-md" required>
+                        <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
+                            <div class="w-full flex flex-col items-center md:items-start">
+                                <p class="text-start w-full max-w-[400px] mb-2 text-gray-600"> Senha(opcional)</p>
+                            <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
+                            </div>
+                           <div class="w-full flex flex-col items-center md:items-start">
+                                <p class="text-start w-full max-w-[400px] mb-2 text-gray-600">Caminho personalizado (opcional)</p>
+                                <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
+                            </div>
+                        </div>
+                        <button class="bg-primary text-white rounded-md w-full  p-4 mt-5 font-bold cursor-pointer">Criar link curto</button>
+                    </form>
+                </section>
+                <!-- <div class="w-full text-sm">
+                    <button class="bg-primary text-white px-4 py-2 rounded-sm hover:bg-blue-600      transition mr-3 cursor-pointer font-medium">
+                        Começar Agora
+                    </button>
+                    <button class="text-primary px-4 py-2 rounded-sm border border-primary cursor-pointer font-medium">
+                        Dev API
+                    </button>
+                </div> -->
+
             </div>
 
-            <div class="w-full md:w-1/2 flex justify-end ">
-                <img src="{{ asset('image/shortener.png') }}" alt="Ilustração de um encurtador de links" class="w-[80%] h-auto">
-            </div>
         </section>
 
         @include('components.marquee')
