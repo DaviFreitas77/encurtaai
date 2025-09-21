@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\urlController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,3 +13,5 @@ Route::get('/home', function () {
 });
 
 Route::post('/criar', [userController::class, 'store'])->name('criar.store');
+
+Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;

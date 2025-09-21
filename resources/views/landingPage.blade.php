@@ -45,30 +45,10 @@
                     Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
                 </p>
 
-                <section class="w-full max-w-4xl flex flex-col gap-5">
-                    <form>
-                        <input type="text" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 p-4 rounded-md" required>
-                        <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
-                            <div class="w-full flex flex-col items-center md:items-start">
-                                <p class="text-start w-full max-w-[400px] mb-2 text-gray-600"> Senha(opcional)</p>
-                                <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
-                            </div>
-                            <div class="w-full flex flex-col items-center md:items-start">
-                                <p class="text-start w-full max-w-[400px] mb-2 text-gray-600">Caminho personalizado (opcional)</p>
-                                <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
-                            </div>
-                        </div>
-                        <button class="bg-primary text-white rounded-md w-full  p-4 mt-5 font-bold cursor-pointer">Criar link curto</button>
-                    </form>
+                <section class="w-full max-w-4xl flex flex-col gap-5  items-center">
+                    @include('components.form-url')
                 </section>
-                <!-- <div class="w-full text-sm">
-                    <button class="bg-primary text-white px-4 py-2 rounded-sm hover:bg-blue-600      transition mr-3 cursor-pointer font-medium">
-                        Começar Agora
-                    </button>
-                    <button class="text-primary px-4 py-2 rounded-sm border border-primary cursor-pointer font-medium">
-                        Dev API
-                    </button>
-                </div> -->
+              
 
             </div>
 
