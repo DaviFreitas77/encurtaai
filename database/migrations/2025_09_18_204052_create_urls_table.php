@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->integer('click_count')->default(0);
             $table->enum('status', ['active', 'expired', 'inactive'])->default('active');
-            $table->unsignedInteger('fk_user');
+            $table->unsignedInteger('fk_user')->nullable();
             $table->foreign('fk_user')->references('id')->on('tb_user')->onDelete('cascade');
             $table->timestamps();
         });

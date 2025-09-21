@@ -51,9 +51,9 @@
                         <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
                             <div class="w-full flex flex-col items-center md:items-start">
                                 <p class="text-start w-full max-w-[400px] mb-2 text-gray-600"> Senha(opcional)</p>
-                            <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
+                                <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
                             </div>
-                           <div class="w-full flex flex-col items-center md:items-start">
+                            <div class="w-full flex flex-col items-center md:items-start">
                                 <p class="text-start w-full max-w-[400px] mb-2 text-gray-600">Caminho personalizado (opcional)</p>
                                 <input type="text" placeholder="ex: meu-link-incrivel" class="outline-none w-full border max-w-[500px] border-gray-200 p-4 rounded-md ">
                             </div>
