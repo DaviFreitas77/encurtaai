@@ -38,10 +38,10 @@
     <main class="flex items-center flex-col">
         <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-35 gap-10 mt-20">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
-                <h1 class="text-5xl  font-bold  w-full text-center text-[#031f39]">
+                <h1 class="text-4xl  font-bold  w-full text-center text-[#031f39]">
                     Seu link, mais curto & inteligente.
                 </h1>
-                <p class="max-w-[630px] text-[#ABABAB]">
+                <p class="max-w-[630px] text-[#ABABAB] text-center">
                     Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
                 </p>
 
@@ -62,7 +62,7 @@
         </section>
 
         <section class="bg-[#EBECFE] w-full rounded-md flex flex-col items-center justify-center mt-20">
-            <h1 class="text-center text-5xl py-10">Controle total sobre cada clique</h1>
+            <h1 class="text-center text-4xl font-medium py-10">Controle total sobre cada clique</h1>
             <p class="text-center text-sm max-w-[500px] mb-10">Acompanhe cliques e escaneamentos com facilidade. Meça, entenda e otimize cada interação — tudo em um só lugar, sem complicação.</p>
 
             <img src="image/sistema.png" alt="">
