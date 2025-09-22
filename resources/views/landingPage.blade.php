@@ -29,19 +29,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/css/loading.css'])
 </head>
 
 <body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]">
     @include('components.header')
     @include('components.modal-auth')
     <main class="flex items-center flex-col">
-        <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-35 gap-10 mt-20">
+        <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
-                <h1 class="text-4xl  font-bold  w-full text-center text-[#031f39]">
+                <h1 class=" text-2xl  lg:text-4xl  font-bold  w-full text-center text-[#031f39]">
                     Seu link, mais curto & inteligente.
                 </h1>
-                <p class="max-w-[630px] text-[#ABABAB] text-center">
+                <p class="max-w-[630px] text-[#ABABAB] text-center text-sm">
                     Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
                 </p>
 
@@ -57,7 +57,7 @@
         @include('components.marquee')
 
 
-        <section class="mt-10 px-35 w-full">
+        <section class="mt-10 px-6 lg:px-35 w-full">
             @include('sections.recursos')
         </section>
 

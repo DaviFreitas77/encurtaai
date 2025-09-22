@@ -32,7 +32,7 @@
   </div>
 
 
-  <form id="form-register" class="modal-content w-full" method="POST" action="{{ route('criar.store') }}">
+  <form id="form-register" class="modal-content w-full text-sm" method="POST" action="{{ route('criar.store') }}">
     @csrf
     <div class="flex flex-col gap-4 mb-2">
       <div class="w-full">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="flex w-full">
-      <button type="submit" class="bg-primary hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
+      <button type="submit" class="bg-primary transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
     </div>
 
     <!-- Espaço para mensagem de sucesso -->
@@ -58,7 +58,7 @@
 
     <p class="mt-4 text-center text-sm">
       Já tem conta?
-      <button id="buttonLogin" type="button" class="text-blue-600 underline cursor-pointer">Entrar</button>
+      <button id="buttonLogin" type="button" class="text-primary  cursor-pointer">Entrar</button>
     </p>
   </form>
 
