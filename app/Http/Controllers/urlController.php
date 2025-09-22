@@ -33,4 +33,21 @@ class urlController extends Controller
             'url_shortened' => env('APP_URL') . '/' . $url->slug
         ]);
     }
+
+    public function redirect(string $slug)
+    {
+        $url = Url::where('slug', $slug)->first();
+
+        if (!$url) {
+            return redirect('/404');
+        }
+
+        $url->click_count++;
+        $url->save();
+
+        return response()->json([
+            'url_original' => $url->url_original
+        ]);
+        
+    }
 }
