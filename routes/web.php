@@ -15,3 +15,5 @@ Route::get('/home', function () {
 Route::post('/criar', [userController::class, 'store'])->name('criar.store');
 
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
+
+Route::get('/redirect/{slug}', [urlController::class, 'redirect']);
