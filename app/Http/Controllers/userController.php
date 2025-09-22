@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class userController extends Controller
 {
@@ -34,38 +33,54 @@ class userController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => ['required'],
-            'email' => ['required', 'unique:users,email'],
+            'email' => ['required', 'unique:tb_user,email'],
             'password' => ['required', 'min:8']
+        ], [
+            'name.required' => 'O campo nome é obrigatório.',
+            'email.required' => 'O campo e-mail é obrigatório.',
+            'email.unique' => 'Este e-mail já está em uso.',
+            'password.required' => 'O campo senha é obrigatório.',
+            'password.min' => 'A senha deve ter no mínimo 8 caracteres.'
         ]);
 
-        $user = new User;
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->password = Hash::make($validated['password']);
-        $user->save();
+        if ($validator->fails()) {
 
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $data = $validator->validated();
+
+        $user = new User;
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->save();
 
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Usuário criado com sucesso!');
+        return response()->json([
+            'success' => true,
+            'redirect' => route('home'),
+            'message' => 'Usuário criado com sucesso!'
+        ], 201);
     }
 
-    public function Login(Request $request)
-    {
-            $credentials = $request->only('email', 'password');
+    // public function Login(Request $request)
+    // {
+    //         $credentials = $request->only('email', 'password');
 
-        if (!Auth::attempt($credentials)) {
-           return response()->json(['message' => "credenciais inválidas"], 401);
-        }
+    //     if (!Auth::attempt($credentials)) {
+    //        return response()->json(['message' => "credenciais inválidas"], 401);
+    //     }
 
-        $request->session()->regenerate();
-        return redirect()->intended('/home');
+    //     $request->session()->regenerate();
+    //     return redirect()->intended('/home');
 
 
-    }
+    // }
 
     public function logout(Request $request, User $id)
     {
@@ -74,7 +89,7 @@ class userController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login')->with('success', 'Você saiu com sucesso.');
+        return redirect('/login')->with('success', 'Você saiu com sucesso. voce venceuu!');
     }
 
     /**

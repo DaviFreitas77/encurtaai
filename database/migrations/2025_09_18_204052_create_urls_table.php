@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('tb_url', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url_original');
-            $table->string('url_shortened')->unique();
             $table->string('slug')->unique();
             $table->integer('click_count')->default(0);
             $table->enum('status', ['active', 'expired', 'inactive'])->default('active');
-            $table->unsignedInteger('fk_user');
+            $table->unsignedInteger('fk_user')->nullable();
             $table->foreign('fk_user')->references('id')->on('tb_user')->onDelete('cascade');
             $table->timestamps();
         });
