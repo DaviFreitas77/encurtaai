@@ -29,7 +29,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/css/loading.css','resources/js/redirect.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js'])
 </head>
 
 <body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]">
