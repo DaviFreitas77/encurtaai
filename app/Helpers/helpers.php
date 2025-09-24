@@ -1,9 +1,11 @@
 <?php
- namespace app\Helpers;
+
+namespace App\Helpers;
+
 class Helpers
 {
 
-   public static function gerarSlugSimples(int $length = 8): string
+    public static function gerarSlugSimples(int $length = 8): string
     {
         // Define os caracteres permitidos no slug
         $caracteres = 'abcdefghijklmnopqrstuvwxyz0123456789';
