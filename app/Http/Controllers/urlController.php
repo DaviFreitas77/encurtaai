@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
+use App\Helpers\Helpers;
 use Illuminate\Http\Request;
 
 class urlController extends Controller
@@ -20,21 +21,28 @@ class urlController extends Controller
             'password_url.min' => 'A senha deve ter no mínimo 4 caracteres.',
             'slug.unique' => 'Este slug já está em uso.'
         ]);
-
-
         $url = new Url;
+
+        $slug = Helpers::gerarSlugSimples(10);
+
+        while (Url::where('slug', $slug)->exists()) {
+            $slug = Helpers::gerarSlugSimples(10);
+        }
+
+
+
         $url->url_original = $validate['url_original'];
-        $url->slug = $validate['slug'];
+        $url->slug = $validate['slug'] ?  $validate['slug'] : $slug;
         $url->click_count = 0;
         $url->status = 'active';
         $url->save();
 
         return response()->json([
-            'url_shortened' => env('APP_URL') . '/' . $url->slug
+            'url_shortened' => env('APP_URL') . '/r/' . $url->slug
         ]);
     }
 
-    public function redirect(string $slug)
+    public function redirect(Request $request, string $slug)
     {
         $url = Url::where('slug', $slug)->first();
 
@@ -45,9 +53,12 @@ class urlController extends Controller
         $url->click_count++;
         $url->save();
 
-        return response()->json([
-            'url_original' => $url->url_original
-        ]);
-        
+        if ($request->expectsJson()) {
+            return response()->json([
+                'url_original' => $url->url_original
+            ]);
+        }
+
+        return redirect($url->url_original);
     }
 }

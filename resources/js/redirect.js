@@ -4,10 +4,9 @@
         event.preventDefault();
         const fullUrl = link_shortened.textContent;
         const slug = fullUrl.split("/").pop();
-        console.log(slug);
 
         try {
-            const response = await fetch(`/redirect/${slug}`, {
+            const response = await fetch(`/r/${slug}`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
