@@ -24,7 +24,7 @@ class urlController extends Controller
         ]);
         $url = new Url;
 
-        $slug = Helpers::gerarSlugSimples(10);
+        $slug = Helpers::gerarSlugSimples(5);
 
         while (Url::where('slug', $slug)->exists()) {
             $slug = Helpers::gerarSlugSimples(10);
