@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Url;
-use App\Helpers\Helpers;
+use App\Helpers;
 use Illuminate\Http\Request;
 
 class urlController extends Controller
