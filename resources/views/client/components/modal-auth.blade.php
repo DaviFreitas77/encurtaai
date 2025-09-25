@@ -4,26 +4,26 @@
 
         <!-- Formulários -->
         <div id="formLogin">
-            @include('components.forms-auth.form-login')
+            @include('client.components.forms-auth.form-login')
 
         </div>
 
         <div id="formRegister" class="hidden">
-            @include('components.forms-auth.form-register')
+            @include('client.components.forms-auth.form-register')
 
         </div>
 
         <div id="formSendMail" class="hidden">
-            @include('components.forms-reset-password.form-send-mail')
+            @include('client.components.forms-reset-password.form-send-mail')
 
         </div>
 
         <div id="formCode" class="hidden">
-            @include('components.forms-reset-password.reset-code-form')
+            @include('client.components.forms-reset-password.reset-code-form')
 
         </div>
         <div id="formResetPassword" class="hidden">
-            @include('components.forms-reset-password.form-reset-password')
+            @include('client.components.forms-reset-password.form-reset-password')
 
         </div>
     </div>
