@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\client;
 
 
 use App\Models\Url;
 use App\Helpers;
 use Illuminate\Http\Request;
 
-class urlController extends Controller
+class urlController 
 {
     public function shortenedUrl(Request $request)
     {
@@ -24,13 +24,12 @@ class urlController extends Controller
         ]);
         $url = new Url;
 
-        $slug = Helpers::gerarSlugSimples(10);
 
-        while (Url::where('slug', $slug)->exists()) {
-            $slug = Helpers::gerarSlugSimples(10);
+        if (empty($validate['slug'])) {
+            do {
+                $slug = Helpers::gerarSlugSimples(5);
+            } while (Url::where('slug', $slug)->exists());
         }
-
-
 
         $url->url_original = $validate['url_original'];
         $url->slug = $validate['slug'] ?  $validate['slug'] : $slug;

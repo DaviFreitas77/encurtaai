@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\client;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class userController extends Controller
+class userController
 {
     /**
      * Display a listing of the resource.

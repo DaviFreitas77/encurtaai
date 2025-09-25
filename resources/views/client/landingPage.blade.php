@@ -33,8 +33,8 @@
 </head>
 
 <body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]">
-    @include('components.header')
-    @include('components.modal-auth')
+    @include('client.components.header')
+    @include('client.components.modal-auth')
     <main class="flex items-center flex-col">
         <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
@@ -46,7 +46,7 @@
                 </p>
 
                 <section class="w-full max-w-4xl flex flex-col gap-5  items-center">
-                    @include('components.form-url')
+                    @include('client.components.form-url')
                 </section>
 
 
@@ -54,11 +54,11 @@
 
         </section>
 
-        @include('components.marquee')
+        @include('client.components.marquee')
 
 
         <section class="mt-10 px-6 lg:px-35 w-full">
-            @include('sections.recursos')
+            @include('client.sections.recursos')
         </section>
 
         <section class="bg-[#EBECFE] w-full rounded-md flex flex-col items-center justify-center mt-20">
