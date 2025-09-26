@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['resources/css/app.css','resources/js/form-url.js','resources/js/redirect.js'])
+    @vite(['resources/css/app.css'])
 </head>
 
 <body class="bg-[#12121E]">
@@ -15,9 +15,7 @@
             <section>
                 @include('admin.components.header')
             </section>
-            <section class="flex justify-center items-center mt-10">
-                @include('client.components.form-url')
-            </section>
+        
         </div>
     </main>
 

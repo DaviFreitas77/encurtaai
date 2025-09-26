@@ -62,7 +62,6 @@ class userController
     }
 
     public function login(Request $request)
-
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
@@ -74,7 +73,13 @@ class userController
         if (!Auth::attempt($credentials)) {
             return response()->json(['message' => "credenciais inválidas"], 401);
         }
-
+        
+        if(Auth::check() && Auth::user()->role == 'admin'){ 
+        return response()->json([
+            'message' => 'Login realizado com sucesso!',
+            'redirect_url' => route('admin.dashboard')
+        ]);
+        }
 
         $request->session()->regenerate();
 
