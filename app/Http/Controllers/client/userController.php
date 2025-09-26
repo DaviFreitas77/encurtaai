@@ -38,10 +38,10 @@ class userController
             'email' => ['required', 'unique:tb_user,email'],
             'password' => ['required', 'min:8']
         ], [
-            'name.required' => 'O campo nome é obrigatório.',
-            'email.required' => 'O campo e-mail é obrigatório.',
+            'name.required' => 'Nome é obrigatório.',
+            'email.required' => 'E-mail é obrigatório.',
             'email.unique' => 'Este e-mail já está em uso.',
-            'password.required' => 'O campo senha é obrigatório.',
+            'password.required' => 'Senha é obrigatório.',
             'password.min' => 'A senha deve ter no mínimo 8 caracteres.'
         ]);
 
@@ -56,25 +56,37 @@ class userController
         $request->session()->regenerate();
 
         return response()->json([
-            'success' => true,
-            'redirect' => route('home'),
-            'message' => 'Usuário criado com sucesso!'
-        ], 201);
+            'message' => 'Registro realizado com sucesso!',
+            'redirect_url' => route('home')
+        ]);
     }
 
-    // public function Login(Request $request)
-    // {
-    //         $credentials = $request->only('email', 'password');
+    public function login(Request $request)
 
-    //     if (!Auth::attempt($credentials)) {
-    //        return response()->json(['message' => "credenciais inválidas"], 401);
-    //     }
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ], [
+            'email.required' => 'E-mail é obrigatório.',
+            'email.email' => 'E-mail inválido.',
+            'password.required' => 'Senha é obrigatório.',
+        ]);
 
-    //     $request->session()->regenerate();
-    //     return redirect()->intended('/home');
+        $credentials = $request->only('email', 'password');
+
+        if (!Auth::attempt($credentials)) {
+            return response()->json(['message' => "credenciais inválidas"], 401);
+        }
 
 
-    // }
+        $request->session()->regenerate();
+
+        return response()->json([
+            'message' => 'Login realizado com sucesso!',
+            'redirect_url' => route('home')
+        ]);
+    }
 
     public function logout(Request $request, User $id)
     {

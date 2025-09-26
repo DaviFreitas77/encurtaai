@@ -10,12 +10,8 @@
 </head>
 
 <body class="flex">
-    <nav>
-        @include('components.sidebar')
-    </nav>
 
- 
-
+    <h1>home usuario</h1>
 </body>
 
 </html>

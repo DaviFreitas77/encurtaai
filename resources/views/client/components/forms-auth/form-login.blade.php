@@ -18,17 +18,17 @@
           </g>
         </svg>
         <p class=" text-sm">Entrar com Google</p>
-        
+
       </button>
       <button class="bg-gray-800 text-white w-full flex items-center justify-center gap-2 px-4 py-2   rounded-sm hover:bg-gray-700 transition font-medium mt-4">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
         </svg>
-          <p class=" text-sm">Entrar com GitHub</p>
-        
+        <p class=" text-sm">Entrar com GitHub</p>
+
       </button>
     </div>
-    
+
     <div class="flex items-center my-4">
       <div class="flex-grow border-t border-gray-200"></div>
       <span class="flex-shrink mx-4 text-gray-400 text-sm">ou</span>
@@ -36,10 +36,13 @@
     </div>
   </div>
 
-  <form class="modal-content w-full text-sm" method="POST" action="/login">
-    <div class="flex flex-col gap-4 mb-2">
-      <input name="email" type="email" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="E-mail" required>
-      <input name="password" type="password" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="Senha" required>
+  <form id="form-login" class="modal-content w-full text-sm" method="POST" action="{{route('login')}}">
+    @csrf
+    <div class="flex flex-col gap-2 mb-2">
+      <input name="email" type="email" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="E-mail">
+      <p data-error="email" class="text-red-500 text-sm mt-1"></p>
+      <input name="password" type="password" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="Senha">
+      <p data-error="password" class="text-red-500 text-sm mt-1"></p>
     </div>
     <div class="flex justify-between items-center mb-4">
       <label class="flex items-center text-sm text-gray-600">
@@ -56,3 +59,59 @@
     </p>
   </form>
 </div>
+
+<script>
+  const formLogin = document.getElementById('form-login');
+  const loginUrl = formLogin.action;
+
+  function clearErrors() {
+    const allErrorElements = formLogin.querySelectorAll("[data-error]");
+    allErrorElements.forEach((el) => (el.textContent = ""));
+  }
+
+  function showError(fieldName, message) {
+    const errorElement = formLogin.querySelector(`[data-error-for="${fieldName}"]`);
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
+
+
+  formLogin.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    // clearErrors();
+    const formData = new FormData(formLogin);
+
+    try {
+      const response = await fetch(loginUrl, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          "x-csrf-token": formData.get("_token"),
+        },
+        body: formData
+      })
+
+      if (!response.ok) {
+        if (response.status === 422) {
+          console.log("aq")
+          const errorResponse = await response.json();
+          const errors = errorResponse.errors;
+
+          for (const fieldName in errors) {
+            const message = errors[fieldName][0];
+            showError(fieldName, message);
+          }
+        }
+      } else {
+        const data = await response.json()
+        window.location.href = data.redirect_url;
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+  })
+</script>
