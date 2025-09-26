@@ -38,11 +38,15 @@
 
   <form id="form-login" class="modal-content w-full text-sm" method="POST" action="{{route('login')}}">
     @csrf
-    <div class="flex flex-col gap-2 mb-2">
-      <input name="email" type="email" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="E-mail">
-      <p data-error="email" class="text-red-500 text-sm mt-1"></p>
-      <input name="password" type="password" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none" placeholder="Senha">
-      <p data-error="password" class="text-red-500 text-sm mt-1"></p>
+    <div class="flex flex-col gap-4 mb-2">
+      <div class="w-full">
+        <input name="email" type="email" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none w-full" placeholder="E-mail" required>
+
+      </div>
+      <div class="w-full">
+        <input name="password" type="password" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none w-full" placeholder="Senha" required>
+        <p class="error text-red-500 text-sm mt-1"></p>
+      </div>
     </div>
     <div class="flex justify-between items-center mb-4">
       <label class="flex items-center text-sm text-gray-600">
@@ -64,23 +68,13 @@
   const formLogin = document.getElementById('form-login');
   const loginUrl = formLogin.action;
 
-  function clearErrors() {
-    const allErrorElements = formLogin.querySelectorAll("[data-error]");
-    allErrorElements.forEach((el) => (el.textContent = ""));
-  }
-
-  function showError(fieldName, message) {
-    const errorElement = formLogin.querySelector(`[data-error-for="${fieldName}"]`);
-    if (errorElement) {
-      errorElement.textContent = message;
-    }
-  }
 
 
   formLogin.addEventListener('submit', async function(event) {
     event.preventDefault();
+    const errorElement = formLogin.querySelector('.error');
+    errorElement.textContent = "";
 
-    // clearErrors();
     const formData = new FormData(formLogin);
 
     try {
@@ -94,16 +88,11 @@
       })
 
       if (!response.ok) {
-        if (response.status === 422) {
-          console.log("aq")
+        if (response.status === 401) {
           const errorResponse = await response.json();
-          const errors = errorResponse.errors;
-
-          for (const fieldName in errors) {
-            const message = errors[fieldName][0];
-            showError(fieldName, message);
-          }
+          errorElement.textContent = errorResponse.message;
         }
+
       } else {
         const data = await response.json()
         window.location.href = data.redirect_url;

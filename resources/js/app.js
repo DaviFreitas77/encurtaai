@@ -1,6 +1,3 @@
-const modalAuth = document.querySelector(".modalLogin");
-const btnOpen = document.getElementById("openModalLogin");
-const btnClose = document.getElementById("closeModalLogin");
 
 const formLogin = document.getElementById("formLogin");
 const formRegister = document.getElementById("formRegister");
@@ -16,17 +13,6 @@ const btnToggleFormResetPassword = document.getElementById(
     "showFormResetPassword"
 );
 
-// Abre o modal
-btnOpen.addEventListener("click", () => {
-    modalAuth.classList.remove("hidden");
-    modalAuth.classList.add("flex");
-});
-
-// Fecha o modal
-btnClose.addEventListener("click", () => {
-    modalAuth.classList.add("hidden");
-    modalAuth.classList.remove("flex");
-});
 
 btnToggleToRegister.addEventListener("click", () => {
     showForm("register");

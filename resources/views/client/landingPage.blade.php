@@ -11,29 +11,18 @@
     <meta name="keywords" content="encurtador de link, encurtador de url, qr code, link curto, url curta, monitorar cliques, api de encurtamento">
     <meta name="author" content="Encurtaái">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="Encurtaái - Seu link, mais curto & inteligente">
-    <meta property="og:description" content="Encurte URLs em segundos, compartilhe com facilidade e monitore cliques em tempo real. Tudo com segurança e QR Code integrado.">
-
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta property="twitter:title" content="Encurtaái - Seu link, mais curto & inteligente">
-    <meta property="twitter:description" content="Encurte URLs em segundos, compartilhe com facilidade e monitore cliques em tempo real. Tudo com segurança e QR Code integrado.">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js', 'resources/js/modals.js'])
 </head>
 
 <body class="max-w-[1920px] mx-auto bg-bg-primary font-[montserrat]">
-    @include('client.components.header')
-    @include('client.components.modal-auth')
+    @include('client.components.ui.header')
+    @include('client.components.modals.modal-auth')
+    @include('client.components.modals.modal-limited-url')
+
     <main class="flex items-center flex-col">
         <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
@@ -45,7 +34,7 @@
                 </p>
 
                 <section class="w-full max-w-4xl flex flex-col gap-5  items-center">
-                    @include('client.components.form-url')
+                    @include('client.components.forms.form-url')
                 </section>
 
 
@@ -53,7 +42,7 @@
 
         </section>
 
-        @include('client.components.marquee')
+        @include('client.components.ui.marquee')
 
 
         <section class="mt-10 px-6 lg:px-35 w-full">

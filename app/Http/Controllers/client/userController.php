@@ -67,10 +67,6 @@ class userController
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-        ], [
-            'email.required' => 'E-mail é obrigatório.',
-            'email.email' => 'E-mail inválido.',
-            'password.required' => 'Senha é obrigatório.',
         ]);
 
         $credentials = $request->only('email', 'password');
