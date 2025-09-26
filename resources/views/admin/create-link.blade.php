@@ -13,15 +13,7 @@
         @include('admin.components.sidebar')
         <div class="flex w-full flex-col py-12 px-15 max-w-[1920px]">
             <section>
-              @include('admin.components.header')
-            </section>
-            <section>
-                @include('admin.components.cards-dashboard', [
-                'totalActive' => $totalActive,
-                'totalInactive' => $totalInactive,
-                'totalExpired' => $totalExpired,
-                'totalUsers' => $totalUsers
-                ])
+                @include('admin.components.header')
             </section>
         
         </div>

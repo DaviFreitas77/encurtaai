@@ -32,29 +32,26 @@
   </div>
 
 
-  <form id="form-register" class="modal-content w-full text-sm" method="POST" action="{{ route('criar.store') }}">
+  <form id="form-register" class="modal-content w-full text-sm" method="POST" action="{{ route('register') }}">
     @csrf
     <div class="flex flex-col gap-4 mb-2">
       <div class="w-full">
         <input name="name" type="text" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none w-full" placeholder="Nome">
-        <span class="text-red-500 text-sm" data-error="name"></span>
+        <p data-error-for="name" class="text-red-500 text-sm mt-1"></p>
       </div>
       <div class="w-full">
         <input name="email" type="email" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none w-full" placeholder="E-mail">
-        <span class="text-red-500 text-sm" data-error="email"></span>
+        <p data-error-for="email" class="text-red-500 text-sm mt-1"></p>
       </div>
       <div class="w-full">
         <input name="password" type="password" class="px-3 py-2 border border-gray-200 rounded focus:ring-2 focus:ring-primary outline-none w-full" placeholder="Senha">
-        <span class="text-red-500 text-sm" data-error="password"></span>
+        <p data-error-for="password" class="text-red-500 text-sm mt-1"></p>
       </div>
     </div>
 
     <div class="flex w-full">
       <button type="submit" class="bg-primary transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
     </div>
-
-    <!-- Espaço para mensagem de sucesso -->
-    <p id="success-message" class="text-green-600 text-center mt-4"></p>
 
     <p class="mt-4 text-center text-sm">
       Já tem conta?
@@ -63,3 +60,59 @@
   </form>
 
 </div>
+
+
+<script>
+  const formRegister = document.getElementById('form-register');
+  const registerUrl = formRegister.action;
+
+  function clearErrors() {
+    const allErrorElements = formRegister.querySelectorAll("[data-error-for]");
+    allErrorElements.forEach((el) => (el.textContent = ""));
+  }
+
+  function showError(fieldName, message) {
+    const errorElement = formRegister.querySelector(`[data-error-for="${fieldName}"]`);
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
+
+
+  formRegister.addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    clearErrors();
+    const formData = new FormData(formRegister);
+
+    try {
+      const response = await fetch(registerUrl, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          "x-csrf-token": formData.get("_token"),
+        },
+        body: formData
+      })
+
+      if (!response.ok) {
+        if (response.status === 422) {
+          const errorResponse = await response.json();
+          const errors = errorResponse.errors;
+
+          for (const fieldName in errors) {
+            const message = errors[fieldName][0];
+            showError(fieldName, message);
+          }
+        }
+      } else {
+        const data = await response.json()
+        window.location.href = data.redirect_url;
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+  })
+</script>
