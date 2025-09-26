@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticable;
 
-class User extends Authenticatable
+class User extends Authenticable
 {
     protected $table = "tb_user";
-    protected $fillable = ['name','email','password'];
-    public $timestamps = false;
+    protected $fillable = ['name','email','password','role'];
+    public $timestamps = true;
 }

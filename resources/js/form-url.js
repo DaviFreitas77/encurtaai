@@ -1,3 +1,4 @@
+import { toggle_modal_limited_url } from "./modals.js";
 const form = document.getElementById("form_shortened_url");
 const linkShortened = document.getElementById("link_shortened");
 const divLinkShortened = document.getElementById("div-link-shortened");
@@ -49,8 +50,8 @@ form.addEventListener("submit", async (event) => {
                     const message = errors[fieldName][0];
                     showError(fieldName, message);
                 }
-            } else {
-                console.log("erro desconhecido");
+            } else if (response.status === 429) {
+                toggle_modal_limited_url();
             }
         } else {
             const data = await response.json();

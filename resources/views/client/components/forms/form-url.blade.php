@@ -2,7 +2,7 @@
     @csrf
 
     <div id="div-link-shortened" class="w-full my-4 border border-green-200  bg-green-50 hidden justify-center items-center rounded-md  ">
-        <a id="link_shortened"  target="_blank" class="w-full hidden min-w-[700px] p-3 text-center text-primary font-medium rounded-md"></a>
+        <a id="link_shortened" target="_blank" class="w-full hidden min-w-[700px] p-3 text-center text-primary font-medium rounded-md"></a>
     </div>
 
 
@@ -21,8 +21,5 @@
         </div>
     </div>
     <button id="submit-form" class="bg-primary text-white rounded-md w-full  p-3 mt-5 font-bold cursor-pointer ">Criar link curto</button>
-  
-
 
 </form>
-

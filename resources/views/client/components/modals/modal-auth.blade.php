@@ -4,12 +4,12 @@
 
         <!-- Formulários -->
         <div id="formLogin">
-            @include('client.components.forms-auth.form-login')
+            @include('client.components.forms.form-login')
 
         </div>
 
         <div id="formRegister" class="hidden">
-            @include('client.components.forms-auth.form-register')
+            @include('client.components.forms.form-register')
 
         </div>
 
@@ -20,11 +20,11 @@
 
         <div id="formCode" class="hidden">
             @include('client.components.forms-reset-password.reset-code-form')
-
         </div>
+
         <div id="formResetPassword" class="hidden">
             @include('client.components.forms-reset-password.form-reset-password')
-
         </div>
+
     </div>
 </div>

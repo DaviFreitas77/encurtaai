@@ -6,11 +6,24 @@ namespace App\Http\Controllers\client;
 use App\Models\Url;
 use App\Helpers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class urlController 
+class urlController
+
 {
     public function shortenedUrl(Request $request)
     {
+        if (!Auth::check()) {
+            $limite_generate_url = 2;
+
+            $urlsCriadas = session()->get('urls', 0);
+
+            if ($urlsCriadas >= $limite_generate_url) {
+                return response()->json([
+                    'error' => 'Você atingiu o limite de ' . $limite_generate_url . 'Por favor, crie uma conta.'
+                ], 429);
+            }
+        }
         $validate = $request->validate([
             'url_original' => ['required'],
             'password_url' => ['nullable', 'min:4'],
@@ -22,6 +35,9 @@ class urlController
             'password_url.min' => 'A senha deve ter no mínimo 4 caracteres.',
             'slug.unique' => 'Este slug já está em uso.'
         ]);
+
+
+
         $url = new Url;
 
 
@@ -36,6 +52,10 @@ class urlController
         $url->click_count = 0;
         $url->status = 'active';
         $url->save();
+
+        if (!Auth::check()) {
+            session()->increment('urls');
+        }
 
         return response()->json([
             'url_shortened' => env('APP_URL') . '/r/' . $url->slug
