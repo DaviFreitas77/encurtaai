@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css','resources/js/form-url.js','resources/js/redirect.js'])
 </head>
 
 <body class="bg-[#12121E]">
@@ -13,17 +13,11 @@
         @include('admin.components.sidebar')
         <div class="flex w-full flex-col py-12 px-15 max-w-[1920px]">
             <section>
-              @include('admin.components.header')
+                @include('admin.components.header')
             </section>
-            <section>
-                @include('admin.components.cards-dashboard', [
-                'totalActive' => $totalActive,
-                'totalInactive' => $totalInactive,
-                'totalExpired' => $totalExpired,
-                'totalUsers' => $totalUsers
-                ])
+            <section class="flex justify-center items-center mt-10">
+                @include('client.components.form-url')
             </section>
-        
         </div>
     </main>
 

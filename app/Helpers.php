@@ -15,4 +15,41 @@ class Helpers
 
         return $slug;
     }
+
+    public static function countUrlActive(array $urls): int
+    {
+        $cont = 0;
+
+        foreach ($urls as $url) {
+            if ($url['status'] === 'active') {
+                $cont++;
+            }
+        }
+        return $cont;
+    }
+    public static function countUrlInactive(array $urls): int
+    {
+        $cont = 0;
+        foreach ($urls as $url) {
+            if ($url['status'] === 'inative') {
+                $cont++;
+            }
+        }
+        return $cont;
+    }
+    public static function countUrlExpired(array $urls): int
+    {
+        $cont = 0;
+        foreach ($urls as $url) {
+            if ($url['status'] === 'expired') {
+                $cont++;
+            }
+        }
+        return $cont;
+    }
+
+    public static function countUsers(array $users): int
+    {
+        return count($users);
+    }
 }

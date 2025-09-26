@@ -33,7 +33,7 @@ class userController
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validate = $request->validate([
             'name' => ['required'],
             'email' => ['required', 'unique:tb_user,email'],
             'password' => ['required', 'min:8']
@@ -45,17 +45,11 @@ class userController
             'password.min' => 'A senha deve ter no mínimo 8 caracteres.'
         ]);
 
-        if ($validator->fails()) {
-
-            return response()->json(['errors' => $validator->errors()], 422);
-        }
-
-        $data = $validator->validated();
 
         $user = new User;
-        $user->name = $data['name'];
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
+        $user->name = $validate['name'];
+        $user->email = $validate['email'];
+        $user->password = Hash::make($validate['password']);
         $user->save();
 
         Auth::login($user);
