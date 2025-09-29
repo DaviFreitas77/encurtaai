@@ -9,7 +9,11 @@ Route::get('/', function () {
     return view('client.landingPage');
 })->middleware(['guest', 'redirect.admin']);
 
- Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("dashboard")->middleware(['auth', 'redirect.admin'])->name('home');
+Route::middleware(['auth', 'redirect.admin'])->group(function () {
+    Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("dashboard")->name('home');
+
+    Route::get('/top-click-links', [dashboardUserController::class, 'topClick'])->name('top-click');
+});
 
 
 Route::prefix('auth')->middleware(['guest'])->group(function () {
