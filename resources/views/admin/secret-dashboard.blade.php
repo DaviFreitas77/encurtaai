@@ -9,21 +9,22 @@
 </head>
 
 <body class="bg-[#12121E]">
-    <main class="bg-[#12121E] flex w-full text-white justify-center h-screen">
-        @include('admin.components.sidebar')
-        <div class="flex w-full flex-col py-12 px-15 max-w-[1920px]">
-            <section>
-              @include('admin.components.header')
-            </section>
-            <section>
-                @include('admin.components.cards-dashboard', [
-                'totalActive' => $totalActive,
-                'totalInactive' => $totalInactive,
-                'totalExpired' => $totalExpired,
-                'totalUsers' => $totalUsers
-                ])
-            </section>
-        
+    <main class="bg-[#12121E] flex w-full text-white justify-between h-screen">
+         @include('utils.sidebar')
+        <div class="w-full flex justify-center ">
+            <div class="flex w-full flex-col py-12 px-15 max-w-[1400px] ">
+                <section>
+                    @include('utils.header')
+                </section>
+                <section>
+                    @include('utils.cards-dashboard', [
+                    'totalActive' => $totalActive,
+                    'totalInactive' => $totalInactive,
+                    'totalExpired' => $totalExpired,
+                    'totalUsers' => $totalUsers
+                    ])
+                </section>
+            </div>
         </div>
     </main>
 
