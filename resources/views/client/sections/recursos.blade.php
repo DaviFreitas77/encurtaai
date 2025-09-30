@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-20">
-  
+
     <div class="flex flex-col-reverse md:flex-row justify-between items-center w-full gap-10">
         <img src="{{ asset('image/url.png') }}" alt="Ilustração de uma URL sendo encurtada"
             class="w-full md:w-1/2 max-w-md rounded-lg shadow-lg" />
@@ -12,7 +12,7 @@
         </div>
     </div>
 
- 
+
     <div class="flex flex-col md:flex-row justify-between items-center w-full gap-10">
         <div class="w-full md:w-1/2 max-w-[500px] text-center md:text-left">
             <h2 class="text-2xl lg:text-4xl font-medium mb-4">Links curtos, decisões mais rápidas.</h2>

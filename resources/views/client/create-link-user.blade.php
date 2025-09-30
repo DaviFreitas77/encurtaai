@@ -10,19 +10,14 @@
 
 <body class="bg-[#12121E]">
     <main class="bg-[#12121E] flex w-full text-white justify-between h-screen">
-         @include('utils.sidebar')
+        @include('utils.sidebar')
         <div class="w-full flex justify-center ">
             <div class="flex w-full flex-col py-12 px-10 max-w-[1920px] ">
                 <section>
                     @include('utils.header')
                 </section>
                 <section>
-                    @include('utils.cards-dashboard', [
-                    'totalActive' => $totalActive,
-                    'totalInactive' => $totalInactive,
-                    'totalExpired' => $totalExpired,
-                    'totalUsers' => $totalUsers,
-                    ])
+                  link aaaaa
                 </section>
             </div>
         </div>

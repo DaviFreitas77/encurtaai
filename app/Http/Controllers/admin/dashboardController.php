@@ -46,12 +46,13 @@ class dashboardController
 
         $totalUsers = $this->countUsers($allUsers);
 
-        
+
         return view('admin.secret-dashboard', [
             'totalActive' => $totalActive,
             'totalInactive' => $totalInactive,
             'totalExpired' => $totalExpired,
             'totalUsers' => $totalUsers,
+            'allUrl' => $allUrl
         ]);
     }
 }
