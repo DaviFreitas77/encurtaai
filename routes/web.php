@@ -10,9 +10,13 @@ Route::get('/', function () {
 })->middleware(['guest', 'redirect.admin']);
 
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
-    Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("dashboard")->name('home');
+    Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
 
     Route::get('/top-click-links', [dashboardUserController::class, 'topClick'])->name('top-click');
+
+    Route::get('/create-link', function () {
+        return view('client.create-link-user');
+    })->name('create-link-user');
 });
 
 

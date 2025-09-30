@@ -12,7 +12,7 @@
     <main class="bg-[#12121E] flex w-full text-white justify-between h-screen">
         @include('utils.sidebar')
         <div class="w-full flex justify-center ">
-            <div class="flex w-full flex-col py-12 px-15 max-w-[1400px] ">
+            <div class="flex w-full flex-col py-12 px-10 max-w-[1920px] ">
                 <section>
                     @include('utils.header')
                 </section>

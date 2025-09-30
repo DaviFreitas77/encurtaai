@@ -1,121 +1,147 @@
 @props(['totalActive', 'totalInactive', 'totalExpired', 'totalUsers','allUrlUser','activeUrlUser','inactiveUrlUser','expiredUrlUser'])
 @auth
-<div class="flex gap-4 items-center justify-center">
+<div class="flex gap-4 items-center justify-center flex-col">
     @if(auth()->user()->role == 'admin')
-    <div class="mt-10  grid grid-cols-2 w-full gap-4">
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl w-full">
+    <div class="mt-10  grid grid-cols-4 w-full gap-1">
+        <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
             <div class="flex w-full justify-between items-center">
-                <p>Links ativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                <p class="text-xl">Links ativos</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <g>
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                        <circle cx="12" cy="12" r="3" fill="#22C55E" />
+                    </g>
                 </svg>
             </div>
             <p class="text-3xl font-medium"> {{ $totalActive }}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
+
+        <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
             <div class="flex w-full justify-between items-center">
-                <p>Links inativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                <p class="text-xl">Links inativos</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <g>
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                        <circle cx="12" cy="12" r="3" fill="#6B7280" />
+                    </g>
                 </svg>
             </div>
             <p class="text-3xl font-medium">{{$totalInactive}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
+        <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
             <div class="flex w-full justify-between items-center">
-                <p>Links expirados</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                <p class="text-xl">Links expirados</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <g>
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                        <circle cx="12" cy="12" r="3" fill="#F59E0B" />
+                    </g>
                 </svg>
             </div>
             <p class="text-3xl font-medium">{{$totalExpired}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
+        <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
             <div class="flex w-full justify-between items-center">
-                <p>Ativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                <p class="text-xl">Total de links</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <g>
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                        <circle cx="12" cy="12" r="3" fill="#3B82F6" />
+                    </g>
                 </svg>
             </div>
             <p class="text-3xl font-medium">201</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
-    </div>
 
-    <div class="mt-10 max-w-130 grid grid-cols-2 w-full gap-4">
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl h-screen max-h-71">
+        <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
             <div class="flex w-full justify-between items-center">
-                <p>Usuarios</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                <p class="text-xl">Total de usuarios</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
             </div>
             <p class="text-3xl font-medium">{{$totalUsers}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
-        </div>
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
-            <div class="flex w-full justify-between items-center">
-                <p>Ativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
-            </div>
-            <p class="text-3xl font-medium">201</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
     </div>
+
+
     @else
-    <div class="mt-10  grid grid-cols-2 w-full gap-4">
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
-            <div class="flex w-full justify-between items-center">
-                <p>Total de links</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
+    <div class="w-full">
+        <div class=" flex  mt-10  w-full gap-1 ">
+            <div class="bg-[#1D1D29] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+                <div class="flex w-full justify-between items-center">
+                    <p class="text-xl">Total de links</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <g>
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                            <circle cx="12" cy="12" r="3" fill="#3B82F6" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-3xl font-medium">{{$allUrlUser->count()}}</p>
+                <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
-            <p class="text-3xl font-medium">{{$allUrlUser->count()}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
-        </div>
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl w-full">
-            <div class="flex w-full justify-between items-center">
-                <p>Links ativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
+            <div class="bg-[#1D1D29] p-4 flex flex-col gap-1 rounded-sm justify-evenly w-full">
+                <div class="flex w-full justify-between items-center">
+                    <p class="text-xl">Links ativos</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <g>
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                            <circle cx="12" cy="12" r="3" fill="#22C55E" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-3xl font-medium"> {{ $activeUrlUser }}</p>
+                <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
-            <p class="text-3xl font-medium"> {{ $activeUrlUser }}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            <div class="bg-[#1D1D29] p-4 flex flex-col gap-1 rounded-sm  justify-evenly w-full">
+                <div class="flex w-full justify-between items-center">
+                    <p class="text-xl">Links inativos</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <g>
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                            <circle cx="12" cy="12" r="3" fill="#6B7280" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-3xl font-medium">{{$inactiveUrlUser}}</p>
+                <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            </div>
+            <div class="bg-[#1D1D29] p-4 flex flex-col gap-1 rounded-sm  justify-evenly w-full">
+                <div class="flex w-full justify-between items-center">
+                    <p class="text-xl">Links expirados</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <g>
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path d="M18.364 15.536L16.95 14.12l1.414-1.414a5 5 0 1 0-7.071-7.071L9.88 7.05 8.465 5.636 9.88 4.222a7 7 0 0 1 9.9 9.9l-1.416 1.414zm-2.828 2.828l-1.414 1.414a7 7 0 0 1-9.9-9.9l1.416-1.414L7.05 9.88l-1.414 1.414a5 5 0 1 0 7.071 7.071l1.414-1.414 1.414 1.414z" />
+                            <circle cx="12" cy="12" r="3" fill="#F59E0B" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="text-3xl font-medium">{{$expiredUrlUser}}</p>
+                <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
+            </div>
         </div>
 
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
-            <div class="flex w-full justify-between items-center">
-                <p>Links inativos</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
-            </div>
-            <p class="text-3xl font-medium">{{$inactiveUrlUser}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
-        </div>
-
-        <div class="bg-[#1D1D29] p-6 flex flex-col gap-1 rounded-xl">
-            <div class="flex w-full justify-between items-center">
-                <p>Links expirados</p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                </svg>
-            </div>
-            <p class="text-3xl font-medium">{{$expiredUrlUser}}</p>
-            <p class="text-[12px]"> <span class="text-green-500">8.2% </span>no utimo mês </p>
-        </div>
     </div>
     @endif
+    <div class="w-full h-0.5 bg-[#1D1D29] "></div>
 </div>
 @endauth

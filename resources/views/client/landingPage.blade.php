@@ -45,7 +45,7 @@
         @include('client.components.ui.marquee')
 
 
-        <section class="mt-10 px-6 lg:px-35 w-full">
+        <section class="mt-10 px-6 lg:max-w-[1500px] w-full">
             @include('client.sections.recursos')
         </section>
 

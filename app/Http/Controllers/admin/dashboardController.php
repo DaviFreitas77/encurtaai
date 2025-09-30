@@ -52,6 +52,7 @@ class dashboardController
             'totalInactive' => $totalInactive,
             'totalExpired' => $totalExpired,
             'totalUsers' => $totalUsers,
+            'allUrl' => $allUrl
         ]);
     }
 }
