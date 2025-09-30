@@ -13,7 +13,7 @@
           </div>
 
           <div class="flex w-full">
-              <button id="show-form-code" type="submit" class="bg-primary hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Enviar email</button>
+              <button id="show-form-code" type="submit" class="bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Enviar email</button>
           </div>
 
       </form>

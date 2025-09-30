@@ -55,7 +55,7 @@
       <a id="show-form-password" class="text-primary text-sm hover:underline">Esqueceu a senha?</a>
     </div>
     <div class="flex w-full">
-      <button type="submit" class="bg-primary hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
+      <button type="submit" class="bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
     </div>
     <p class="mt-4 text-center text-sm">
       Não tem conta?

@@ -16,7 +16,7 @@
           </div>
 
           <div class="flex w-full">
-              <button type="submit" class="bg-primary hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Criar nova senha</button>
+              <button type="submit" class="bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Criar nova senha</button>
           </div>
 
       </form>

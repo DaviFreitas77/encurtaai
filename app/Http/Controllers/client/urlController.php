@@ -48,7 +48,7 @@ class urlController
         }
 
         $url->url_original = $validate['url_original'];
-        $url->slug = $validate['slug'] ?  $validate['slug'] : $slug;
+        $url->slug = $validate['slug'] ?? $slug;
         $url->click_count = 0;
         $url->status = 'active';
         $url->save();

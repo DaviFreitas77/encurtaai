@@ -1,34 +1,31 @@
-@import 'tailwindcss';
-
-
+@import "tailwindcss";
 
 :root {
-  --color-primary: #2c5f9b;
-  --color-secondary: #252525;
-
+    --color-primary: #2c5f9b;
+    
+    /* Cores claras (modo claro) */
+    --color-background: #fff;
+    --color-secondary: #f3f4f6;
+    --text-primary: #000;
 }
 
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-
-.text-primary {
-  color: var(--color-primary);
+.dark {
+    /* Sobrescreve no modo escuro */
+    --color-background: #12121e;
+    --color-secondary: #1d1d29;
+    --text-primary: #fff;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(180%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(180%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
 
 .animate-marquee {
-  display: inline-block;
-  animation: marquee 15s linear infinite;
+    display: inline-block;
+    animation: marquee 15s linear infinite;
 }

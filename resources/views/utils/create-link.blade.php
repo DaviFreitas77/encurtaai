@@ -20,6 +20,6 @@
             <p data-error-for="slug" class="text-red-500 text-sm mt-1"></p>
         </div>
     </div>
-    <button id="submit-form" class="bg-primary text-white rounded-md w-full  p-3 mt-5 font-bold cursor-pointer ">Criar link curto</button>
+    <button id="submit-form" class="bg-[var(--color-primary)] text-white rounded-md w-full  p-3 mt-5 font-bold cursor-pointer ">Criar link curto</button>
 
 </form>
