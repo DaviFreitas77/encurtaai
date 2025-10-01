@@ -2,6 +2,8 @@
 
 namespace App;
 
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 class Helpers
 {
 
@@ -52,4 +54,6 @@ class Helpers
     {
         return count($users);
     }
+
+   
 }

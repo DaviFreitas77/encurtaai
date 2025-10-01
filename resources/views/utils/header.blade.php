@@ -1,5 +1,7 @@
+  @props(['title' => 'Dashboard'])
+  
   <div class="flex justify-between items-center">
-      <p class="text-xl font-bold">Dashboard</p>
+      <p class="text-xl font-bold">{{$title}}</p>
       <div class="flex gap-4 items-center ">
           <button id="togle-theme" class="flex items-center gap-2 ">
               mudar tema

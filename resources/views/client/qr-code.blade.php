@@ -14,11 +14,11 @@
         <div class="w-full flex justify-center ">
             <div class="flex w-full flex-col py-12 px-4 xl:px-15 max-w-[1920px] ">
                 <section>
-                    @include('utils.header')
+                    @include('utils.header',['title'=> 'Meus QR'])
                 </section>
 
                 <section class="mt-10 ">
-                    <div class="flex flex-col gap-5">
+                    <div class="grid grid-cols-3 gap-5">
                         @forelse($urls as $url)
                         <div class="bg-[var(--color-secondary)] text-[var(--text-primary)] p-4 rounded-md ">
 

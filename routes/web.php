@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
 
-    Route::get('/top-click-links', [dashboardUserController::class, 'topClick'])->name('top-click');
+    Route::get('/qr-code', [dashboardUserController::class, 'myQrCode'])->name('myQrCode');
 
     Route::get('/create-link', function () {
         return view('client.create-link-user');
