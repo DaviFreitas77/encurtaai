@@ -2,10 +2,10 @@
 
 :root {
     --color-primary: #2c5f9b;
-    
+
     /* Cores claras (modo claro) */
     --color-background: #fff;
-    --color-secondary: #f3f4f6;
+    --color-secondary: #f4f6fa;
     --text-primary: #000;
 }
 

@@ -25,7 +25,7 @@ class urlController
             }
         }
         $validate = $request->validate([
-            'url_original' => ['required'],
+            'url_original' => ['required', 'url'],
             'password_url' => ['nullable', 'min:4'],
             'slug' => ['nullable', 'min:4', 'max:20', 'unique:tb_url,slug']
         ], [
@@ -33,7 +33,8 @@ class urlController
             'slug.min' => 'O slug deve ter no mínimo 4 caracteres.',
             'slug.max' => 'O slug deve ter no máximo 20 caracteres.',
             'password_url.min' => 'A senha deve ter no mínimo 4 caracteres.',
-            'slug.unique' => 'Este slug já está em uso.'
+            'slug.unique' => 'Este slug já está em uso.',
+            'url_original.url' => 'O campo URL deve ser uma URL válida.'
         ]);
 
 

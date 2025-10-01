@@ -3,7 +3,7 @@
 <div class="flex gap-4 items-center justify-center flex-col">
     @if(auth()->user()->role == 'admin')
     <div class="mt-10  grid grid-cols-4 w-full gap-1">
-        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
                 <p class="text-xl">Links ativos</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -19,7 +19,7 @@
         </div>
 
 
-        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
                 <p class="text-xl">Links inativos</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -34,7 +34,7 @@
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
                 <p class="text-xl">Links expirados</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -49,7 +49,7 @@
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
                 <p class="text-xl">Total de links</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -64,7 +64,7 @@
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
-        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
                 <p class="text-xl">Total de usuarios</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -81,8 +81,8 @@
 
     @else
     <div class="w-full">
-        <div class=" flex  mt-10  w-full gap-1 ">
-            <div class="bg-[var(--color-secondary)]  p-4 flex flex-col justify-evenly rounded-sm w-full h-52">
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-1">
+            <div class="bg-[var(--color-secondary)]  p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
                 <div class="flex w-full justify-between items-center">
                     <p class="text-xl">Total de links</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -96,7 +96,7 @@
                 <p class="text-3xl font-medium">{{$allUrlUser->count()}}</p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
-            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm justify-evenly w-full">
+            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm justify-between w-full">
                 <div class="flex w-full justify-between items-center">
                     <p class="text-xl">Links ativos</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -110,7 +110,7 @@
                 <p class="text-3xl font-medium"> {{ $activeUrlUser }}</p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
-            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-evenly w-full">
+            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-between w-full">
                 <div class="flex w-full justify-between items-center">
                     <p class="text-xl">Links inativos</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -124,7 +124,7 @@
                 <p class="text-3xl font-medium">{{$inactiveUrlUser}}</p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
-            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-evenly w-full">
+            <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-between w-full">
                 <div class="flex w-full justify-between items-center">
                     <p class="text-xl">Links expirados</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
