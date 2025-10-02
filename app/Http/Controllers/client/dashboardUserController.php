@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\client;
 
+use App\Helpers;
+use App\Http\Controllers\QrCodeController;
 use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -47,6 +49,10 @@ class dashboardUserController
     public function showDashboardUser(Request $request)
     {
         $order = $request->query('order', 'relevance');
+        $urlQr = $request->query('url_original', '');
+        $slugForQr = $request->query('url_slug');
+        $newQRCode = null;
+
         $allUrl = config('urls.data');
         $urlsCollection = collect($allUrl);
 
@@ -90,12 +96,20 @@ class dashboardUserController
         $inactiveUrlUser = $allUrlUser->where('status', 'inactive')->count();
         $expiredUrlUser = $allUrlUser->where('status', 'expired')->count();
 
+        if (!empty($urlQr)) {
+            $newQRCode = QrCodeController::generate($urlQr);
+        }
+
+
+
         return view('client.home', [
             'allUrlUser' =>  $allUrlUser,
             'activeUrlUser' => $activeUrlUser,
             'inactiveUrlUser' => $inactiveUrlUser,
             'expiredUrlUser' => $expiredUrlUser,
-            'currentOrder' => $all_link_in_order
+            'currentOrder' => $all_link_in_order,
+            'qrCode' => $newQRCode,
+            'slugForQr' => $slugForQr
         ]);
     }
 
@@ -103,11 +117,12 @@ class dashboardUserController
     {
         $allUrl = config('urls.data');
         $urlsCollection = collect($allUrl);
-
         $allUrlUser = $urlsCollection->where('fk_user', 1);
-        $urls = $allUrlUser->sortByDesc('click_count')->take(10);
+
+
         return view('client.qr-code', [
-            'urls' => $urls
+            'urls' => $allUrlUser
+
         ]);
     }
 }
