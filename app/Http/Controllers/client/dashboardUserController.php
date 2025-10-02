@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\client;
 
+use App\Helpers;
+use App\Http\Controllers\QrCodeController;
 use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -44,33 +46,83 @@ class dashboardUserController
         return $topClick;
     }
 
-    public function showDashboardUser()
+    public function showDashboardUser(Request $request)
     {
+        $order = $request->query('order', 'relevance');
+        $urlQr = $request->query('url_original', '');
+        $slugForQr = $request->query('url_slug');
+        $newQRCode = null;
+
         $allUrl = config('urls.data');
         $urlsCollection = collect($allUrl);
 
         $allUrlUser = $urlsCollection->where('fk_user', 1);
+        $all_link_in_order = null;
+
+
+        switch ($order) {
+            case 'relevance':
+                $all_link_in_order = $allUrlUser->sortBy('id');
+                break;
+
+            case 'recent':
+                $all_link_in_order = $allUrlUser->sortBy('created_at');
+                break;
+
+            case 'expired':
+                $all_link_in_order = $allUrlUser->where('status', 'expired');
+                break;
+            case 'active':
+                $all_link_in_order = $allUrlUser->where('status', 'active');
+                break;
+
+            case 'inactive':
+                $all_link_in_order = $allUrlUser->where('status', 'inactive');
+                break;
+
+            case 'moreClick':
+                $all_link_in_order = $allUrlUser->sortByDesc('click_count');
+                break;
+
+            case 'lessClick':
+                $all_link_in_order = $allUrlUser->sortBy('click_count');
+                break;
+
+            default:
+                $all_link_in_order = $allUrlUser;
+        }
+
         $activeUrlUser = $allUrlUser->where('status', 'active')->count();
         $inactiveUrlUser = $allUrlUser->where('status', 'inactive')->count();
         $expiredUrlUser = $allUrlUser->where('status', 'expired')->count();
 
+        if (!empty($urlQr)) {
+            $newQRCode = QrCodeController::generate($urlQr);
+        }
+
+
+
         return view('client.home', [
-            'allUrlUser' => $allUrlUser,
+            'allUrlUser' =>  $allUrlUser,
             'activeUrlUser' => $activeUrlUser,
             'inactiveUrlUser' => $inactiveUrlUser,
-            'expiredUrlUser' => $expiredUrlUser
+            'expiredUrlUser' => $expiredUrlUser,
+            'currentOrder' => $all_link_in_order,
+            'qrCode' => $newQRCode,
+            'slugForQr' => $slugForQr
         ]);
     }
 
-    public function topClick()
+    public function myQrCode()
     {
         $allUrl = config('urls.data');
         $urlsCollection = collect($allUrl);
-
         $allUrlUser = $urlsCollection->where('fk_user', 1);
-        $urls = $allUrlUser->sortByDesc('click_count')->take(10);
-        return view('client.top-click', [
-            'urls' => $urls
+
+
+        return view('client.qr-code', [
+            'urls' => $allUrlUser
+
         ]);
     }
 }

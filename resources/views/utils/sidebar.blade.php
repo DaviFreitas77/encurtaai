@@ -1,6 +1,5 @@
 @auth
-<nav id="sidebar" class="group flex h-screen w-20 flex-col bg-[#1D1D29] p-4 hover:w-64 transition-width duration-300 ease-in-out justify-between">
-
+<nav id="sidebar" class="group flex h-screen w-20 flex-col bg-[#1D1D29] p-4 hover:w-64 transition-width duration-300 ease-in-out justify-between ">
 
     @if(auth()->user()->role == 'admin')
     <ul class="space-y-2 ">
@@ -57,12 +56,12 @@
         </li>
 
         <li class="flex items-center  rounded-lg  text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
-            <a href="{{route('top-click')}}" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
+            <a href="{{route('myQrCode')}}" class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1z" />
+                    <path d="M3 3h9v9H3V3zm0 11h9v9H3v-9zm11 0h9v9h-9v-9zm0-11h9v9h-9V3z" />
                 </svg>
-                <span class="text-menu font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-lg">Top10 </span>
+                <span class="text-menu font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-lg">QR</span>
             </a>
         </li>
         <li class="flex items-center  rounded-lg  text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">

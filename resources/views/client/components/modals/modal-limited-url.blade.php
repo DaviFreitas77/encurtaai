@@ -37,7 +37,7 @@
             </ul>
 
             <div class="flex flex-col gap-3">
-               <button id="openModalLogin" class="close-modal-url-limited bg-primary hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-md font-semibold w-full">Criar Conta Grátis</button>
+               <button id="openModalLogin" class="close-modal-url-limited bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-md font-semibold w-full">Criar Conta Grátis</button>
             </div>
          </div>
          <img src="{{ asset('image/sistema.png') }}" alt="Ilustração da plataforma Encurtaái" class="w-full rounded-lg shadow-lg hidden md:block" />

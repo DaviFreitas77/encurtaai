@@ -50,7 +50,7 @@
     </div>
 
     <div class="flex w-full">
-      <button type="submit" class="bg-primary transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
+      <button type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
     </div>
 
     <p class="mt-4 text-center text-sm">
