@@ -1,8 +1,18 @@
+const modalQrCode = document.querySelector('.modal-qr-code');
+const btnCloseModalQrCode = document.getElementById('close-modal-qr-code');
+
+btnCloseModalQrCode.addEventListener("click",()=>{
+    modalQrCode.classList.add("hidden");
+    modalQrCode.classList.remove("flex");
+
+})
+
+
+
 //modal auth
 const modalAuth = document.querySelector(".modalLogin");
 const btnOpen = document.querySelectorAll("#openModalLogin");
 const btnClose = document.getElementById("closeModalLogin");
-
 // Abre o modal auth
 btnOpen.forEach((btn) =>
     btn.addEventListener("click", () => {
