@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\client;
 
-use App\Helpers;
-use App\Http\Controllers\QrCodeController;
+
+use App\Services\DashboardService;
 use App\Models\Url;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
+
 
 class dashboardUserController
 {
+
+    public function __construct(private DashboardService $dashboardService) {}
 
     private function countAllUrl(int $id)
     {
@@ -48,68 +49,26 @@ class dashboardUserController
 
     public function showDashboardUser(Request $request)
     {
-        $order = $request->query('order', 'relevance');
-        $urlQr = $request->query('url_original', '');
-        $slugForQr = $request->query('url_slug');
-        $newQRCode = null;
 
-        $allUrl = config('urls.data');
-        $urlsCollection = collect($allUrl);
-
-        $allUrlUser = $urlsCollection->where('fk_user', 1);
-        $all_link_in_order = null;
-
-
-        switch ($order) {
-            case 'relevance':
-                $all_link_in_order = $allUrlUser->sortBy('id');
-                break;
-
-            case 'recent':
-                $all_link_in_order = $allUrlUser->sortBy('created_at');
-                break;
-
-            case 'expired':
-                $all_link_in_order = $allUrlUser->where('status', 'expired');
-                break;
-            case 'active':
-                $all_link_in_order = $allUrlUser->where('status', 'active');
-                break;
-
-            case 'inactive':
-                $all_link_in_order = $allUrlUser->where('status', 'inactive');
-                break;
-
-            case 'moreClick':
-                $all_link_in_order = $allUrlUser->sortByDesc('click_count');
-                break;
-
-            case 'lessClick':
-                $all_link_in_order = $allUrlUser->sortBy('click_count');
-                break;
-
-            default:
-                $all_link_in_order = $allUrlUser;
+        $filters = $request->only(['order', 'url_original', 'url_slug']);
+        if (empty($filters['order'])) {
+            $filters['order'] = 'relevance';
         }
 
-        $activeUrlUser = $allUrlUser->where('status', 'active')->count();
-        $inactiveUrlUser = $allUrlUser->where('status', 'inactive')->count();
-        $expiredUrlUser = $allUrlUser->where('status', 'expired')->count();
+        $urls = $this->dashboardService->get_all_user_url();
+        $infoUrlUser = $this->dashboardService->get_all_data_for_user_dashboard();
+        $currentOrder = $this->dashboardService->apply_order_in_urls($urls, $filters['order']);
 
-        if (!empty($urlQr)) {
-            $newQRCode = QrCodeController::generate($urlQr);
-        }
-
-
+        $newQRCode = $this->dashboardService->get_url_for_qr_code($filters['url_original'] ?? '');
 
         return view('client.home', [
-            'allUrlUser' =>  $allUrlUser,
-            'activeUrlUser' => $activeUrlUser,
-            'inactiveUrlUser' => $inactiveUrlUser,
-            'expiredUrlUser' => $expiredUrlUser,
-            'currentOrder' => $all_link_in_order,
+            'allUrlUser' =>  $urls,
+            'activeUrlUser' =>  $infoUrlUser['active'],
+            'inactiveUrlUser' => $infoUrlUser['inactive'],
+            'expiredUrlUser' => $infoUrlUser['expired'],
+            'currentOrder' => $currentOrder,
             'qrCode' => $newQRCode,
-            'slugForQr' => $slugForQr
+            'slugForQr' => $filters['url_slug'] ?? ''
         ]);
     }
 
@@ -117,11 +76,11 @@ class dashboardUserController
     {
         $allUrl = config('urls.data');
         $urlsCollection = collect($allUrl);
-        $allUrlUser = $urlsCollection->where('fk_user', 1);
+        $urls = $urlsCollection->where('fk_user', 1);
 
 
         return view('client.qr-code', [
-            'urls' => $allUrlUser
+            'urls' => $urls
 
         ]);
     }
