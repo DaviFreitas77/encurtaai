@@ -5,7 +5,7 @@
     <div class="mt-10  grid grid-cols-4 w-full gap-1">
         <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
-                <p class="text-xl">Links ativos</p>
+                <p class="text-base xl:text-xl">Links ativos</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <g>
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -21,7 +21,7 @@
 
         <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
-                <p class="text-xl">Links inativos</p>
+                <p class="text-base xl:text-xl">Links inativos</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <g>
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -36,7 +36,7 @@
 
         <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
-                <p class="text-xl">Links expirados</p>
+                <p class="text-base xl:text-xl">Links expirados</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <g>
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -51,7 +51,7 @@
 
         <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
-                <p class="text-xl">Total de links</p>
+                <p class="text-base xl:text-xl">Total de links</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <g>
                         <path d="M0 0h24v24H0z" fill="none" />
@@ -66,7 +66,7 @@
 
         <div class="bg-[var(--color-secondary)] p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
             <div class="flex w-full justify-between items-center">
-                <p class="text-xl">Total de usuarios</p>
+                <p class="text-base xl:text-xl">Total de usuarios</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                     <path d="M0 0h24v24H0z" fill="none" />
                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
@@ -81,10 +81,10 @@
 
     @else
     <div class="w-full">
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full gap-1">
+        <div class="mt-10 grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 w-full gap-1">
             <div class="bg-[var(--color-secondary)]  p-4 flex flex-col justify-between rounded-sm w-full xl:h-48">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-xl">Total de links</p>
+                    <p class="text-base xl:text-xl">Total de links</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <g>
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -98,7 +98,7 @@
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-xl">Links ativos</p>
+                    <p class="text-base xl:text-xl">Links ativos</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <g>
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -112,7 +112,7 @@
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-xl">Links inativos</p>
+                    <p class="text-base xl:text-xl">Links inativos</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <g>
                             <path d="M0 0h24v24H0z" fill="none" />
@@ -126,7 +126,7 @@
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1 rounded-sm  justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-xl">Links expirados</p>
+                    <p class="text-base xl:text-xl">Links expirados</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <g>
                             <path d="M0 0h24v24H0z" fill="none" />

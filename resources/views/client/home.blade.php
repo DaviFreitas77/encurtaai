@@ -16,7 +16,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
     <main class="flex w-full justify-between ">
         @include('utils.sidebar')
         <section class="w-full flex justify-center ">
-            <div class="flex w-full flex-col py-12 px-4 xl:px-15 max-w-[1920px] ">
+            <div class="flex w-full flex-col py-12 px-4  max-w-[1920px] ">
                 <div>
                     @include('utils.header')
                 </div>
@@ -28,9 +28,6 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
                     'allUrlUser' => $allUrlUser
                     ])
                 </section>
-
-
-
                 <section>
                     <div class="my-4 relative">
                         @include('utils.dropdown', ['orders' => config('arrayOrder.order')])
@@ -38,9 +35,9 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
                             Ordenar por
                         </button>
                     </div>
-                    <div class="grid grid-cols-3 gap-5 ">
+                    <div class="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-3 ">
                         @forelse($currentOrder as $url)
-                            @include('utils.cards-links', ['url' => $url])
+                        @include('utils.cards-links', ['url' => $url])
                         @empty
                         <div>
                             <p class="text-gray-500">Nenhuma URL encontrada.</p>
@@ -49,6 +46,9 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
                     </div>
                 </section>
 
+                <section class="relative">
+                    @include('utils.tab-bar')
+                </section>
 
             </div>
         </section>

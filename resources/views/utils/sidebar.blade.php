@@ -1,5 +1,5 @@
 @auth
-<nav id="sidebar" class="group flex h-screen w-20 flex-col bg-[#1D1D29] p-4 hover:w-64 transition-width duration-300 ease-in-out justify-between ">
+<nav id="sidebar" class=" hidden lg:flex group  h-screen w-20 flex-col bg-[#1D1D29] p-4 hover:w-64 transition-width duration-300 ease-in-out justify-between ">
 
     @if(auth()->user()->role == 'admin')
     <ul class="space-y-2 ">
