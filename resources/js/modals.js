@@ -1,12 +1,12 @@
 const modalQrCode = document.querySelector('.modal-qr-code');
 const btnCloseModalQrCode = document.getElementById('close-modal-qr-code');
 
-btnCloseModalQrCode.addEventListener("click",()=>{
-    modalQrCode.classList.add("hidden");
-    modalQrCode.classList.remove("flex");
-
-})
-
+if (modalQrCode && btnCloseModalQrCode) {
+    btnCloseModalQrCode.addEventListener("click", () => {
+        modalQrCode.classList.add("hidden");
+        modalQrCode.classList.remove("flex");
+    });
+}
 
 
 //modal auth

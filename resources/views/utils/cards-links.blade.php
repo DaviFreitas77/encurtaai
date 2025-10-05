@@ -53,11 +53,10 @@
            @else
            <form action="" method="get">
                <button class="flex items-center gap-1 cursor-pointer text-sm">
-                   <svg class="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" stroke-width="2"
-                       viewBox="0 0 24 24">
-                       <path stroke-linecap="round" stroke-linejoin="round"
-                           d="M13 16h-1v-4h-1m0-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
-                   </svg>
+                     <svg class="w-5 h-5" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5A.75.75 0 014.5 3h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V4.5zM3.75 15A.75.75 0 014.5 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V15zM15 4.5A.75.75 0 0115.75 3h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V4.5zM15 15A.75.75 0 0115.75 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V15z" />
+                    </svg>
+                    
                    <input type="hidden" value="{{$url[
                                     'url_original']}}" name="url_original">
                    <input type="hidden" name="url_slug" value="{{ $url['slug'] }}">

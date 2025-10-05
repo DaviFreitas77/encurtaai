@@ -12,7 +12,7 @@
     <main class="flex w-full  justify-between h-screen">
         @include('utils.sidebar')
         <div class="w-full flex justify-center ">
-            <div class="flex w-full flex-col py-12 px-4 xl:px-15 max-w-[1920px] ">
+            <div class="flex w-full flex-col py-12 px-4  max-w-[1920px] ">
                 <section>
                     @include('utils.header',['title'=> 'Meus QR'])
                 </section>
@@ -29,7 +29,7 @@
                     </div>
 
                 </section>
-                   <section class="relative">
+                <section class="relative">
                     @include('utils.tab-bar')
                 </section>
             </div>

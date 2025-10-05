@@ -1,6 +1,4 @@
-@php
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
-@endphp
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
