@@ -7,31 +7,17 @@ use Illuminate\Support\Collection;
 
 class DashboardService
 {
-    public function __construct(private QrCodeService $qrCodeService) {}
+    public function __construct(private QrCodeService $qrCodeService, private UrlService $urlService) {}
 
 
     public function get_all_user_url()
     {
-        $allUrl = config('urls.data');
-        $allUrlCollection = collect($allUrl);
-        $urlsUser = $allUrlCollection->where('fk_user', 1);
-        return $urlsUser;
+        return $this->urlService->get_url();
     }
 
     public function get_all_data_for_user_dashboard()
     {
-        $allUrl = config('urls.data');
-        $allUrlCollection = collect($allUrl);
-        $urlsUser = $allUrlCollection->where('fk_user', 1);
-        $activeUrlUser = $urlsUser->where('status', 'active')->count();
-        $inactiveUrlUser = $urlsUser->where('status', 'inactive')->count();
-        $expiredUrlUser = $urlsUser->where('status', 'expired')->count();
-
-        return [
-            'active' => $activeUrlUser,
-            'inactive' => $inactiveUrlUser,
-            'expired' => $expiredUrlUser,
-        ];
+        return $this->urlService->get_status_url();
     }
     public function get_url_for_qr_code(string $data)
     {

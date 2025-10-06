@@ -5,16 +5,19 @@ namespace App\Http\Controllers\client;
 
 use App\Models\Url;
 use App\Helpers;
+use App\Services\UrlService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class urlController
 
 {
+    public function __construct(private UrlService $url_service) {}
+
     public function shortenedUrl(Request $request)
     {
         if (!Auth::check()) {
-            $limite_generate_url = 2;
+            $limite_generate_url = 5;
 
             $urlsCriadas = session()->get('urls', 0);
 
@@ -37,49 +40,32 @@ class urlController
             'url_original.url' => 'O campo URL deve ser uma URL válida.'
         ]);
 
-
-
-        $url = new Url;
-
-
-        if (empty($validate['slug'])) {
-            do {
-                $slug = Helpers::gerarSlugSimples(5);
-            } while (Url::where('slug', $slug)->exists());
-        }
-
-        $url->url_original = $validate['url_original'];
-        $url->slug = $validate['slug'] ?? $slug;
-        $url->click_count = 0;
-        $url->status = 'active';
-        $url->save();
+        $url = $this->url_service->create_shoterned_url($validate);
 
         if (!Auth::check()) {
             session()->increment('urls');
         }
 
         return response()->json([
-            'url_shortened' => env('APP_URL') . '/r/' . $url->slug
+            'url_shortened' => url('/r/' . $url->slug)
         ]);
     }
 
     public function redirect(Request $request, string $slug)
     {
-        $url = Url::where('slug', $slug)->first();
+
+        $url = $this->url_service->process_redirect($slug);
 
         if (!$url) {
+
             return redirect('/404');
         }
-
-        $url->click_count++;
-        $url->save();
 
         if ($request->expectsJson()) {
             return response()->json([
                 'url_original' => $url->url_original
             ]);
         }
-
         return redirect($url->url_original);
     }
 }
