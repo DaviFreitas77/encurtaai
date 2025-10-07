@@ -9,15 +9,15 @@
    <div class="shadow-sm  p-6 rounded-md  w-full flex flex-col gap-4 mb-12">
 
         <div>
-            <p>Encurte seu link longo</p>
-            <input type="text" name="url_original" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 p-3 rounded-md">
+            <p class="mb-2">Encurte seu link longo</p>
+            <input type="text" name="url_original" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white">
             <p data-error-for="url_original" class="text-red-500 text-sm mt-1"></p>
             <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
             </div>
         </div>
         <div class="flex gap-4">
             <div class="w-full">
-                <p>Dominio</p>
+                <p class="mb-2">Dominio</p>
                 <input
                     type="text"
                     name="url_original"
@@ -29,8 +29,8 @@
                 </div>
             </div>
             <div class="w-full">
-                <p>Personalize seu link</p>
-                <input type="text" name="slug" placeholder="ex: social" class="outline-none w-full border border-gray-200 p-3 rounded-md">
+                <p class="mb-2">Personalize seu link</p>
+                <input type="text" name="slug" placeholder="ex: social" class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white">
                 <p data-error-for="slug" class="text-red-500 text-sm mt-1"></p>
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
                 </div>

@@ -14,7 +14,7 @@
         <section class="flex w-full flex-col py-12 px-4 2xl:px-20  max-w-[1920px] ">
             <div>
                 @include('utils.header')
-            </div>
+            </section>
             <section>
 
             </section>

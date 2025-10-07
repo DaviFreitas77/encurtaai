@@ -61,7 +61,7 @@
             <h1 class="text-center text-4xl font-medium pt-10">Controle total sobre cada clique</h1>
             <p class="text-center text-sm max-w-[500px] mb-10 mt-2">Acompanhe cliques e escaneamentos com facilidade. Meça, entenda e otimize cada interação — tudo em um só lugar, sem complicação.</p>
 
-            <img src="{{ asset('image/sistema.png') }}" alt="Imagem do sistema" class="w-full max-w-6xl mx-auto rounded-md shadow-md">
+            <img src="{{ asset('image/sistemaDark.png') }}" alt="Imagem do sistema" class="w-full max-w-6xl mx-auto rounded-md shadow-md">
 
 
         </section>
