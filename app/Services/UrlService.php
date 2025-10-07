@@ -13,6 +13,11 @@ class UrlService
     public function __construct() {}
 
 
+    public function get_all_url()
+    {
+        return Url::all()->count();
+    }
+
     public function get_url()
     {
         $userId = Auth::id();

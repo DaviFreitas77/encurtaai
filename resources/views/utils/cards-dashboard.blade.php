@@ -1,4 +1,4 @@
-@props(['totalActive', 'totalInactive', 'totalExpired', 'totalUsers','allUrlUser','activeUrlUser','inactiveUrlUser','expiredUrlUser'])
+@props(['totalActive', 'totalInactive', 'totalExpired', 'totalUsers','allUrlUser','activeUrlUser','inactiveUrlUser','expiredUrlUser','allUrl'])
 @auth
 <div class="flex gap-4 items-center justify-center flex-col">
     @if(auth()->user()->role == 'admin')
@@ -60,7 +60,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-3xl font-medium">201</p>
+            <p class="text-3xl font-medium">{{$allUrl}}</p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 

@@ -2,20 +2,19 @@
 
 namespace App\Services;
 
+use App\Models\Url;
+use App\Models\User;
 use App\Services\QrCodeService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 
 class UserService
 {
-    public function __construct(private QrCodeService $qrCodeService) {}
+    public function __construct() {}
 
 
-    public function get_all_user_url()
+    public function all_user()
     {
-        $allUrl = config('urls.data');
-        $allUrlCollection = collect($allUrl);
-        $urlsUser = $allUrlCollection->where('fk_user', 1);
-        return $urlsUser;
+        return User::all()->count();
     }
-
 }
