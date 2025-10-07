@@ -1,3 +1,5 @@
+
+document.addEventListener('DOMContentLoaded', () => {
 const modalQrCode = document.querySelector('.modal-qr-code');
 const btnCloseModalQrCode = document.getElementById('close-modal-qr-code');
 
@@ -28,7 +30,8 @@ btnClose.addEventListener("click", () => {
 });
 
 
-//modal limite de url
+
+})//modal limite de url
 export function toggle_modal_limited_url() {
     const modal = document.getElementById("modal-limited-url");
     const btnCloseModal = document.querySelectorAll(".close-modal-url-limited");

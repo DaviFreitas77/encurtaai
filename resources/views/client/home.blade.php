@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,9 +8,9 @@
     @vite(['resources/css/app.css', 'resources/js/sidebar.js','resources/js/theme.js','resources/js/form-url.js','resources/js/controller-dropdown.js'])
 </head>
 
-<body class="bg-[var(--color-background)] text-[var(--text-primary)] ">
-    <main class="flex w-full justify-between ">
-        @include('utils.sidebar')
+<body class="bg-[var(--color-background)] text-[var(--text-primary)] flex">
+    @include('utils.sidebar')
+    <main class="flex w-full justify-between overflow-y-auto h-screen scroll-smooth">
         <section class="w-full flex justify-center ">
             <div class="flex w-full flex-col py-12 px-4 2xl:px-20  max-w-[1920px] ">
                 <div>

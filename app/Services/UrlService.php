@@ -59,4 +59,10 @@ class UrlService
 
         return $url;
     }
+
+    public function latest_url()
+    {
+        $userId = Auth::id();
+        return Url::where('fk_user', $userId)->orderBy('created_at', 'desc')->take(5)->get();
+    }
 }

@@ -26,9 +26,7 @@ class DashboardService
 
     public function apply_order_in_urls(Collection $urls, ?string $order)
     {
-
         $orderBy = $order ?? 'relevance';
-
         switch ($orderBy) {
             case 'relevance':
                 return $urls->sortBy('id');
@@ -56,5 +54,10 @@ class DashboardService
             default:
                 return $urls;
         }
+    }
+
+    public function get_latest_user_url()
+    {
+        return $this->urlService->latest_url();
     }
 }

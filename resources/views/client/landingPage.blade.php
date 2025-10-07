@@ -36,21 +36,18 @@
                 <h1 class=" text-5xl   font-bold  w-full text-center text-[#031f39]">
                     Seu link, mais curto & inteligente.
                 </h1>
-                <p class="max-w-[630px] text-[#ABABAB] text-center text-sm">
+                <p class="max-w-[630px] text-[#031f39] font-medium  text-center text-sm">
                     Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
                 </p>
 
                 <section class="w-full max-w-4xl flex flex-col gap-5  items-center">
                     @include('client.components.forms.form-url')
                 </section>
-
-
-
             </div>
 
         </section>
 
-        <section class="mt-10 w-full">@include('client.components.ui.marquee')</section>
+        <section class=" mt-40 2xl:mt-20 w-full">@include('client.components.ui.marquee')</section>
 
 
         <section class="mt-10 px-6 lg:max-w-[1400px] w-full">

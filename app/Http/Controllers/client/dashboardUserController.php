@@ -44,9 +44,16 @@ class dashboardUserController
         $urlsCollection = collect($allUrl);
         $urls = $urlsCollection->where('fk_user', 1);
 
-
         return view('client.qr-code', [
             'urls' => $urls
+
+        ]);
+    }
+
+    public function latestUrlUser(){
+        $latestUrls = $this->dashboardService->get_latest_user_url();
+          return view('client.create-link-user', [  
+            'latestUrls' => $latestUrls
 
         ]);
     }

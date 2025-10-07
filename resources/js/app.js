@@ -1,4 +1,5 @@
 
+document.addEventListener('DOMContentLoaded', () => {
 const formLogin = document.getElementById("formLogin");
 const formRegister = document.getElementById("formRegister");
 const formSendMail = document.getElementById("formSendMail");
@@ -59,3 +60,5 @@ function showForm(type) {
     formResetPassword.classList.toggle("hidden", !showResetPassword);
     formResetPassword.classList.toggle("flex", showResetPassword);
 }
+
+})
