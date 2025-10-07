@@ -19,6 +19,8 @@ return new class extends Migration
             $table->enum('status', ['active', 'expired', 'inactive'])->default('active');
             $table->unsignedInteger('fk_user')->nullable();
             $table->foreign('fk_user')->references('id')->on('tb_user')->onDelete('cascade');
+            $table->string('qr_code_url')->nullable();
+            
             $table->timestamps();
         });
     }

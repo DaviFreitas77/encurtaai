@@ -24,7 +24,14 @@
     @include('client.components.modals.modal-limited-url')
 
     <main class="flex items-center flex-col">
-        <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20">
+
+
+        <div class="grid-wrapper relative">
+            <div class="grid-background"></div>
+        </div>
+
+
+        <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20 absolute">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
                 <h1 class=" text-5xl   font-bold  w-full text-center text-[#031f39]">
                     Seu link, mais curto & inteligente.
@@ -38,21 +45,23 @@
                 </section>
 
 
+
             </div>
 
         </section>
 
-        @include('client.components.ui.marquee')
+        <section class="mt-10 w-full">@include('client.components.ui.marquee')</section>
 
 
-        <section class="mt-10 px-6 lg:max-w-[1100px] w-full">
+        <section class="mt-10 px-6 lg:max-w-[1400px] w-full">
             @include('client.sections.recursos')
         </section>
 
         <section class="bg-[#EBECFE] w-full rounded-md flex flex-col items-center justify-center mt-20">
-            <h1 class="text-center text-4xl font-medium py-10">Controle total sobre cada clique</h1>
-            <p class="text-center text-sm max-w-[500px] mb-10">Acompanhe cliques e escaneamentos com facilidade. Meça, entenda e otimize cada interação — tudo em um só lugar, sem complicação.</p>
+            <h1 class="text-center text-4xl font-medium pt-10">Controle total sobre cada clique</h1>
+            <p class="text-center text-sm max-w-[500px] mb-10 mt-2">Acompanhe cliques e escaneamentos com facilidade. Meça, entenda e otimize cada interação — tudo em um só lugar, sem complicação.</p>
 
+            <img src="{{ asset('image/sistema.png') }}" alt="Imagem do sistema" class="w-full max-w-6xl mx-auto rounded-md shadow-md">
 
 
         </section>

@@ -14,7 +14,7 @@
     <main class="flex w-full justify-between ">
         @include('utils.sidebar')
         <section class="w-full flex justify-center ">
-            <div class="flex w-full flex-col py-12 px-4  max-w-[1920px] ">
+            <div class="flex w-full flex-col py-12 px-4 2xl:px-20  max-w-[1920px] ">
                 <div>
                     @include('utils.header')
                 </div>
