@@ -1,6 +1,10 @@
-<div id="modal-limited-url" class="hidden fixed inset-0 z-50 items-center justify-center bg-black/50">
-   <div class="w-full max-w-3xl rounded-lg shadow-2xl bg-white  p-6  absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <button  class="close-modal-url-limited absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
+<div id="modal-limited-url" class="hidden fixed inset-0 z-50  items-center justify-center bg-black/50 p-4">
+
+
+   <div class="w-full max-w-3xl rounded-lg shadow-2xl bg-white p-6 relative">
+
+
+      <button class="close-modal-url-limited absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
 
       <div class="grid md:grid-cols-2 gap-8 items-center">
          <div class="flex flex-col">

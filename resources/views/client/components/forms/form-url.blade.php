@@ -5,7 +5,7 @@
         <a id="link_shortened" target="_blank" class="w-full hidden min-w-[700px] p-3 text-center text-black font-medium rounded-md"></a>
     </div>
 
-    <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-full">
+    <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-full my-8">
 
         <button id="choice-shoterned-url" type="button" class="w-full px-4 py-2 text-sm font-semibold text-white  bg-[var(--color-primary)] rounded-full focus:outline-none">
             Encurtar link
