@@ -12,9 +12,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
-    Route::get('/qr-code', [dashboardUserController::class, 'myQrCode'])->name('myQrCode');
     Route::post('/generate-qr-code', [dashboardUserController::class, 'generateQrCode']);
-    Route::get('/create-link-user', [dashboardUserController::class, 'latestUrlUser'])->name('create-link-user');
+    
 });
 
 

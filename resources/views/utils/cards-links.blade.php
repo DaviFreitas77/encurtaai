@@ -1,22 +1,24 @@
    @props(['url'])
 
-   <div class="bg-[var(--color-secondary)] p-4 rounded-md ">
-       <div class="flex justify-between">
+   <div class="bg-[var(--color-secondary)] p-2 rounded-md h-30">
+       <div class="flex justify-between h-full">
            <!-- Header: Link Encurtado -->
-           <div>
-               <div class="flex items-center justify-between mb-2">
-                   <a href="{{ url('/r/' . $url['slug']) }}"
-                       target="_blank"
-                       class="text-blue-600 hover:underline font-semibold break-all text-sm sm:text-base">
-                       {{ url('/r/' . $url['slug']) }}
-                   </a>
+           <div class="flex flex-col justify-between flex-1">
+               <div>
+                   <div class="flex items-center justify-between mb-2">
+                       <a href="{{ url('/r/' . $url['slug']) }}"
+                           target="_blank"
+                           class="text-blue-600 hover:underline font-semibold break-all text-sm sm:text-base">
+                           {{ url('/r/' . $url['slug']) }}
+                       </a>
+                   </div>
+                   <!-- URL Original -->
+                   <p class="text-xs text-gray-500 break-words">
+                       {{ $url['url_original'] }}
+                   </p>
                </div>
-               <!-- URL Original -->
-               <p class="text-xs text-gray-500 break-words">
-                   {{ $url['url_original'] }}
-               </p>
                <!-- Informações Adicionais -->
-               <div class="flex flex-wrap items-center gap-4 mt-3 text-sm text-gray-700">
+               <div class="flex flex-wrap items-center gap-4  text-sm text-gray-700">
                    <!-- Status -->
                    <div class="flex items-center gap-1">
                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
@@ -48,21 +50,10 @@
                    </div>
                </div>
            </div>
-           @if(isset($slugForQr) && $slugForQr === $url['slug'])
-           @include('client.components.modals.modal-QRcode', ['qr'=>$qrCode])
-           @else
-           <form action="" method="get">
-               <button class="flex items-center gap-1 cursor-pointer text-sm">
-                     <svg class="w-5 h-5" xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5A.75.75 0 014.5 3h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V4.5zM3.75 15A.75.75 0 014.5 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V15zM15 4.5A.75.75 0 0115.75 3h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V4.5zM15 15A.75.75 0 0115.75 14.25h4.5a.75.75 0 01.75.75v4.5a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V15z" />
-                    </svg>
-                    
-                   <input type="hidden" value="{{$url[
-                                    'url_original']}}" name="url_original">
-                   <input type="hidden" name="url_slug" value="{{ $url['slug'] }}">
-                   <span>QRcode</span>
-               </button>
-           </form>
+           @if(!empty($url->qr_code_url))
+           <div class="flex flex-col items-center gap-2">
+               {!! $url->qr_code_url !!}
+           </div>
            @endif
 
        </div>

@@ -77,7 +77,6 @@ class urlController
     }
     public function redirect(Request $request, string $slug)
     {
-
         $url = $this->urlService->process_redirect($slug);
 
         if (!$url) {

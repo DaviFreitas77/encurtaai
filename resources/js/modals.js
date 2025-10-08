@@ -1,37 +1,55 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const modalQrCode = document.querySelector(".modal-qr-code");
+    const btnCloseModalQrCode = document.getElementById("close-modal-qr-code");
 
-document.addEventListener('DOMContentLoaded', () => {
-const modalQrCode = document.querySelector('.modal-qr-code');
-const btnCloseModalQrCode = document.getElementById('close-modal-qr-code');
+    const modalCreateUrl = document.getElementById("modal-create-url");
+    const btnCloseModalCreateUrl = document.querySelector(".close-modal-create-url");
+    const btnOpenModalCreateUrl = document.querySelector("#open-modal-create-url");
 
-if (modalQrCode && btnCloseModalQrCode) {
-    btnCloseModalQrCode.addEventListener("click", () => {
-        modalQrCode.classList.add("hidden");
-        modalQrCode.classList.remove("flex");
+
+    if (btnOpenModalCreateUrl && modalCreateUrl && btnCloseModalCreateUrl) {
+        btnOpenModalCreateUrl.addEventListener("click", () => {
+            modalCreateUrl.classList.remove("hidden");
+            modalCreateUrl.classList.add("flex");
+        });
+
+        btnCloseModalCreateUrl.addEventListener("click", () => {
+            modalCreateUrl.classList.add("hidden");
+            modalCreateUrl.classList.remove("flex");
+        });
+    }
+
+
+
+    if (modalQrCode && btnCloseModalQrCode) {
+        btnCloseModalQrCode.addEventListener("click", () => {
+            modalQrCode.classList.add("hidden");
+            modalQrCode.classList.remove("flex");
+        });
+    }
+
+    //modal auth
+    const modalAuth = document.querySelector(".modalLogin");
+    const btnOpen = document.querySelectorAll("#openModalLogin");
+    const btnClose = document.getElementById("closeModalLogin");
+    // Abre o modal auth
+    btnOpen.forEach((btn) =>
+        btn.addEventListener("click", () => {
+            modalAuth.classList.remove("hidden");
+            modalAuth.classList.add("flex");
+        })
+    );
+
+    // Fecha o modal auth
+    btnClose.addEventListener("click", () => {
+        modalAuth.classList.add("hidden");
+        modalAuth.classList.remove("flex");
     });
-}
-
-
-//modal auth
-const modalAuth = document.querySelector(".modalLogin");
-const btnOpen = document.querySelectorAll("#openModalLogin");
-const btnClose = document.getElementById("closeModalLogin");
-// Abre o modal auth
-btnOpen.forEach((btn) =>
-    btn.addEventListener("click", () => {
-        modalAuth.classList.remove("hidden");
-        modalAuth.classList.add("flex");
-    })
-);
-
-// Fecha o modal auth
-btnClose.addEventListener("click", () => {
-    modalAuth.classList.add("hidden");
-    modalAuth.classList.remove("flex");
-});
+}); 
 
 
 
-})//modal limite de url
+//modal limite de url
 export function toggle_modal_limited_url() {
     const modal = document.getElementById("modal-limited-url");
     const btnCloseModal = document.querySelectorAll(".close-modal-url-limited");

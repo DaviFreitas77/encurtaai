@@ -73,12 +73,5 @@
 
         <button id="submit-form-qr-code" class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Gerar QR Code</button>
     </section>
-    <section>
-
-        <div id="qr_code" class="p-3 text-center text-black font-medium rounded-md hidden">
-            <!-- O QR Code será inserido aqui -->
-        </div>
-
-
-    </section>
+   
 </form>
