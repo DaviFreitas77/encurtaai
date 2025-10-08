@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UrlService
 {
-    public function __construct() {}
+    public function __construct(private QrCodeService $qrCodeService) {}
 
 
     public function get_all_url()
@@ -54,6 +54,8 @@ class UrlService
         return $url;
     }
 
+
+    
     public function process_redirect(string $slug)
     {
         $url = Url::where('slug', $slug)->first();
@@ -69,5 +71,10 @@ class UrlService
     {
         $userId = Auth::id();
         return Url::where('fk_user', $userId)->orderBy('created_at', 'desc')->take(5)->get();
+    }
+
+    public function qr_code_for_url(string $url)
+    {
+        return $this->qrCodeService->generateForUrl($url);
     }
 }

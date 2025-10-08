@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encurtaái-crie seu link</title>
-    @vite(['resources/css/app.css','resources/js/app.js','resources/js/redirect.js', 'resources/js/modals.js','resources/js/theme.js','resources/js/sidebar.js','resources/js/form-url.js'])
+    @vite(['resources/css/app.css','resources/js/app.js','resources/js/redirect.js', 'resources/js/modals.js','resources/js/theme.js','resources/js/sidebar.js','resources/js/form-url.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js'])
 </head>
 
 <body class="bg-[var(--color-background)] text-[var(--text-primary)] flex">
@@ -90,11 +90,9 @@
         </section>
 
     </main>
-
-
-    <script>
-        
-    </script>
+    <section class="relative">
+        @include('utils.tab-bar')
+    </section>
 </body>
 
 </html>

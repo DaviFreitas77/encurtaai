@@ -4,6 +4,7 @@ use App\Http\Controllers\client\dashboardUserController;
 use App\Http\Controllers\client\urlController;
 use App\Http\Controllers\client\userController;
 use Illuminate\Support\Facades\Route;
+use Phiki\Phast\Root;
 
 Route::get('/', function () {
     return view('client.landingPage');
@@ -13,8 +14,7 @@ Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
     Route::get('/qr-code', [dashboardUserController::class, 'myQrCode'])->name('myQrCode');
     Route::post('/generate-qr-code', [dashboardUserController::class, 'generateQrCode']);
-    Route::get('/create-link-user',[dashboardUserController::class, 'latestUrlUser'])->name('create-link-user');
-   
+    Route::get('/create-link-user', [dashboardUserController::class, 'latestUrlUser'])->name('create-link-user');
 });
 
 
@@ -25,6 +25,7 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
 
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
 Route::get('/r/{slug}', [urlController::class, 'redirect']);
+Route::post('/r/get-qr-code', [urlController::class, 'get_qr_code']);
 
 
 // Grupo de rotas admin
