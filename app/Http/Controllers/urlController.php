@@ -7,7 +7,7 @@ use App\Models\Url;
 use App\Helpers;
 use Illuminate\Http\Request;
 
-class urlController extends Controller
+class urlController 
 {
     public function shortenedUrl(Request $request)
     {

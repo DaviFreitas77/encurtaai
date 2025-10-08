@@ -1,66 +1,72 @@
-const form = document.getElementById("form_shortened_url");
-const linkShortened = document.getElementById("link_shortened");
-const divLinkShortened = document.getElementById("div-link-shortened");
-const submitButton = document.getElementById("submit-form");
+import { toggle_modal_limited_url } from "./modals.js";
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("CONFIRMAÇÃO: O script form-url.js FOI CARREGADO!");
+    const form = document.getElementById("form_shortened_url");
+    const linkShortened = document.getElementById("link_shortened");
+    const divLinkShortened = document.getElementById("div-link-shortened");
+    const submitButton = document.getElementById("submit-form");
 
-function clearErrors() {
-    const allErrorElements = form.querySelectorAll("[data-error-for]");
-    allErrorElements.forEach((el) => (el.textContent = ""));
-}
-
-function showError(fieldName, message) {
-    const errorElement = form.querySelector(`[data-error-for="${fieldName}"]`);
-    if (errorElement) {
-        errorElement.textContent = message;
+    function clearErrors() {
+        const allErrorElements = form.querySelectorAll("[data-error-for]");
+        allErrorElements.forEach((el) => (el.textContent = ""));
     }
-}
 
-function showShortenedLink(url) {
-    divLinkShortened.classList.remove("hidden");
-    divLinkShortened.classList.add("flex");
-    linkShortened.textContent = url;
-    linkShortened.classList.remove("hidden");
-}
+    function showError(fieldName, message) {
+        const errorElement = form.querySelector(
+            `[data-error-for="${fieldName}"]`
+        );
+        if (errorElement) {
+            errorElement.textContent = message;
+        }
+    }
 
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+    function showShortenedLink(url) {
+        divLinkShortened.classList.remove("hidden");
+        divLinkShortened.classList.add("flex");
+        linkShortened.textContent = url;
+        linkShortened.classList.remove("hidden");
+    }
 
-    clearErrors();
-    submitButton.textContent = "Carregando...";
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
-    const formData = new FormData(form);
+        clearErrors();
+        submitButton.textContent = "Carregando...";
 
-    try {
-        const response = await fetch("/shortenedUrl", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "x-csrf-token": formData.get("_token"),
-            },
-            body: formData,
-        });
+        const formData = new FormData(form);
 
-        if (!response.ok) {
-            if (response.status === 422) {
-                const errorResponse = await response.json();
-                const errors = errorResponse.errors;
+        try {
+            const response = await fetch("/shortenedUrl", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "x-csrf-token": formData.get("_token"),
+                },
+                body: formData,
+            });
 
-                for (const fieldName in errors) {
-                    const message = errors[fieldName][0];
-                    showError(fieldName, message);
+            if (!response.ok) {
+                if (response.status === 422) {
+                    const errorResponse = await response.json();
+                    const errors = errorResponse.errors;
+
+                    for (const fieldName in errors) {
+                        const message = errors[fieldName][0];
+                        showError(fieldName, message);
+                    }
+                } else if (response.status === 429) {
+                    toggle_modal_limited_url();
                 }
             } else {
-                console.log("erro desconhecido");
+                const data = await response.json();
+                const urlShortened = data.url_shortened;
+                showShortenedLink(urlShortened);
+                form.reset();
             }
-        } else {
-            const data = await response.json();
-            const urlShortened = data.url_shortened;
-            showShortenedLink(urlShortened);
-            form.reset();
+        } catch (error) {
+            console.log(error);
+        } finally {
+            submitButton.textContent = "Criar link curto";
         }
-    } catch (error) {
-        console.log(error);
-    } finally {
-        submitButton.textContent = "Criar link curto";
-    }
+    });
 });
