@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class urlController
 
 {
-    public function __construct(private UrlService $url_service) {}
+    public function __construct(private UrlService $urlService) {}
 
     public function shortenedUrl(Request $request)
     {
@@ -40,7 +40,7 @@ class urlController
             'url_original.url' => 'O campo URL deve ser uma URL válida.'
         ]);
 
-        $url = $this->url_service->create_shoterned_url($validate);
+        $url = $this->urlService->create_shoterned_url($validate);
 
         if (!Auth::check()) {
             session()->increment('urls');
@@ -51,13 +51,36 @@ class urlController
         ]);
     }
 
+
+    public function get_qr_code(Request $request)
+    {
+        $validate = $request->validate([
+            'url_qr_code' => ['required', 'url'],
+        ], [
+            'url_qr_code.required' => 'O campo URL é obrigatório.',
+            'url_qr_code.url' => 'O campo URL deve ser uma URL válida.'
+        ]);
+
+        $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $validate['url_qr_code']]);
+
+        $url = url('/r/' . $shotenUrl->slug);
+        $qrCode = $this->urlService->qr_code_for_url($url);
+        $qrCodeSvgString = $qrCode->toHtml();
+
+        $locationUrl = Url::where('slug', $shotenUrl->slug)->first();
+        $locationUrl->qr_code_url = $qrCodeSvgString;
+        $locationUrl->save();
+
+        return response()->json([
+            'qr_code' => $qrCodeSvgString
+        ]);
+    }
     public function redirect(Request $request, string $slug)
     {
 
-        $url = $this->url_service->process_redirect($slug);
+        $url = $this->urlService->process_redirect($slug);
 
         if (!$url) {
-
             return redirect('/404');
         }
 
