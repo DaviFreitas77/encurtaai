@@ -15,7 +15,7 @@
             <section>
                 @include('admin.components.header')
             </section>
-        
+
         </div>
     </main>
 

@@ -6,8 +6,7 @@
            <div class="flex flex-col justify-between flex-1">
                <div>
                    <div class="flex items-center justify-between mb-2">
-                       <a href="{{ url('/r/' . $url['slug']) }}"
-                           target="_blank"
+                       <a href="{{ url('/r/' . $url['slug']) }}" target="_blank"
                            class="text-blue-600 hover:underline font-semibold break-all text-sm sm:text-base">
                            {{ url('/r/' . $url['slug']) }}
                        </a>

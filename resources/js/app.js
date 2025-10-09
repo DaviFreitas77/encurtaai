@@ -1,41 +1,37 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const formLogin = document.getElementById("formLogin");
+  const formRegister = document.getElementById("formRegister");
+  const formSendMail = document.getElementById("formSendMail");
+  const formCode = document.getElementById("formCode");
+  const formResetPassword = document.getElementById("formResetPassword");
 
-document.addEventListener('DOMContentLoaded', () => {
-const formLogin = document.getElementById("formLogin");
-const formRegister = document.getElementById("formRegister");
-const formSendMail = document.getElementById("formSendMail");
-const formCode = document.getElementById("formCode");
-const formResetPassword = document.getElementById("formResetPassword");
+  const btnToggleToRegister = document.getElementById("show-form-register");
+  const btnToggleToLogin = document.getElementById("show-form-login");
+  const btnToggleToPassword = document.getElementById("show-form-password");
+  const btntoggletoFormCode = document.getElementById("show-form-code");
+  const btnToggleFormResetPassword = document.getElementById("showFormResetPassword");
 
-const btnToggleToRegister = document.getElementById("show-form-register");
-const btnToggleToLogin = document.getElementById("show-form-login");
-const btnToggleToPassword = document.getElementById("show-form-password");
-const btntoggletoFormCode = document.getElementById("show-form-code");
-const btnToggleFormResetPassword = document.getElementById(
-    "showFormResetPassword"
-);
-
-
-btnToggleToRegister.addEventListener("click", () => {
+  btnToggleToRegister.addEventListener("click", () => {
     showForm("register");
-});
+  });
 
-btnToggleToLogin.addEventListener("click", () => {
+  btnToggleToLogin.addEventListener("click", () => {
     showForm("login");
-});
+  });
 
-btnToggleToPassword.addEventListener("click", () => {
+  btnToggleToPassword.addEventListener("click", () => {
     showForm("password");
-});
+  });
 
-btntoggletoFormCode.addEventListener("click", () => {
+  btntoggletoFormCode.addEventListener("click", () => {
     showForm("code");
-});
+  });
 
-btnToggleFormResetPassword.addEventListener("click", () => {
+  btnToggleFormResetPassword.addEventListener("click", () => {
     showForm("resetPassword");
-});
+  });
 
-function showForm(type) {
+  function showForm(type) {
     const showLogin = type === "login";
     const showRegister = type === "register";
     const showSendMail = type === "password";
@@ -59,6 +55,5 @@ function showForm(type) {
 
     formResetPassword.classList.toggle("hidden", !showResetPassword);
     formResetPassword.classList.toggle("flex", showResetPassword);
-}
-
-})
+  }
+});

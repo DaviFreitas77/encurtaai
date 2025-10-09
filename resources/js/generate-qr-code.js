@@ -4,24 +4,24 @@ const showQrCode = document.getElementById("qr_code");
 const modalQrCode = document.querySelector(".modal-qr-code");
 
 formQrCode.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData(formQrCode);
+  const formData = new FormData(formQrCode);
 
-    try {
-        const response = await fetch("/r/get-qr-code", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "x-csrf-token": formData.get("_token"),
-            },
-            body: formData,
-        });
-        const data = await response.json();
-        showQrCode.innerHTML = data.qr_code;
-        modalQrCode.classList.remove("hidden");
-       modalQrCode.classList.add("flex");
-    } catch (error) {
-        console.error("Error generating QR code:", error);
-    }
+  try {
+    const response = await fetch("/r/get-qr-code", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "x-csrf-token": formData.get("_token"),
+      },
+      body: formData,
+    });
+    const data = await response.json();
+    showQrCode.innerHTML = data.qr_code;
+    modalQrCode.classList.remove("hidden");
+    modalQrCode.classList.add("flex");
+  } catch (error) {
+    console.error("Error generating QR code:", error);
+  }
 });
