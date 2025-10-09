@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\client;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 
 class userController
 {
+    public function __construct(private UserService $userService) {}
+
     /**
      * Display a listing of the resource.
      */
@@ -91,12 +94,8 @@ class userController
 
     public function logout(Request $request, User $id)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('success', 'Você saiu com sucesso. voce venceuu!');
+        $this->userService->Logout();
+        return redirect('/')->with('success', 'Você saiu com sucesso!');
     }
 
     /**

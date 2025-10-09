@@ -13,6 +13,14 @@ class UserService
     public function __construct() {}
 
 
+    public function Logout()
+    {
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        
+    }
+
     public function all_user()
     {
         return User::all()->count();

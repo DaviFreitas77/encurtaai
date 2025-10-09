@@ -13,6 +13,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
     Route::post('/generate-qr-code', [dashboardUserController::class, 'generateQrCode']);
+    Route::post('/logout', [userController::class, 'logout'])->name('logout');
     
 });
 

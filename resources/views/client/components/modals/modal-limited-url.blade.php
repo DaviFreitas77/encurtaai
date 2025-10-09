@@ -4,7 +4,7 @@
    <div class="w-full max-w-3xl rounded-lg shadow-2xl bg-white p-6 relative">
 
 
-      <button class="close-modal-url-limited absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
+      <button class="close-modal-url-limited absolute top-4 right-4 text-black hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
 
       <div class="grid md:grid-cols-2 gap-8 items-center">
          <div class="flex flex-col">
@@ -41,10 +41,10 @@
             </ul>
 
             <div class="flex flex-col gap-3">
-               <button id="openModalLogin" class="close-modal-url-limited bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-md font-semibold w-full">Criar Conta Grátis</button>
+               <button id="openModalLogin" class="close-modal-url-limited bg-[var(--color-primary)] hover:opacity-90  text-white px-6 py-3 rounded-md font-semibold w-full cursor-pointer">Criar Conta Grátis</button>
             </div>
          </div>
-         <img src="{{ asset('image/sistema.png') }}" alt="Ilustração da plataforma Encurtaái" class="w-full rounded-lg shadow-lg hidden md:block" />
+         <img src="{{ asset('image/gere-qrcode.png') }}" alt="Ilustração da plataforma Encurtaái" class="w-full rounded-lg shadow-lg hidden md:block" />
       </div>
    </div>
 </div>

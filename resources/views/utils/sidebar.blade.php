@@ -57,6 +57,29 @@
     </ul>
 
     @endif
-   
+    <li class="flex items-center  rounded-lg  text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
+        <form method="POST" action="{{route('logout')}}">
+            @csrf
+            <button class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white cursor-pointer">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span class="text-menu font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out text-lg">Sair</span>
+            </button>
+        </form>
+
+    </li>
+
 </nav>
 @endauth
