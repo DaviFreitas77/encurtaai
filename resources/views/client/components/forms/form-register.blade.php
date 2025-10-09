@@ -50,12 +50,12 @@
     </div>
 
     <div class="flex w-full">
-      <button type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
+      <button id="button-register" type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full cursor-pointer hover:opacity-90">Registrar</button>
     </div>
 
     <p class="mt-4 text-center text-sm">
       Já tem conta?
-      <button id="buttonLogin" type="button" class="text-primary  cursor-pointer">Entrar</button>
+      <button id="show-form-login" type="button" class="text-primary  cursor-pointer">Entrar</button>
     </p>
   </form>
 
@@ -64,6 +64,7 @@
 
 <script>
   const formRegister = document.getElementById('form-register');
+  const brtnRegister = document.getElementById('button-register');
   const registerUrl = formRegister.action;
 
   function clearErrors() {
@@ -81,8 +82,8 @@
 
   formRegister.addEventListener('submit', async function(event) {
     event.preventDefault();
-
     clearErrors();
+    brtnRegister.textContent = 'Carregando...';
     const formData = new FormData(formRegister);
 
     try {
@@ -112,6 +113,8 @@
       }
     } catch (error) {
       console.log(error)
+    }finally{
+      brtnRegister.textContent = 'Registrar';
     }
 
   })

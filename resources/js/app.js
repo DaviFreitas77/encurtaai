@@ -6,8 +6,8 @@ const formSendMail = document.getElementById("formSendMail");
 const formCode = document.getElementById("formCode");
 const formResetPassword = document.getElementById("formResetPassword");
 
-const btnToggleToRegister = document.getElementById("buttonRegister");
-const btnToggleToLogin = document.getElementById("buttonLogin");
+const btnToggleToRegister = document.getElementById("show-form-register");
+const btnToggleToLogin = document.getElementById("show-form-login");
 const btnToggleToPassword = document.getElementById("show-form-password");
 const btntoggletoFormCode = document.getElementById("show-form-code");
 const btnToggleFormResetPassword = document.getElementById(

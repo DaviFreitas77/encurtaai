@@ -55,23 +55,25 @@
       <a id="show-form-password" class="text-primary text-sm hover:underline">Esqueceu a senha?</a>
     </div>
     <div class="flex w-full">
-      <button type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full">Entrar</button>
+      <button id="button-login" type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-2 rounded-sm font-semibold w-full cursor-pointer hover:opacity-90">Entrar</button>
     </div>
     <p class="mt-4 text-center text-sm">
       Não tem conta?
-      <button id="buttonRegister" type="button" class="text-primary  cursor-pointer">Registrar</button>
+      <button id="show-form-register" type="button" class="text-primary  cursor-pointer">Registrar</button>
     </p>
   </form>
 </div>
 
 <script>
   const formLogin = document.getElementById('form-login');
+  const btnLogin = document.getElementById('button-login');
   const loginUrl = formLogin.action;
 
 
 
   formLogin.addEventListener('submit', async function(event) {
     event.preventDefault();
+    btnLogin.textContent = 'Carregando...';
     const errorElement = formLogin.querySelector('.error');
     errorElement.textContent = "";
 
@@ -100,6 +102,8 @@
       }
     } catch (error) {
       console.log(error)
+    }finally{
+      btnLogin.textContent = 'Entrar';
     }
 
   })
