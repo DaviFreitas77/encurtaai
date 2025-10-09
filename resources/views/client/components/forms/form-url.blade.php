@@ -1,4 +1,4 @@
-<form id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
+<form  method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
     @csrf
 
     <div id="div-link-shortened" class="w-full my-4 border border-green-200  bg-green-50 hidden justify-center items-center rounded-md  ">
@@ -60,7 +60,7 @@
     </section>
 </form>
 
-<form id="section-form-qr-code" class=" w-full max-w-[700px] text-sm hidden">
+<form method="POST" id="section-form-qr-code" class=" w-full max-w-[700px] text-sm hidden">
     @csrf
     <section>
         <div>
