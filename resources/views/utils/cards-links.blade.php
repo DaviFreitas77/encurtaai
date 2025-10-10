@@ -35,7 +35,7 @@
                        </svg>
                        <span>
                            {{ date('d', strtotime($url['created_at'])) }}/
-                           {{ config('month.data')[ltrim(date('m', strtotime($url['created_at'])), '0')] }}
+                        {{ config('month.data')[(date('m', strtotime($url['created_at']))) - 1] }}
                        </span>
                    </div>
                    <!-- Cliques -->
