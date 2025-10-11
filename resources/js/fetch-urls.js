@@ -1,10 +1,12 @@
-
 export async function fetchUrls() {
   const urlContainer = document.getElementById("urlContainer");
   const template = document.getElementById("urlCardTemplate");
 
-  urlContainer.innerHTML = "";
-
+ urlContainer.innerHTML = `
+  <div class="col-span-full h-96 flex items-center justify-center">
+    <div class="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[var(--color-primary)]"></div>
+  </div>
+`;
   try {
     const response = await fetch("/getUrlUser", {
       method: "GET",
@@ -15,7 +17,8 @@ export async function fetchUrls() {
     });
 
     const data = await response.json();
- 
+    urlContainer.innerHTML = "";
+
     data.urls.forEach((url) => {
       const clone = template.content.cloneNode(true);
 
@@ -26,9 +29,7 @@ export async function fetchUrls() {
       clone.querySelector(".status").textContent = url.status;
       clone.querySelector(".qrCode").innerHTML = url.qr_code_url;
 
-      const dateFormatted = new Date(
-        url.created_at.replace(" ", "T")
-      ).toLocaleDateString("pt-BR");
+      const dateFormatted = new Date(url.created_at.replace(" ", "T")).toLocaleDateString("pt-BR");
       clone.querySelector(".date").textContent = dateFormatted;
 
       clone.querySelector(".clicks").textContent = url.click_count;
@@ -39,4 +40,3 @@ export async function fetchUrls() {
     console.error("Erro ao carregar URLs:", e);
   }
 }
-
