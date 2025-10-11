@@ -1,4 +1,4 @@
-<form method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
+<form method="POST" id="form_shortened_url"  class=" w-full max-w-[700px] text-sm">
     @csrf
 
     <div id="div-link-shortened"
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <button id="submit-form"
+        <button  id="submit-form"
             class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Criar link
             curto</button>
     </section>

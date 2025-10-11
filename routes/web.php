@@ -4,17 +4,15 @@ use App\Http\Controllers\client\dashboardUserController;
 use App\Http\Controllers\client\urlController;
 use App\Http\Controllers\client\userController;
 use Illuminate\Support\Facades\Route;
-use Phiki\Phast\Root;
+
 
 Route::get('/', function () {
     return view('client.landingPage');
 })->middleware(['guest', 'redirect.admin']);
 
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
-    Route::get('/home', [dashboardUserController::class, 'showDashboardUser'])->name("home");
-    Route::post('/generate-qr-code', [dashboardUserController::class, 'generateQrCode']);
+    Route::get('/home',function(){return view('client.home');})->name('home');
     Route::post('/logout', [userController::class, 'logout'])->name('logout');
-    
 });
 
 
@@ -24,6 +22,8 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
 });
 
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
+Route::get('/getUrlUser', [urlController::class, 'get_url_user_logged'])->name('getUrlUserLogged');
+Route::get('/getAnalyticsUrl', [urlController::class, 'url_analytics']);
 Route::get('/r/{slug}', [urlController::class, 'redirect']);
 Route::post('/r/get-qr-code', [urlController::class, 'get_qr_code']);
 

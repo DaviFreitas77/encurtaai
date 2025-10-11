@@ -75,6 +75,25 @@ class urlController
             'qr_code' => $qrCodeSvgString
         ]);
     }
+
+    public function get_url_user_logged()
+    {
+        $urls = $this->urlService->get_url();
+        return response()->json([
+            'urls' =>  $urls
+        ]);
+    }
+    public function url_analytics()
+    {
+        $urls = $this->urlService->get_status_url();
+        return response()->json([
+            'totalurls' =>  $urls['total'],
+            'activeurls' =>  $urls['active'],
+            'inactiveurls' =>  $urls['inactive'],
+            'expiredurls' =>  $urls['expired'],
+        ]);
+    }
+
     public function redirect(Request $request, string $slug)
     {
         $url = $this->urlService->process_redirect($slug);

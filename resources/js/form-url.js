@@ -1,6 +1,7 @@
 import { toggle_modal_limited_url } from "./modals.js";
+import { fetchUrls } from "./fetch-urls.js";
+import fetchCardAnalytics from "./fetch-card-analytics.js";
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("CONFIRMAÇÃO: O script form-url.js FOI CARREGADO!");
   const form = document.getElementById("form_shortened_url");
   const linkShortened = document.getElementById("link_shortened");
   const divLinkShortened = document.getElementById("div-link-shortened");
@@ -60,6 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const urlShortened = data.url_shortened;
         showShortenedLink(urlShortened);
         form.reset();
+        fetchUrls();
+        fetchCardAnalytics();
       }
     } catch (error) {
       console.log(error);

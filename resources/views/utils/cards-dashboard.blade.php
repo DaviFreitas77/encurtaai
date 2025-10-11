@@ -1,6 +1,3 @@
-@props(['totalActive', 'totalInactive', 'totalExpired',
-'totalUsers','allUrlUser','activeUrlUser','inactiveUrlUser','expiredUrlUser','allUrl'])
-@auth
 <div class="flex gap-4 items-center justify-center flex-col">
     @if(auth()->user()->role == 'admin')
     <div class="mt-10  grid grid-cols-4 w-full gap-1">
@@ -16,7 +13,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-3xl font-medium"> {{ $totalActive }}</p>
+            <p class="text-3xl font-medium"></p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
@@ -33,7 +30,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-3xl font-medium">{{$totalInactive}}</p>
+            <p class=" text-3xl font-medium"></p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
@@ -49,7 +46,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-3xl font-medium">{{$totalExpired}}</p>
+            <p class=" text-3xl font-medium"></p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
@@ -65,7 +62,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="text-3xl font-medium">{{$allUrl}}</p>
+            <p class="text-3xl font-medium"></p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
@@ -78,7 +75,7 @@
                         d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
                 </svg>
             </div>
-            <p class="text-3xl font-medium">{{$totalUsers}}</p>
+            <p class="text-3xl font-medium"></p>
             <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
         </div>
 
@@ -101,7 +98,7 @@
                         </g>
                     </svg>
                 </div>
-                <p class="text-3xl font-medium">{{$allUrlUser->count()}}</p>
+                <p class="totalLinks text-3xl font-medium"></p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md justify-between w-full">
@@ -117,7 +114,7 @@
                         </g>
                     </svg>
                 </div>
-                <p class="text-3xl font-medium"> {{ $activeUrlUser }}</p>
+                <p class="activeUrl text-3xl font-medium"> </p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md  justify-between w-full">
@@ -133,7 +130,7 @@
                         </g>
                     </svg>
                 </div>
-                <p class="text-3xl font-medium">{{$inactiveUrlUser}}</p>
+                <p class="inactiveUrl text-3xl font-medium"></p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md  justify-between w-full">
@@ -149,7 +146,7 @@
                         </g>
                     </svg>
                 </div>
-                <p class="text-3xl font-medium">{{$expiredUrlUser}}</p>
+                <p class="expiredUrl text-3xl font-medium"></p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
         </div>
@@ -158,4 +155,3 @@
     @endif
     <div class="w-full h-0.5 bg-[var(--color-secondary)] "></div>
 </div>
-@endauth

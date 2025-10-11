@@ -29,30 +29,45 @@ class DashboardService
         $orderBy = $order ?? 'relevance';
         switch ($orderBy) {
             case 'relevance':
-                return $urls->sortBy('id');
+                return response()->json([
+                    'urls' =>  $urls->sortBy('id')
+                ]);
 
             case 'recent':
-                return $urls->sortBy('created_at');
+                return response()->json([
+                    'urls' =>  $urls->sortBy('created_at')
+                ]);
 
             case 'expired':
-                return $urls->where('status', 'expired');
+                return response()->json([
+                    'urls' =>  $urls->where('status', 'expired')
+                ]);
 
             case 'active':
-                return $urls->where('status', 'active');
+                return response()->json([
+                    'urls' =>  $urls->where('status', 'active')
+                ]);
 
             case 'inactive':
-                return $urls->where('status', 'inactive');
+                return response()->json([
+                    'urls' =>  $urls->where('status', 'inactive')
+                ]);
 
 
             case 'moreClick':
-                return $urls->sortByDesc('click_count');
-
+                return response()->json([
+                    'urls' =>  $urls->sortByDesc('click_count')
+                ]);
 
             case 'lessClick':
-                return $urls->sortBy('click_count');
+                return response()->json([
+                    'urls' =>  $urls->sortBy('click_count')
+                ]);
 
             default:
-                return $urls;
+                return response()->json([
+                    'urls' =>  $urls
+                ]);
         }
     }
 

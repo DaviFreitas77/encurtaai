@@ -31,8 +31,10 @@ class UrlService
         $activeUrl = $urlUser->where('status', 'active')->count();
         $inactiveUrl = $urlUser->where('status', 'inactive')->count();
         $expiredUrl = $urlUser->where('status', 'expired')->count();
+        
 
         return [
+            'total' => $urlUser->count(),
             'active' => $activeUrl,
             'inactive' => $inactiveUrl,
             'expired' => $expiredUrl,
