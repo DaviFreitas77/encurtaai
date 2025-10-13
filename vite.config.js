@@ -1,16 +1,32 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-     server: {
-        https: false,
-    },
-    plugins: [
-        laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js','resources/js/theme.js','resources/js/modals.js','resources/js/controller-dropdown.js','resources/js/sidebar.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js','fetch-urls.js','resources/js/dashboard.js'],
-            refresh: true,
-        }),
-        tailwindcss(),
-    ],
+  server: {
+    https: false,
+  },
+  plugins: [
+    laravel({
+      input: [
+        "resources/css/app.css",
+        "resources/js/app.js",
+        "resources/js/form-url.js",
+        "resources/js/redirect.js",
+        "resources/js/theme.js",
+        "resources/js/modals.js",
+        "resources/js/controller-dropdown.js",
+        "resources/js/sidebar.js",
+        "resources/js/segmentedControl.js",
+        "resources/js/generate-qr-code.js",
+        "resources/js/fetch-urls.js",
+        "resources/js/dashboard.js",
+        "resources/js/fetch-card-analytics.js",
+        "resources/js/arrayMonth.js",
+        "resources/js/features-card-url.js",
+      ],
+      refresh: true,
+    }),
+    tailwindcss(),
+  ],
 });

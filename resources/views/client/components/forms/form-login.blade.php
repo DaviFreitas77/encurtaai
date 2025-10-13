@@ -110,18 +110,18 @@ formLogin.addEventListener('submit', async function(event) {
             if (response.status === 401) {
                 const errorResponse = await response.json();
                 errorElement.textContent = errorResponse.message;
+                btnLogin.textContent = 'Entrar';
             }
 
         } else {
             const data = await response.json()
             window.location.href = data.redirect_url;
+            btnLogin.textContent = 'Entrar';
 
         }
     } catch (error) {
         console.log(error)
-    } finally {
-        btnLogin.textContent = 'Entrar';
-    }
+    } 
 
 })
 </script>

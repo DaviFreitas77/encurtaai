@@ -1,6 +1,7 @@
 import { toggle_modal_limited_url } from "./modals.js";
 import { fetchUrls } from "./fetch-urls.js";
 import fetchCardAnalytics from "./fetch-card-analytics.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form_shortened_url");
   const linkShortened = document.getElementById("link_shortened");
