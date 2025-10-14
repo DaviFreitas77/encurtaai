@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkShortened = document.getElementById("link_shortened");
   const divLinkShortened = document.getElementById("div-link-shortened");
   const submitButton = document.getElementById("submit-form");
-  const btnCopy = document.getElementById("btn_copy");
+
 
 
   function clearErrors() {

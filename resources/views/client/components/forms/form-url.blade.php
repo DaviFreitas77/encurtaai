@@ -73,9 +73,9 @@
     <section>
         <div>
             <p class="mb-2 text-start">Gerar QR Code</p>
-            <input type="text" name="url_qr_code" placeholder="Cole sua URL aqui..."
+            <input  type="text" name="url_qr_code" placeholder="Cole sua URL aqui..."
                 class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black">
-            <p data-error-for="url_original" class="text-red-500 text-sm mt-1 text-start"></p>
+            <p data-error-for="url_qr_code" class="text-red-500 text-sm mt-1 text-start"></p>
             <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
             </div>
         </div>

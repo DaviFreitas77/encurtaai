@@ -57,8 +57,8 @@ class urlController
         $validate = $request->validate([
             'url_qr_code' => ['required', 'url'],
         ], [
-            'url_qr_code.required' => 'O campo URL é obrigatório.',
-            'url_qr_code.url' => 'O campo URL deve ser uma URL válida.'
+            'url_qr_code.required' => 'Este campo é obrigatório.',
+            'url_qr_code.url' => 'URL inválida'
         ]);
 
         $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $validate['url_qr_code']]);
