@@ -4,13 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const modalCreateUrl = document.getElementById("modal-create-url");
   const btnCloseModalCreateUrl = document.querySelector(".close-modal-create-url");
-  const btnOpenModalCreateUrl = document.querySelector("#open-modal-create-url");
+  const btnOpenModalCreateUrl = document.querySelectorAll(".open-modal-create-url");
 
   if (btnOpenModalCreateUrl && modalCreateUrl && btnCloseModalCreateUrl) {
-    btnOpenModalCreateUrl.addEventListener("click", () => {
-      modalCreateUrl.classList.remove("hidden");
-      modalCreateUrl.classList.add("flex");
-    });
+    btnOpenModalCreateUrl.forEach((btn) =>
+      btn.addEventListener("click", () => {
+        modalCreateUrl.classList.remove("hidden");
+        modalCreateUrl.classList.add("flex");
+      })
+    );
 
     btnCloseModalCreateUrl.addEventListener("click", () => {
       modalCreateUrl.classList.add("hidden");

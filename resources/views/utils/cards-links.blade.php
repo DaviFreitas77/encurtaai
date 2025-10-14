@@ -4,6 +4,7 @@
     <div class="p-6 flex-1 flex flex-col gap-4">
       <section class="flex justify-between items-start">
         <div class="flex items-center gap-3">
+          <p class="id hidden "></p>
           <p class="text-lg font-bold ">Sem tag</p>
           <button class="text-slate-500 hover:text-sky-400 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -14,30 +15,20 @@
         </div>
 
         <div class="flex items-center gap-2">
-          <button class="copy-button bg-[var(--color-background)] hover:bg-slate-600   px-3 py-1.5 text-xs rounded-md cursor-pointer flex items-center gap-2 transition-colors">
+          <button class="copy-button bg-[var(--color-background)] hover:opacity-85   px-3 py-1.5 text-xs rounded-md cursor-pointer flex items-center gap-2 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
             <span>Copiar</span>
           </button>
-          <button class="share-button bg-[var(--color-background)] hover:bg-slate-600   px-3 py-1.5 text-xs rounded-md cursor-pointer flex items-center gap-2 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-            </svg>
-            <span>Share</span>
-          </button>
-
-          <button class="expanded-button cursor-pointer  bg-[var(--color-background)] hover:bg-slate-600 rounded-md px-2 py-1.5">
+        
+          <button class="open-dropdown cursor-pointer  bg-[var(--color-background)] hover:opacity-85 rounded-md px-2 py-1.5">
             <svg xmlns="http://www.w3.org/2000/svg" stroke="currentColor" width="17" height="17" viewBox="0 0 24 24">
               <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
             </svg>
-
           </button>
+          @include('utils.dropdown')
 
 
         </div>

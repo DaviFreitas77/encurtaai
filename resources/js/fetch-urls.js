@@ -27,6 +27,7 @@ export async function fetchUrls() {
       clone.querySelector(".slug").textContent = `${appBaseUrl}/r/${url.slug}`;
 
       clone.querySelector(".urlOriginal").textContent = url.url_original;
+      clone.querySelector('.id').textContent = url.id
       // clone.querySelector(".qrCode").innerHTML = url.qr_code_url;
 
       const day = new Date(url.created_at).getDate();

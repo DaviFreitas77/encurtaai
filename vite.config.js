@@ -15,8 +15,6 @@ export default defineConfig({
         "resources/js/redirect.js",
         "resources/js/theme.js",
         "resources/js/modals.js",
-        "resources/js/controller-dropdown.js",
-        "resources/js/sidebar.js",
         "resources/js/segmentedControl.js",
         "resources/js/generate-qr-code.js",
         "resources/js/fetch-urls.js",

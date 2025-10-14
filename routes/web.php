@@ -24,6 +24,8 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
 Route::get('/getUrlUser', [urlController::class, 'get_url_user_logged'])->name('getUrlUserLogged');
 Route::get('/getAnalyticsUrl', [urlController::class, 'url_analytics']);
+Route::delete('/deleteUrl/{id}', [urlController::class, 'delete_url']);
+
 Route::get('/r/{slug}', [urlController::class, 'redirect']);
 Route::post('/r/get-qr-code', [urlController::class, 'get_qr_code']);
 

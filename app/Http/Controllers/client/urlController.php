@@ -109,4 +109,13 @@ class urlController
         }
         return redirect($url->url_original);
     }
+
+    public function delete_url(int $id)
+    {
+        $this->urlService->delete_url($id);
+
+        return response()->json([
+            'message' => 'Link excluído com sucesso!',
+        ]);
+    }
 }

@@ -31,7 +31,7 @@ class UrlService
         $activeUrl = $urlUser->where('status', 'active')->count();
         $inactiveUrl = $urlUser->where('status', 'inactive')->count();
         $expiredUrl = $urlUser->where('status', 'expired')->count();
-        
+
 
         return [
             'total' => $urlUser->count(),
@@ -57,7 +57,7 @@ class UrlService
     }
 
 
-    
+
     public function process_redirect(string $slug)
     {
         $url = Url::where('slug', $slug)->first();
@@ -78,5 +78,10 @@ class UrlService
     public function qr_code_for_url(string $url)
     {
         return $this->qrCodeService->generateForUrl($url);
+    }
+
+    public function delete_url(int $id)
+    {
+        return Url::where('id', $id)->delete();
     }
 }
