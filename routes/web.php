@@ -4,7 +4,7 @@ use App\Http\Controllers\client\dashboardUserController;
 use App\Http\Controllers\client\urlController;
 use App\Http\Controllers\client\userController;
 use Illuminate\Support\Facades\Route;
-
+use Phiki\Phast\Root;
 
 Route::get('/', function () {
     return view('client.landingPage');
@@ -21,9 +21,12 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
     Route::post('/login', [userController::class, 'login'])->name('login');
 });
 
+Route::prefix('metrics')->middleware('auth')->group(function(){
+    Route::get('/analytics', [urlController::class, 'url_analytics']);
+});
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
 Route::get('/getUrlUser', [urlController::class, 'get_url_user_logged'])->name('getUrlUserLogged');
-Route::get('/getAnalyticsUrl', [urlController::class, 'url_analytics']);
+
 Route::delete('/deleteUrl/{id}', [urlController::class, 'delete_url']);
 
 Route::get('/r/{slug}', [urlController::class, 'redirect']);

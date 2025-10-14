@@ -1,6 +1,6 @@
 <header class="flex justify-center items-center">
     <nav class="relative flex justify-between w-full items-center p-5 lg:max-w-[1100px] border-b border-gray-100 text-sm">
-        <img src="image/logo.png" alt="logo" class="w-28">
+        <img src="image/logo.png" alt="logo" class="w-22">
         <div>
             <button id="openModalLogin" class="bg-[var(--color-primary)] text-white px-3 py-1 rounded-sm  transition mr-3 cursor-pointer font-medium">
                 Entrar

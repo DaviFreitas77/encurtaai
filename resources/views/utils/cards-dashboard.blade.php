@@ -103,7 +103,7 @@
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-base xl:text-xl">Links ativos</p>
+                    <p class="text-base xl:text-xl">Total de clicks</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         fill="currentColor">
                         <g>
@@ -114,12 +114,12 @@
                         </g>
                     </svg>
                 </div>
-                <p class="activeUrl text-3xl font-medium"> </p>
+                <p class="totalClick text-3xl font-medium"> </p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md  justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-base xl:text-xl">Links inativos</p>
+                    <p class="text-base xl:text-xl">Campanhas</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         fill="currentColor">
                         <g>
@@ -130,7 +130,7 @@
                         </g>
                     </svg>
                 </div>
-                <p class="inactiveUrl text-3xl font-medium"></p>
+                <p class="campaign text-3xl font-medium"></p>
                 <p class="text-sm"> <span class="text-green-500">8.2% </span>no utimo mês </p>
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md  justify-between w-full">

@@ -6,8 +6,6 @@
                 class="close-modal-create-url absolute -top-2 -right-2 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
         </div>
 
-        <h1 class="text-center mb-10 text-3xl font-bold">Encurtar seu link longo</h1>
-
         @include('client.components.forms.form-url')
         @include('client.components.modals.modal-QRcode')
     </div>

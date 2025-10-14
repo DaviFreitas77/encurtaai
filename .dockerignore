@@ -1,0 +1,19 @@
+# Arquivo .dockerignore
+
+# Ignorar dependências que são instaladas DENTRO do contêiner
+/vendor
+/node_modules
+
+# Ignorar arquivos do Git e de configuração local
+.git
+.gitignore
+.gitattributes
+.dockerignore
+Dockerfile
+README.md
+
+# Ignorar arquivos de ambiente (devem ser gerenciados pela Railway)
+
+.env.example
+
+

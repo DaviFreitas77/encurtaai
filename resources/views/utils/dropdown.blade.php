@@ -1,7 +1,7 @@
 <div class=" dropdown  hidden  flex-col w-[200px] gap-1 rounded-md bg-[var(--color-secondary)] p-1 absolute right-5 bottom-42">
 
     <button class="delete-link flex w-full items-center gap-2 rounded p-[10px]  relative
-                 hover:bg-[#21262C] focus:bg-[#1A1F24] active:bg-[#1A1F24]
+                 hover:bg-[var(--color-primary)] 
                  focus:outline-none transition-colors duration-150
                  before:content-[''] before:absolute before:left-0 before:top-[15%] before:h-[70%] before:w-[3px]
                  before:bg-[#2F81F7] before:rounded-r-full before:opacity-0
@@ -12,7 +12,7 @@
         Excluir
     </button>
 
-    <button class="flex w-full items-center gap-2 rounded p-[10px]  relative hover:bg-[#21262C] focus:bg-[#1A1F24] active:bg-[#1A1F24] focus:outline-none transition-colors duration-150 before:content-[''] before:absolute before:left-0 before:top-[15%] before:h-[70%] before:w-[3px] before:bg-[#2F81F7] before:rounded-r-full before:opacity-0 focus:before:opacity-100 active:before:opacity-100 before:transition-opacity before:duration-200 cursor-pointer">
+    <button class="flex w-full items-center gap-2 rounded p-[10px]  relative hover:bg-[var(--color-primary)]  focus:outline-none transition-colors duration-150 before:content-[''] before:absolute before:left-0 before:top-[15%] before:h-[70%] before:w-[3px] before:bg-[#2F81F7] before:rounded-r-full before:opacity-0 focus:before:opacity-100 active:before:opacity-100 before:transition-opacity before:duration-200 cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 ">
             <rect x="3" y="3" width="7" height="7" rx="1"></rect>
             <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -23,7 +23,7 @@
         Ver código QR
     </button>
 
-    <button class="flex w-full items-center gap-2 rounded p-[10px]  relative hover:bg-[#21262C] focus:bg-[#1A1F24] active:bg-[#1A1F24] focus:outline-none transition-colors duration-150 before:content-[''] before:absolute before:left-0 before:top-[15%] before:h-[70%] before:w-[3px] before:bg-[#2F81F7] before:rounded-r-full before:opacity-0 focus:before:opacity-100 active:before:opacity-100 before:transition-opacity before:duration-200  cursor-pointer">
+    <button class="flex w-full items-center gap-2 rounded p-[10px]  relative hover:bg-[var(--color-primary)]  focus:outline-none transition-colors duration-150 before:content-[''] before:absolute before:left-0 before:top-[15%] before:h-[70%] before:w-[3px] before:bg-[#2F81F7] before:rounded-r-full before:opacity-0 focus:before:opacity-100 active:before:opacity-100 before:transition-opacity before:duration-200  cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
             <circle cx="6" cy="12" r="3"></circle>

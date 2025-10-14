@@ -83,14 +83,16 @@ class urlController
             'urls' =>  $urls
         ]);
     }
+
+
     public function url_analytics()
     {
         $urls = $this->urlService->get_status_url();
         return response()->json([
             'totalurls' =>  $urls['total'],
-            'activeurls' =>  $urls['active'],
-            'inactiveurls' =>  $urls['inactive'],
-            'expiredurls' =>  $urls['expired'],
+            'totalClick' =>  $urls['totalClick'],
+            'topLink' => $urls['topLink']
+
         ]);
     }
 

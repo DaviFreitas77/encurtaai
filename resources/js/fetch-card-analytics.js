@@ -1,5 +1,5 @@
 export default async function fetchCardAnalytics() {
-  document.querySelectorAll(".totalLinks, .inactiveUrl, .activeUrl, .expiredUrl").forEach((el) => {
+  document.querySelectorAll(".totalLinks, .campaign, .totalClick, .expiredUrl").forEach((el) => {
   el.innerHTML = `
     <div class="w-full">
       <div class="w-8 h-8 border-4 border-dashed rounded-full animate-spin border-[var(--color-primary)] mx-auto"></div>
@@ -8,7 +8,7 @@ export default async function fetchCardAnalytics() {
 });
 
   try {
-    const response = await fetch("/getAnalyticsUrl", {
+    const response = await fetch("/metrics/analytics", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,9 +19,10 @@ export default async function fetchCardAnalytics() {
     const data = await response.json();
 
     document.querySelectorAll(".totalLinks").forEach((el) => (el.textContent = data.totalurls));
-    document.querySelectorAll(".inactiveUrl").forEach((el) => (el.textContent = data.inactiveurls));
-    document.querySelectorAll(".activeUrl").forEach((el) => (el.textContent = data.activeurls));
-    document.querySelectorAll(".expiredUrl").forEach((el) => (el.textContent = data.expiredurls));
+    document.querySelectorAll(".totalClick").forEach((el) => (el.textContent = data.totalClick));
+   
+
+  
   } catch (e) {
     console.error("Erro ao carregar URLs:", e);
   }

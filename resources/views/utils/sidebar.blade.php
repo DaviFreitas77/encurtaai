@@ -57,7 +57,7 @@
     </ul>
     @else
     <ul class="space-y-4">
-        <div class="flex justify-center items-center mb-8"><img src="{{asset('image/logo.png')}}" alt="" class="w-42"></div>
+        <div class="flex justify-center items-center mb-8"><img src="{{asset('image/logo.png')}}" alt="" class="w-22"></div>
         <button
             class="open-modal-create-url flex items-center rounded-sm text-white  bg-[var(--color-primary)] hover:opacity-90 cursor-pointer w-full px-4 py-3 gap-3">
 

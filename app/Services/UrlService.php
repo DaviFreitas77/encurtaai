@@ -28,16 +28,13 @@ class UrlService
     {
         $userId = Auth::id();
         $urlUser =  Url::where('fk_user', $userId)->get();
-        $activeUrl = $urlUser->where('status', 'active')->count();
-        $inactiveUrl = $urlUser->where('status', 'inactive')->count();
-        $expiredUrl = $urlUser->where('status', 'expired')->count();
-
+        $totalClick = $urlUser->sum('click_count');
+        $topLink = $urlUser->sortByDesc('click_count')->first();
 
         return [
             'total' => $urlUser->count(),
-            'active' => $activeUrl,
-            'inactive' => $inactiveUrl,
-            'expired' => $expiredUrl,
+            'totalClick' => $totalClick,
+            'topLink' => $topLink
         ];
     }
 
@@ -55,7 +52,6 @@ class UrlService
 
         return $url;
     }
-
 
 
     public function process_redirect(string $slug)
