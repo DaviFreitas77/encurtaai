@@ -59,7 +59,7 @@
     <ul class="space-y-4">
         <div class="flex justify-center items-center mb-8"><img src="{{asset('image/logo.png')}}" alt="" class="w-42"></div>
         <button
-            class="open-modal-create-url flex items-center rounded-lg text-gray-300 hover:text-white bg-gray-700 hover:opacity-90 cursor-pointer w-full px-4 py-3 gap-3">
+            class="open-modal-create-url flex items-center rounded-sm text-white  bg-[var(--color-primary)] hover:opacity-90 cursor-pointer w-full px-4 py-3 gap-3">
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
@@ -69,7 +69,7 @@
         </button>
 
         <a href="{{route('home')}}"
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
+            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -86,7 +86,7 @@
     <form method="POST" action="{{route('logout')}}">
         @csrf
         <button
-            class="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white cursor-pointer w-full">
+            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white cursor-pointer w-full">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>

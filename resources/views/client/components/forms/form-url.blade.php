@@ -1,10 +1,17 @@
-<form method="POST" id="form_shortened_url"  class=" w-full max-w-[700px] text-sm">
+<form method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
     @csrf
-
     <div id="div-link-shortened"
-        class="w-full my-4 border border-green-200  bg-green-50 hidden justify-center items-center rounded-md  ">
-        <a id="link_shortened" target="_blank"
-            class="w-full hidden min-w-[700px] p-3 text-center text-black font-medium rounded-md"></a>
+        class="w-full my-4 p-2 border border-[var(--color-primary))] bg-white hidden justify-between items-center rounded-md gap-4">
+
+        <a id="link_shortened" href="#" target="_blank"
+            class="flex-grow p-2 text-left text-black font-medium truncate">
+        </a>
+
+        <button type="button"
+            class="btn_copy px-4 py-2 text-white font-semibold rounded-md shadow-sm bg-[var(--color-primary)] transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)] cursor-pointer hover:opacity-85">
+            Copiar
+        </button>
+
     </div>
 
     <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-full my-8">
@@ -55,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <button  id="submit-form"
+        <button id="submit-form"
             class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Criar link
             curto</button>
     </section>

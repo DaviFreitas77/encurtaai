@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkShortened = document.getElementById("link_shortened");
   const divLinkShortened = document.getElementById("div-link-shortened");
   const submitButton = document.getElementById("submit-form");
+  const btnCopy = document.getElementById("btn_copy");
+
 
   function clearErrors() {
     const allErrorElements = form.querySelectorAll("[data-error-for]");
@@ -71,4 +73,37 @@ document.addEventListener("DOMContentLoaded", () => {
       submitButton.textContent = "Criar link curto";
     }
   });
+
+
+document.addEventListener('click', async (e) => {
+  const btnCopy = e.target.closest('.btn_copy');
+  if (!btnCopy) return;
+
+  // div que contém o link e o botão
+  const wrapper = btnCopy.closest('#div-link-shortened');
+  if (!wrapper) return;
+
+  // Pega o <a id="link_shortened"> dentro do wrapper
+  const linkEl = wrapper.querySelector('#link_shortened');
+  if (!linkEl) return;
+
+  const url = linkEl.textContent.trim(); 
+
+  if (!url) {
+    alert("URL vazia.");
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(url);
+    btnCopy.textContent = "Copiado!";
+    setTimeout(() => {
+      btnCopy.textContent = "Copiar";
+    }, 2000);
+  } catch (err) {
+    console.error("Erro ao copiar:", err);
+    alert("Erro ao copiar o link.");
+  }
+});
+
 });
