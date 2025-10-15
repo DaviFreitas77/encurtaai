@@ -12,6 +12,7 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::get('/home',function(){return view('client.home');})->name('home');
+    Route::get('/qr',function(){return view('client.qrCode');})->name('qrcode');
     Route::post('/logout', [userController::class, 'logout'])->name('logout');
 });
 

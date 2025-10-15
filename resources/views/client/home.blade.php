@@ -15,13 +15,13 @@
     @include('utils.sidebar')
     <main class="flex w-full justify-between overflow-y-auto h-screen scroll-smooth">
         <section class="w-full flex justify-center ">
-            <div class="flex w-full flex-col py-12 px-4 2xl:px-20  max-w-[1920px] ">
+            <div class="flex w-full flex-col py-5 px-4 2xl:px-20  max-w-[1920px] ">
                 <div>
                     @include('utils.header')
                 </div>
-                <section id="analyticsContainer">
+                <div id="analyticsContainer">
                     @include('utils.cards-dashboard')
-                </section>
+                </div>
                 <section>
                     <div class="my-4 relative flex items-center gap-4">
 
@@ -42,6 +42,7 @@
                     @include('utils.tab-bar')
                     @include('client.components.modals.modal-create-url')
                 </section>
+                   @include('client.components.modals.modal-choose-function')
             </div>
         </section>
     </main>

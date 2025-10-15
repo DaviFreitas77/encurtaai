@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const modalQrCode = document.querySelector(".modal-qr-code");
-  const btnCloseModalQrCode = document.getElementById("close-modal-qr-code");
-
   const modalCreateUrl = document.getElementById("modal-create-url");
   const btnCloseModalCreateUrl = document.querySelector(".close-modal-create-url");
   const btnOpenModalCreateUrl = document.querySelectorAll(".open-modal-create-url");
-
   if (btnOpenModalCreateUrl && modalCreateUrl && btnCloseModalCreateUrl) {
     btnOpenModalCreateUrl.forEach((btn) =>
       btn.addEventListener("click", () => {
@@ -20,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  //modal qrcode
+  const modalQrCode = document.querySelector(".modal-qr-code");
+  const btnCloseModalQrCode = document.getElementById("close-modal-qr-code");
   if (modalQrCode && btnCloseModalQrCode) {
     btnCloseModalQrCode.addEventListener("click", () => {
       modalQrCode.classList.add("hidden");
@@ -31,19 +30,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalAuth = document.querySelector(".modalLogin");
   const btnOpen = document.querySelectorAll("#openModalLogin");
   const btnClose = document.getElementById("closeModalLogin");
-  // Abre o modal auth
-  btnOpen.forEach((btn) =>
-    btn.addEventListener("click", () => {
-      modalAuth.classList.remove("hidden");
-      modalAuth.classList.add("flex");
-    })
-  );
+  if (modalAuth && btnOpen && btnClose) {
+    btnOpen.forEach((btn) =>
+      btn.addEventListener("click", () => {
+        modalAuth.classList.remove("hidden");
+        modalAuth.classList.add("flex");
+      })
+    );
 
-  // Fecha o modal auth
-  btnClose.addEventListener("click", () => {
-    modalAuth.classList.add("hidden");
-    modalAuth.classList.remove("flex");
-  });
+    btnClose.addEventListener("click", () => {
+      modalAuth.classList.add("hidden");
+      modalAuth.classList.remove("flex");
+    });
+  }
+
+  //modal choose-function generate qr or shoterned url
+  const modalChooseFunction = document.getElementById("modal-choose-function");
+  const btnOpenModalChooseFunction = document.querySelectorAll(".open-modal-choose-function");
+  const btnCloseModalChooseFunction = document.querySelector(".close-modal-choose-function");
+
+  if (btnCloseModalChooseFunction && modalChooseFunction && btnOpenModalChooseFunction) {
+    btnOpenModalChooseFunction.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        modalChooseFunction.classList.remove("hidden");
+        modalChooseFunction.classList.add("flex");
+      });
+    });
+
+    btnCloseModalChooseFunction.addEventListener("click", () => {
+      modalChooseFunction.classList.add("hidden");
+      modalChooseFunction.classList.remove("flex");
+    });
+  }
 });
 
 //modal limite de url
