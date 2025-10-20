@@ -1,4 +1,17 @@
 import { arrayMonth } from "./arrayMonth.js";
+
+
+  function formatDate(date){
+     const day = new Date(date).getDate();
+      const month = arrayMonth[new Date(date).getMonth()];
+      const year = new Date(date).getFullYear();
+      const hours = new Date(date).getHours();
+      const minutes = new Date(date).getMinutes();
+
+      const fullDate = `${day} de ${month} de ${year} as ${hours}:${minutes}`;
+      return fullDate;
+  }
+
 export async function fetchUrls() {
   const urlContainer = document.getElementById("urlContainer");
   const template = document.getElementById("urlCardTemplate");
@@ -25,20 +38,25 @@ export async function fetchUrls() {
 
       clone.querySelector(".slug").href = `${appBaseUrl}/r/${url.slug}`;
       clone.querySelector(".slug").textContent = `${appBaseUrl}/r/${url.slug}`;
+      if(url.name_url){
+        clone.querySelector('.nameCard').textContent = url.name_url;
+
+      }else{
+        clone.querySelector('.nameCard').textContent = 'sem nome';
+      }
+
+      if(url.expiration_date){
+        const expirationDate = formatDate(url.expiration_date);
+        clone.querySelector('.expirationDate').textContent = `expira: ${expirationDate}`;
+      }else{
+        clone.querySelector('.expirationDate').textContent = '';
+      }
 
       clone.querySelector(".urlOriginal").textContent = url.url_original;
       clone.querySelector('.id').textContent = url.id
       // clone.querySelector(".qrCode").innerHTML = url.qr_code_url;
 
-      const day = new Date(url.created_at).getDate();
-      const month = arrayMonth[new Date(url.created_at).getMonth()];
-      const year = new Date(url.created_at).getFullYear();
-      const fullDate = `${day} de ${month} de ${year}`;
-    
-      
-      clone.querySelector(".date").textContent = fullDate;
-
-      clone.querySelector(".clicks").textContent = url.click_count;
+     clone.querySelector(".clicks").textContent = url.click_count;
 
       urlContainer.appendChild(clone);
     });

@@ -55,7 +55,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  const token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
   const btnDeleteLink = e.target.closest(".delete-link");
 
   if (btnDeleteLink) {
@@ -70,13 +70,13 @@ document.addEventListener("click", (e) => {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          'X-CSRF-TOKEN': token,
+          "X-CSRF-TOKEN": token,
         },
       })
         .then((response) => {
           if (response.ok) {
-            fetchUrls()
-            fetchCardAnalytics()
+            fetchUrls();
+            fetchCardAnalytics();
           } else {
             console.error("Erro ao deletar URL");
           }

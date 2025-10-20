@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_url', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name_url')->nullable();
             $table->string('url_original');
             $table->string('slug')->unique();
             $table->integer('click_count')->default(0);
@@ -20,6 +21,8 @@ return new class extends Migration
             $table->unsignedInteger('fk_user')->nullable();
             $table->foreign('fk_user')->references('id')->on('tb_user')->onDelete('cascade');
             $table->text('qr_code_url')->nullable();
+            $table->dateTime('expiration_date')->nullable();
+            $table->integer('limited_clicks')->nullable();
             
             $table->timestamps();
         });

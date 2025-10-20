@@ -21,7 +21,13 @@ class UrlService
     public function get_url()
     {
         $userId = Auth::id();
-        return Url::where('fk_user', $userId)->get();
+        return Url::where('fk_user', $userId)->where('qr_code_url', null)->get();
+    }
+
+    public function get_qr_code()
+    {
+        $userId = Auth::id();
+        return Url::where('fk_user', $userId)->whereNotNull('qr_code_url')->get();
     }
 
     public function get_status_url()
@@ -43,10 +49,13 @@ class UrlService
         $slug = $validatedData['slug'] ?? Helpers::gerarSlugSimples();
 
         $url = new Url();
+        $url->name_url = $validatedData['name_url'] ?? null;
         $url->url_original = $validatedData['url_original'];
         $url->slug = $slug;
         $url->click_count = 0;
         $url->status = 'active';
+        $url->limited_clicks = $validatedData['limited_clicks'] ?? null;
+        $url->expiration_date = $validatedData['expiration_date'] ?? null;
         $url->fk_user = Auth::id();
         $url->save();
 

@@ -1,4 +1,4 @@
-<form method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
+<form method="POST"  class="form_shortened_url w-full max-w-[700px] text-sm">
     @csrf
     <div id="div-link-shortened"
         class="w-full my-4 p-2 border border-[var(--color-primary))] bg-white hidden justify-between items-center rounded-md gap-4">
@@ -62,8 +62,8 @@
                 </div>
             </div>
         </div>
-        <button id="submit-form"
-            class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Criar link
+        <button
+            class="submit-form bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Criar link
             curto</button>
     </section>
 </form>
@@ -73,7 +73,7 @@
     <section>
         <div>
             <p class="mb-2 text-start">Gerar QR Code</p>
-            <input  type="text" name="url_qr_code" placeholder="Cole sua URL aqui..."
+            <input type="text" name="url_qr_code" placeholder="Cole sua URL aqui..."
                 class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black">
             <p data-error-for="url_qr_code" class="text-red-500 text-sm mt-1 text-start"></p>
             <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">

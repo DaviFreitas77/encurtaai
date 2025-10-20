@@ -1,4 +1,5 @@
-import { fetchUrls } from "./fetch-urls.js";
+
+import { fetchQrCode } from "./fetch-qr-code.js";
 const formQrCode = document.getElementById("section-form-qr-code");
 const submitFormQrCode = document.getElementById("submit-form-qr-code");
 const showQrCode = document.getElementById("qr_code");
@@ -32,7 +33,7 @@ formQrCode.addEventListener("submit", async (e) => {
       showQrCode.innerHTML = data.qr_code;
       modalQrCode.classList.remove("hidden");
       modalQrCode.classList.add("flex");
-      fetchUrls();
+      fetchQrCode();
     }
     if (!response.ok) {
       if (response.status === 422) {

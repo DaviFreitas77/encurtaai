@@ -18,7 +18,6 @@ Route::middleware(['auth', 'redirect.admin'])->group(function () {
     Route::post('/logout', [userController::class, 'logout'])->name('logout');
 });
 
-
 Route::prefix('auth')->middleware(['guest'])->group(function () {
     Route::post('/register', [userController::class, 'store'])->name('register');
     Route::post('/login', [userController::class, 'login'])->name('login');
@@ -33,7 +32,8 @@ Route::get('/getUrlUser', [urlController::class, 'get_url_user_logged'])->name('
 Route::delete('/deleteUrl/{id}', [urlController::class, 'delete_url']);
 
 Route::get('/r/{slug}', [urlController::class, 'redirect']);
-Route::post('/r/get-qr-code', [urlController::class, 'get_qr_code']);
+Route::post('/r/get-qr-code', [urlController::class, 'create_qr_code']);
+Route::get('/getQrCodeUser', [urlController::class, 'get_qr_code_user_logged']);
 
 
 // Grupo de rotas admin

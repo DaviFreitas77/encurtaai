@@ -12,6 +12,6 @@ class QrCodeService
         if (empty($url)) {
             return null;
         }
-        return QrCode::size(100)->generate($url);
+        return QrCode::size(200)->generate($url);
     }
 }

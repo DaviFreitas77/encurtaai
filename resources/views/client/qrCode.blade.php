@@ -7,8 +7,7 @@
     <title>Dashboard</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css',
-    'resources/js/theme.js','resources/js/form-url.js','resources/js/modals.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js','resources/js/fetch-card-analytics.js','resources/js/fetch-urls.js',
-    'resources/js/dashboard.js', 'resources/js/redirect.js','resources/js/features-card-url.js'])
+    'resources/js/theme.js','resources/js/form-url.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js','resources/js/dashboard.js'])
 </head>
 
 <body class="bg-[var(--color-background)] text-[var(--text-primary)] flex">
@@ -78,12 +77,9 @@
                 </div>
 
             </div>
-            <div class=" grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 pb-20">
-                @include('utils.cards-qrCode')
-                @include('utils.cards-qrCode')
-                @include('utils.cards-qrCode')
-                @include('utils.cards-qrCode')
-                @include('utils.cards-qrCode')
+            @include('utils.cards-qrCode')
+            <div class="containerQRCodes grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 pb-20">
+
             </div>
 
 
