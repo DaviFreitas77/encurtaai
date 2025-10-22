@@ -21,7 +21,7 @@ class UrlService
     public function get_url()
     {
         $userId = Auth::id();
-        return Url::where('fk_user', $userId)->where('qr_code_url', null)->get();
+        return Url::where('fk_user', $userId)->get();
     }
 
     public function get_qr_code()
@@ -84,6 +84,19 @@ class UrlService
     {
         return $this->qrCodeService->generateForUrl($url);
     }
+
+    public function qr_code_for_url_existing(array $validatedData){
+        $qr = $this->qrCodeService->generateForUrl($validatedData['url']);
+        $url = Url::where('slug', $validatedData['slug'])->first();
+        $url->qr_code_url = $qr->toHtml();
+        $url->save();
+
+        return $qr;
+
+
+
+    }
+
 
     public function delete_url(int $id)
     {

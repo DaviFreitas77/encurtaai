@@ -37,7 +37,7 @@ export async function fetchUrls() {
       const clone = template.content.cloneNode(true);
 
       clone.querySelector(".slug").href = `${appBaseUrl}/r/${url.slug}`;
-      clone.querySelector(".slug").textContent = `${appBaseUrl}/r/${url.slug}`;
+      clone.querySelector(".slug").textContent = `localhost:8000/r/${url.slug}`;
       if(url.name_url){
         clone.querySelector('.nameCard').textContent = url.name_url;
 
@@ -51,7 +51,7 @@ export async function fetchUrls() {
       }else{
         clone.querySelector('.expirationDate').textContent = '';
       }
-
+      clone.querySelector('.qrCode').value = url.qr_code_url;
       clone.querySelector(".urlOriginal").textContent = url.url_original;
       clone.querySelector('.id').textContent = url.id
       // clone.querySelector(".qrCode").innerHTML = url.qr_code_url;

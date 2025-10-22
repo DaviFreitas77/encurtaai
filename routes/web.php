@@ -11,9 +11,15 @@ Route::get('/', function () {
 })->middleware(['guest', 'redirect.admin']);
 
 Route::middleware(['auth', 'redirect.admin'])->group(function () {
-    Route::get('/home',function(){return view('client.home');})->name('home');
-    Route::get('/qr',function(){return view('client.qrCode');})->name('qrcode');
-    Route::get('/create-link',function(){return view('client.createLink');})->name('createLink');
+    Route::get('/home', function () {
+        return view('client.home');
+    })->name('home');
+    Route::get('/qr', function () {
+        return view('client.qrCode');
+    })->name('qrcode');
+    Route::get('/create-link', function () {
+        return view('client.createLink');
+    })->name('createLink');
 
     Route::post('/logout', [userController::class, 'logout'])->name('logout');
 });
@@ -23,7 +29,7 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
     Route::post('/login', [userController::class, 'login'])->name('login');
 });
 
-Route::prefix('metrics')->middleware('auth')->group(function(){
+Route::prefix('metrics')->middleware('auth')->group(function () {
     Route::get('/analytics', [urlController::class, 'url_analytics']);
 });
 Route::post('/shortenedUrl', [urlController::class, 'shortenedUrl']);;
@@ -32,7 +38,8 @@ Route::get('/getUrlUser', [urlController::class, 'get_url_user_logged'])->name('
 Route::delete('/deleteUrl/{id}', [urlController::class, 'delete_url']);
 
 Route::get('/r/{slug}', [urlController::class, 'redirect']);
-Route::post('/r/get-qr-code', [urlController::class, 'create_qr_code']);
+Route::post('/create-qr-code', [urlController::class, 'create_qr_code']);
+Route::post('/create-qr-code-url-existing', [urlController::class, 'create_qr_code_url_existing']);
 Route::get('/getQrCodeUser', [urlController::class, 'get_qr_code_user_logged']);
 
 

@@ -103,7 +103,7 @@
             </div>
             <div class="bg-[var(--color-secondary)] p-4 flex flex-col gap-1  rounded-md justify-between w-full">
                 <div class="flex w-full justify-between items-center">
-                    <p class="text-base ">Total de clicks</p>
+                    <p class="text-base ">Total Clicks/Acessos</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                         fill="currentColor">
                         <g>

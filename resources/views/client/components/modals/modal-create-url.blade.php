@@ -7,6 +7,6 @@
         </div>
 
         @include('client.components.forms.form-url')
-        @include('client.components.modals.modal-QRcode')
+        
     </div>
 </div

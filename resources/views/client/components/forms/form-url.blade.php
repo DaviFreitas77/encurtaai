@@ -45,6 +45,16 @@
             </div>
         </div>
         <div class="flex gap-4">
+            @auth
+            <div class="w-full">
+                <p class="mb-2 text-start">Nome do link</p>
+                <input type="text" name="name_url"
+                      class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black" placeholder="Ex: redes"> 
+                <p data-error-for="name_url" class="text-red-500 text-sm mt-1"></p>
+                <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
+                </div>
+            </div>
+             @else
             <div class="w-full">
                 <p class="mb-2 text-start">Dominio</p>
                 <input type="text" name="url_original" disabled value="https://encurtaai.com/"
@@ -53,9 +63,10 @@
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
                 </div>
             </div>
+             @endauth
             <div class="w-full">
                 <p class="mb-2 text-start">Personalize seu link</p>
-                <input type="text" name="slug" placeholder="ex: social"
+                <input type="text" name="slug" placeholder="Ex: litte/minha-rede"
                     class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black">
                 <p data-error-for="slug" class="text-red-500 text-sm mt-1 text-start"></p>
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
@@ -79,6 +90,14 @@
             <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
             </div>
         </div>
+         <div class="w-full">
+                <p class="mb-2 text-start">Nome do QR Code</p>
+                <input type="text" name="name_url"
+                      class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black" placeholder="Ex: redes"> 
+                <p data-error-for="name_url" class="text-red-500 text-sm mt-1"></p>
+                <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
+                </div>
+            </div>
 
         <button id="submit-form-qr-code"
             class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Gerar QR

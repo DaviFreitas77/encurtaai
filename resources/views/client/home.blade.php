@@ -28,7 +28,7 @@
                         <div>
                             <button
                                 class="open-modal-create-url bg-[var(--color-secondary)] px-4 py-2 text-sm rounded-md cursor-pointer">
-                                Cria link
+                                Criar link rápido
                             </button>
                         </div>
                     </div>
@@ -43,10 +43,11 @@
                     @include('client.components.modals.modal-create-url')
                 </section>
                    @include('client.components.modals.modal-choose-function')
-            </div>
-        </section>
-    </main>
-
+                </div>
+            </section>
+        </main>
+        @include('client.components.modals.modal-QRcode')
+        
     <script>
         const appBaseUrl = "{{ url('/') }}";
     </script>

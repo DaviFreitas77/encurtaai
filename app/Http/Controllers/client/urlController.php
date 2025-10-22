@@ -30,19 +30,19 @@ class urlController
         $validate = $request->validate([
             'url_original' => ['required', 'url'],
             'password_url' => ['nullable', 'min:4'],
-            'slug' => ['nullable', 'min:4', 'max:20', 'unique:tb_url,slug'],
-            'name_url' => ['nullable', 'min:4', 'max:20'],
+            'slug' => ['nullable', 'min:4', 'max:10', 'unique:tb_url,slug'],
+            'name_url' => ['nullable', 'min:4', 'max:10'],
             'limited_clicks' => ['nullable'],
             'expiration_date' => ['nullable', 'after:now']
         ], [
             'url_original.required' => 'O campo URL é obrigatório.',
             'slug.min' => 'O slug deve ter no mínimo 4 caracteres.',
-            'slug.max' => 'O slug deve ter no máximo 20 caracteres.',
+            'slug.max' => 'O slug deve ter no máximo 10 caracteres.',
             'password_url.min' => 'A senha deve ter no mínimo 4 caracteres.',
             'slug.unique' => 'Este slug já está em uso.',
             'url_original.url' => 'O campo URL deve ser uma URL válida.',
             'name_url.min' => 'O nome do link deve ter no mínimo 4 caracteres.',
-            'name_url.max' => 'O nome do link deve ter no máximo 20 caracteres',
+            'name_url.max' => 'O nome do link deve ter no máximo 10 caracteres',
             'expiration_date' => 'A data de expiração deve ser maior que a data atual.',
 
 
@@ -64,12 +64,15 @@ class urlController
     {
         $validate = $request->validate([
             'url_qr_code' => ['required', 'url'],
+            'name_url' => ['nullable', 'min:4', 'max:10']
         ], [
             'url_qr_code.required' => 'Este campo é obrigatório.',
-            'url_qr_code.url' => 'URL inválida'
+            'url_qr_code.url' => 'URL inválida',
+            'name_url.min' => 'O nome deve ter no mínimo 4 caracteres.',
+            'name_url.max' => 'O nome deve ter no máximo 10 caracteres.',
         ]);
 
-        $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $validate['url_qr_code']]);
+        $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $validate['url_qr_code'], 'name_url' => $validate['name_url']]);
 
         $url = url('/r/' . $shotenUrl->slug);
         $qrCode = $this->urlService->qr_code_for_url($url);
@@ -81,6 +84,28 @@ class urlController
 
         return response()->json([
             'qr_code' => $qrCodeSvgString
+        ]);
+    }
+
+    public function create_qr_code_url_existing(Request $request)
+    {
+        $validate = $request->validate([
+            'url' => ['required', 'url'],
+            'nameCard' => ['nullable', 'min:4', 'max:10'],
+            'slug' => ['min:4', 'max:10']
+        ], [
+            'url' => 'Este campo é obrigatório.',
+            'url' => 'URL inválida',
+            'name.min' => 'O nome deve ter no mínimo 4 caracteres.',
+            'name.max' => 'O nome deve ter no máximo 10 caracteres.',
+            'slug.min' => 'O slug deve ter no mínimo 4 caracteres.',
+            'slug.max' => 'O slug deve ter no máximo 10 caracteres.',
+        ]);
+
+        $qrCode = $this->urlService->qr_code_for_url_existing($validate);
+
+        return response()->json([
+            'qr_code' => $qrCode->toHtml()
         ]);
     }
 

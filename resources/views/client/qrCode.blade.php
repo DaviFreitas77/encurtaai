@@ -78,7 +78,7 @@
 
             </div>
             @include('utils.cards-qrCode')
-            <div class="containerQRCodes grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-2 pb-20">
+            <div class="containerQRCodes grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-2 pb-20">
 
             </div>
 
@@ -89,6 +89,8 @@
             @include('client.components.modals.modal-create-url')
         </section>
         @include('client.components.modals.modal-choose-function')
+        
+    </main>
         <main>
 </body>
 

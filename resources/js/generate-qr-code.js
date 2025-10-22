@@ -1,5 +1,6 @@
 
 import { fetchQrCode } from "./fetch-qr-code.js";
+import { fetchUrls } from "./fetch-urls.js";
 const formQrCode = document.getElementById("section-form-qr-code");
 const submitFormQrCode = document.getElementById("submit-form-qr-code");
 const showQrCode = document.getElementById("qr_code");
@@ -17,9 +18,9 @@ formQrCode.addEventListener("submit", async (e) => {
   submitFormQrCode.textContent = "Carregando...";
 
   const formData = new FormData(formQrCode);
-
+  console.log(formData.get('name_url'))
   try {
-    const response = await fetch("/r/get-qr-code", {
+    const response = await fetch("/create-qr-code", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,6 +34,7 @@ formQrCode.addEventListener("submit", async (e) => {
       showQrCode.innerHTML = data.qr_code;
       modalQrCode.classList.remove("hidden");
       modalQrCode.classList.add("flex");
+      fetchUrls();
       fetchQrCode();
     }
     if (!response.ok) {

@@ -12,6 +12,7 @@
               <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
             </svg>
           </button>
+          <input class="qrCode" type="hidden" value="">
         </div>
 
         <div class="flex items-center gap-2">
@@ -50,10 +51,10 @@
           <span class="clicks text-xs font-medium"></span>
         </div>
         <div class="flex items-center gap-2 text-slate-400">
-       
+
           <span class="expirationDate text-xs font-medium"></span>
         </div>
-      
+
       </div>
     </div>
 
