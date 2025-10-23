@@ -47,6 +47,7 @@
             </section>
         </main>
         @include('client.components.modals.modal-QRcode')
+        @include('client.components.modals.modal-share-url')
         
     <script>
         const appBaseUrl = "{{ url('/') }}";

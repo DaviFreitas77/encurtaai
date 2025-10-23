@@ -62,6 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
       modalChooseFunction.classList.remove("flex");
     });
   }
+
+  //modal share-url
+
+  const modalShare = document.querySelector("#modal-share");
+  const btnCloseModalShare = document.querySelector(".close-modal-share");
+
+  btnCloseModalShare.addEventListener("click", () => {
+    if (modalShare.classList.contains("flex")) {
+      modalShare.classList.add("hidden");
+      modalShare.classList.remove("flex");
+    }
+  });
 });
 
 //modal limite de url

@@ -1,4 +1,4 @@
-<div id="modal-limited-url" class="hidden fixed inset-0 z-50  items-center justify-center bg-black/50 p-4">
+<div id="modal-limited-url" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4 transition-opacity duration-300">
 
 
     <div class="w-full max-w-3xl rounded-lg shadow-2xl bg-white p-6 relative">

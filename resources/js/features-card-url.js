@@ -1,7 +1,9 @@
 import { fetchUrls } from "./fetch-urls";
 import fetchCardAnalytics from "./fetch-card-analytics";
+import { shareUrl } from "./shareUrl";
 const showQrCode = document.getElementById("qr_code");
 const modalQrCode = document.querySelector(".modal-qr-code");
+const modalShare = document.querySelector("#modal-share");
 
 //copiar url encurtada
 document.addEventListener("click", (e) => {
@@ -53,6 +55,8 @@ document.addEventListener("click", (e) => {
     const nameEl = card.querySelector(".nameCard");
     const name = nameEl?.textContent?.trim();
 
+    const linkShoterned = card.querySelector(".slug")?.textContent?.trim();
+
     const slug = card.querySelector(".slug")?.textContent?.trim().split("/").pop();
 
     const qrCode = card.querySelector(".qrCode")?.value?.trim();
@@ -99,7 +103,7 @@ document.addEventListener("click", (e) => {
         </svg>
         `,
         onClick: () => {
-          alert("Compartilhar clicado");
+          share(linkShoterned);
         },
       },
     ];
@@ -183,6 +187,35 @@ function createCodeQr(url, nameCard, slug, token) {
         console.error("Erro ao criar código QR:", error);
       });
   }
+}
+
+function share(linkShoterned) {
+  modalShare.classList.remove("hidden");
+  modalShare.classList.add("flex");
+
+  document.addEventListener("click", (e) => {
+    const btnShareWhatsapp = e.target.closest("#share-whatsapp");
+    const btnShareFacebook = e.target.closest("#share-facebook");
+    const btnShareCopy = e.target.closest("#copy-link-btn");
+
+    if (btnShareWhatsapp) {
+      shareUrl("whatsapp", linkShoterned);
+      modalShare.classList.add("hidden");
+      modalShare.classList.remove("flex");
+    }
+
+    if (btnShareFacebook) {
+      shareUrl("facebook", linkShoterned);
+      modalShare.classList.add("hidden");
+      modalShare.classList.remove("flex");
+    }
+
+    if (btnShareCopy) {
+      shareUrl("copy", linkShoterned);
+      modalShare.classList.add("hidden");
+      modalShare.classList.remove("flex");
+    }
+  });
 }
 
 function showCodeQr(qrCode) {

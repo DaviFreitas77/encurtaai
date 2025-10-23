@@ -1,4 +1,4 @@
-<div class="modal-qr-code hidden fixed inset-0 z-50  items-center justify-center bg-black/50 p-4">
+<div class="modal-qr-code fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4 transition-opacity duration-300">
     <div class="w-full max-w-xl rounded-lg shadow-2xl bg-[var(--color-secondary)] p-6 relative">
         <button id="close-modal-qr-code"
             class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
