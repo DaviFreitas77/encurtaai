@@ -27,6 +27,7 @@ export const fetchQrCode = async () => {
     qrCodes.forEach((qr) => {
       const clone = template.content.cloneNode(true);
       clone.querySelector(".nameCardQR").textContent = qr.name_url ?? "sem nome";
+      clone.querySelector(".idCardQr").textContent = qr.id ;
       clone.querySelector(".acessCardQR").textContent = `Acessos: ${qr.click_count ?? 0}`;
 
       // Código QR em SVG

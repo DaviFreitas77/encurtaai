@@ -7,7 +7,7 @@
     <title>Dashboard</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css',
-    'resources/js/theme.js','resources/js/form-url.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js','resources/js/dashboard.js'])
+    'resources/js/theme.js','resources/js/form-url.js','resources/js/segmentedControl.js','resources/js/generate-qr-code.js','resources/js/dashboard.js','resources/js/features-card-qr'])
 </head>
 
 <body class="bg-[var(--color-background)] text-[var(--text-primary)] flex">
@@ -17,8 +17,6 @@
             <div class="w-full">
                 @include('utils.header',['title' => 'QR Codes'])
             </div>
-
-
 
             <div class="flex gap-2 items-center text-sm ">
                 <div class="w-full relative">
@@ -78,7 +76,7 @@
 
             </div>
             @include('utils.cards-qrCode')
-            <div class="containerQRCodes grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 gap-2 pb-20">
+            <div class="containerQRCodes grid  grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 pb-20">
 
             </div>
 
@@ -89,9 +87,10 @@
             @include('client.components.modals.modal-create-url')
         </section>
         @include('client.components.modals.modal-choose-function')
+        @include('client.components.modals.modal-QRcode')
+
         
     </main>
-        <main>
 </body>
 
 </html>

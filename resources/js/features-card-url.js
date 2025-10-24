@@ -1,4 +1,5 @@
 import { fetchUrls } from "./fetch-urls";
+
 import fetchCardAnalytics from "./fetch-card-analytics";
 import { shareUrl } from "./shareUrl";
 const showQrCode = document.getElementById("qr_code");

@@ -29,7 +29,8 @@
               <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
             </svg>
           </button>
-          @include('utils.dropdown')
+          <div class=" dropdown  hidden  flex-col w-[200px] gap-1 rounded-md bg-[var(--color-secondary)] p-1 absolute right-5 bottom-42">
+          </div>
 
 
         </div>

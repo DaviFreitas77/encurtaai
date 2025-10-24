@@ -16,13 +16,9 @@ export function shareUrl(choose = "", url) {
   if (choose === "copy") {
     navigator.clipboard
       .writeText(url)
-      .then(() => {
-     
-      })
+      .then(() => {})
       .catch((err) => {
         console.error("Erro ao copiar:", err);
-        
       });
   }
 }
-

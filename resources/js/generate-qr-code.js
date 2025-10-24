@@ -31,7 +31,9 @@ formQrCode.addEventListener("submit", async (e) => {
 
     if (response.ok) {
       const data = await response.json();
+  
       showQrCode.innerHTML = data.qr_code;
+      
       modalQrCode.classList.remove("hidden");
       modalQrCode.classList.add("flex");
       fetchUrls();

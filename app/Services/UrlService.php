@@ -91,7 +91,10 @@ class UrlService
         $url->qr_code_url = $qr->toHtml();
         $url->save();
 
-        return $qr;
+        return [
+            'qr' => $qr,
+            'url' => $url
+        ];
 
 
 

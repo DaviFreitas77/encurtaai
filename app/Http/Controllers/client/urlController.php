@@ -83,7 +83,8 @@ class urlController
         $locationUrl->save();
 
         return response()->json([
-            'qr_code' => $qrCodeSvgString
+            'qr_code' => $qrCodeSvgString,
+            'id' => $locationUrl->id
         ]);
     }
 
@@ -102,10 +103,12 @@ class urlController
             'slug.max' => 'O slug deve ter no máximo 10 caracteres.',
         ]);
 
-        $qrCode = $this->urlService->qr_code_for_url_existing($validate);
+        $url = $this->urlService->qr_code_for_url_existing($validate);
 
         return response()->json([
-            'qr_code' => $qrCode->toHtml()
+            'qr_code' => $url['qr']->toHtml(),
+            'uslug' => $url['url']->slug
+
         ]);
     }
 
