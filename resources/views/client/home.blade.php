@@ -42,15 +42,16 @@
                     @include('utils.tab-bar')
                     @include('client.components.modals.modal-create-url')
                 </section>
-                   @include('client.components.modals.modal-choose-function')
-                </div>
-            </section>
-        </main>
-        @include('client.components.modals.modal-QRcode')
-        @include('client.components.modals.modal-share-url')
-        
+                @include('client.components.modals.modal-choose-function')
+            </div>
+        </section>
+    </main>
+    @include('client.components.modals.modal-QRcode')
+    @include('client.components.modals.modal-share-url')
+
     <script>
         const appBaseUrl = "{{ url('/') }}";
+           
     </script>
 </body>
 

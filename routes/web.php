@@ -21,6 +21,9 @@ Route::middleware(['auth', 'redirect.admin'])->group(function () {
         return view('client.createLink');
     })->name('createLink');
 
+    Route::get('/detailsLink', function () {
+        return view('client.detailsLink');
+    })->name('detailsLink');
 
     
     Route::post('/logout', [userController::class, 'logout'])->name('logout');
