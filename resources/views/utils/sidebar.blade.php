@@ -69,7 +69,7 @@
         </button>
 
         <a href="{{route('home')}}"
-            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
+            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white {{request()->routeIs('home') ? 'bg-gray-700': ''}}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -80,7 +80,7 @@
         </a>
 
         <a href="{{route('qrcode')}}"
-            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white">
+            class="flex items-center gap-3 rounded-sm px-4 py-3 text-gray-300 transition-colors duration-200 hover:bg-gray-700 hover:text-white {{request()->routeIs('qrcode') ? 'bg-gray-700': ''}}">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"

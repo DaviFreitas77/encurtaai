@@ -3,6 +3,11 @@ const btnChoiceQrCode = document.getElementById("choice-qr-code");
 const sectionFormUrl = document.getElementById("section-form-url");
 const sectionFormQrCode = document.getElementById("section-form-qr-code");
 
+
+if(!btnChoiceShoternedUrl || !btnChoiceQrCode || !sectionFormUrl || !sectionFormQrCode){
+  return;
+}
+
 btnChoiceQrCode.addEventListener("click", () => {
   btnChoiceQrCode.classList.add("bg-[var(--color-primary)]", "text-white");
   btnChoiceShoternedUrl.classList.remove("bg-[var(--color-primary)]", "text-white");

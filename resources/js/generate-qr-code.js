@@ -6,12 +6,16 @@ const submitFormQrCode = document.getElementById("submit-form-qr-code");
 const showQrCode = document.getElementById("qr_code");
 const modalQrCode = document.querySelector(".modal-qr-code");
 
+
+
 function showError(fieldName, message) {
   const errorElement = formQrCode.querySelector(`[data-error-for="${fieldName}"]`);
   if (errorElement) {
     errorElement.textContent = message;
   }
 }
+
+
 
 formQrCode.addEventListener("submit", async (e) => {
   e.preventDefault();
