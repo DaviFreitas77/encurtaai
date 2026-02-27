@@ -12,7 +12,7 @@ class dashboardController
 {
     public function __construct(private UserService $userService, private UrlService $urlService) {}
 
- 
+
     public function showDashboard()
     {
 

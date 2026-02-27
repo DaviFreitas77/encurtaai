@@ -27,6 +27,7 @@ class urlController
                 ], 429);
             }
         }
+
         $validate = $request->validate([
             'url_original' => ['required', 'url'],
             'password_url' => ['nullable', 'min:4'],
