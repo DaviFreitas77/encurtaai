@@ -36,5 +36,5 @@ class dashboardUserController
             'qrCode' => $newQRCode,
             'slugForQr' => $filters['url_slug'] ?? ''
         ]);
-    }  
+    }
 }

@@ -1,4 +1,4 @@
-  <div>
+  <div >
       <div class="flex flex-col mb-10">
           <h2 class="mt-4 text-xl font-bold">Insira seu código</h2>
           <p class="text-sm text-gray-600 mt-2">

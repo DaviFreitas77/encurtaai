@@ -1,6 +1,9 @@
   <div>
       <div class="flex flex-col mb-10">
-          <h2 class="mt-4 text-xl font-bold">Redefinir senha</h2>
+          <div class="flex items-center gap-2">
+              <button class="cursor-pointer" type="button" id="back-form"><i class="fa-solid fa-arrow-left"></i></button>
+              <h2 class="text-xl font-bold">Redefinir senha</h2>
+          </div>
           <p class="text-sm text-gray-600 mt-2">
               Informe seu e-mail e enviaremos um <strong>código de verificação</strong> para redefinir sua senha.
           </p>
@@ -18,3 +21,19 @@
 
       </form>
   </div>
+
+
+
+  <script type="module">
+      import {
+          showForm
+      } from "{{ Vite::asset('resources/js/control-form.js') }}";
+
+      const btnBackForm = document.getElementById("back-form");
+
+      if (btnBackForm) {
+          btnBackForm.addEventListener("click", () => {
+              showForm("login");
+          });
+      }
+  </script>

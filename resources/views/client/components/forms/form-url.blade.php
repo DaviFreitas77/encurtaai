@@ -42,7 +42,7 @@
                     type="text"
                     name="url_original"
                     disabled
-                    value="https://encurtaai.com/"
+                    value="encurtaai/"
                     class="outline-none w-full border border-gray-200 p-3 rounded-md disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500" />
                 <p data-error-for="url_original" class="text-red-500 text-sm mt-1"></p>
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">

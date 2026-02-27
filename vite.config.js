@@ -25,7 +25,8 @@ export default defineConfig({
                 'resources/js/controller-dropdown.js',
                 'resources/js/sidebar.js',
                 'resources/js/segmentedControl.js',
-                'resources/js/generate-qr-code.js'
+                'resources/js/generate-qr-code.js',
+                'resources/js/control-form.js'
             ],
             refresh: true,
         }),

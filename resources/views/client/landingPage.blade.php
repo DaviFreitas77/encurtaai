@@ -15,6 +15,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js', 'resources/js/modals.js'])
 </head>
 

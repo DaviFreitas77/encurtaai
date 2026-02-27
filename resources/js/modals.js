@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalAuth = document.querySelector(".modalLogin");
     const btnOpen = document.querySelectorAll("#openModalLogin");
     const btnClose = document.getElementById("closeModalLogin");
+
     // Abre o modal auth
     btnOpen.forEach((btn) =>
         btn.addEventListener("click", () => {
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modalAuth.classList.add("hidden");
         modalAuth.classList.remove("flex");
     });
-}); 
+});
 
 
 

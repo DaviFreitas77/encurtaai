@@ -1,4 +1,5 @@
 import { toggle_modal_limited_url } from "./modals.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("CONFIRMAÇÃO: O script form-url.js FOI CARREGADO!");
     const form = document.getElementById("form_shortened_url");
