@@ -5,6 +5,8 @@ namespace App\Http\Controllers\client;
 
 use App\Models\Url;
 use App\Helpers;
+use App\Http\Requests\URL\CreateQrCodeRequest;
+use App\Http\Requests\URL\CreateUrlRequest;
 use App\Services\UrlService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +16,7 @@ class urlController
 {
     public function __construct(private UrlService $urlService) {}
 
-    public function shortenedUrl(Request $request)
+    public function shortenedUrl(CreateUrlRequest $request)
     {
         if (!Auth::check()) {
             $limite_generate_url = 5;
@@ -28,20 +30,9 @@ class urlController
             }
         }
 
-        $validate = $request->validate([
-            'url_original' => ['required', 'url'],
-            'password_url' => ['nullable', 'min:4'],
-            'slug' => ['nullable', 'min:4', 'max:20', 'unique:tb_url,slug']
-        ], [
-            'url_original.required' => 'O campo URL é obrigatório.',
-            'slug.min' => 'O slug deve ter no mínimo 4 caracteres.',
-            'slug.max' => 'O slug deve ter no máximo 20 caracteres.',
-            'password_url.min' => 'A senha deve ter no mínimo 4 caracteres.',
-            'slug.unique' => 'Este slug já está em uso.',
-            'url_original.url' => 'O campo URL deve ser uma URL válida.'
-        ]);
+        $data = $$request->validated();
 
-        $url = $this->urlService->create_shoterned_url($validate);
+        $url = $this->urlService->create_shoterned_url($data);
 
         if (!Auth::check()) {
             session()->increment('urls');
@@ -53,16 +44,12 @@ class urlController
     }
 
 
-    public function get_qr_code(Request $request)
+    public function get_qr_code(CreateQrCodeRequest $request)
     {
-        $validate = $request->validate([
-            'url_qr_code' => ['required', 'url'],
-        ], [
-            'url_qr_code.required' => 'O campo URL é obrigatório.',
-            'url_qr_code.url' => 'O campo URL deve ser uma URL válida.'
-        ]);
 
-        $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $validate['url_qr_code']]);
+        $data = $request->validated();
+
+        $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $data['url_qr_code']]);
 
         $url = url('/r/' . $shotenUrl->slug);
         $qrCode = $this->urlService->qr_code_for_url($url);
