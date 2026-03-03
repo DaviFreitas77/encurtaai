@@ -18,17 +18,17 @@ class urlController
 
     public function shortenedUrl(CreateUrlRequest $request)
     {
-        // if (!Auth::check()) {
-        //     $limite_generate_url = 5;
+        if (!Auth::check()) {
+            $limite_generate_url = 5;
 
-        //     $urlsCriadas = session()->get('urls', 0);
+            $urlsCriadas = session()->get('urls', 0);
 
-        //     if ($urlsCriadas >= $limite_generate_url) {
-        //         return response()->json([
-        //             'error' => 'Você atingiu o limite de ' . $limite_generate_url . 'Por favor, crie uma conta.'
-        //         ], 429);
-        //     }
-        // }
+            if ($urlsCriadas >= $limite_generate_url) {
+                return response()->json([
+                    'error' => 'Você atingiu o limite de ' . $limite_generate_url . 'Por favor, crie uma conta.'
+                ], 429);
+            }
+        }
 
         $data = $request->validated();
 
