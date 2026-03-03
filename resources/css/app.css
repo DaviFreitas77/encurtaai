@@ -1,38 +1,39 @@
 @import "tailwindcss";
 
 :root {
-    --color-primary: #2c5f9b;
-    --color-primary-50: #e6eff8;
-    --color-primary-100:#c6ddf1;
+  --color-primary: #2c5f9b;
+  --color-primary-50: #e6eff8;
+  --color-primary-100: #c6ddf1;
 
-    /* Cores claras (modo claro) */
-    --color-background: #fff;
-    --color-secondary: #f4f6fa;
-    --text-primary: #000;
+  /* Cores claras (modo claro) */
+  --color-background: #fff;
+  --color-secondary: #f4f6fa;
+  --text-primary: #000;
 }
 
 .dark {
-    /* Sobrescreve no modo escuro */
-    --color-background: #12121e;
-    --color-secondary: #1d1d29;
-    --text-primary: #fff;
+  /* Sobrescreve no modo escuro */
+  --color-background: #12121e;
+  --color-secondary: #1d1d29;
+  --text-primary: #fff;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(180%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(180%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .animate-marquee {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
+  display: inline-block;
+  animation: marquee 15s linear infinite;
 }
 
-/* From Uiverse.io by Gautammsharma */ 
+/* From Uiverse.io by Gautammsharma */
 .grid-wrapper {
   height: 70vh;
   width: 100%;
@@ -41,23 +42,45 @@
 }
 
 .grid-background {
+  opacity: 0.4;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 0;
-  background-image: linear-gradient(to right, #e2e8f0 1px, transparent 1px),
-    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-  background-size: 20px 30px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 60%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    #000 60%,
-    transparent 100%
-  );
+  background-image: linear-gradient(to right, var(--color-primary-50) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-primary-50) 1px, transparent 1px);
+  background-size: 40px 50px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%,
+      #000 60%,
+      transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%,
+      #000 60%,
+      transparent 100%);
+}
+
+
+.shine-text {
+  background: linear-gradient(90deg,
+      #031f39 0%,
+      #031f39 47%,
+      rgba(255, 255, 255, 0.8) 50%,
+      #031f39 53%,
+      #031f39 100%);
+  background-size: 150% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 10s linear infinite;
+}
+
+@keyframes shine {
+  from {
+    background-position: 150% center;
+  }
+
+  to {
+    background-position: -150% center;
+  }
 }

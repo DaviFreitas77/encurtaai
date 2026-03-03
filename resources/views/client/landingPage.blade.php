@@ -33,19 +33,25 @@
             <div class="grid-background"></div>
         </div>
 
-
         <section class="w-full max-w-[1920px] flex flex-wrap md:flex-nowrap justify-center items-center px-6 lg:px-35 gap-10 mt-20 absolute">
             <div class="w-full  flex flex-col justify-center items-center mt-2 gap-5">
-                <h1 class=" text-5xl   font-bold  w-full text-center text-[#031f39]">
+                <div class="flex items-center gap-2">
+                    @include('client.components.ui.groupAvatar')
+                    <p class="text-sm text-gray-500">+5000 links criados</p>
+                </div>
+
+                <h1 class="shine-text text-5xl   font-bold  w-full text-center">
                     Seu link, mais curto & inteligente.
                 </h1>
                 <p class="max-w-[630px] text-[#031f39] font-medium  text-center text-sm">
                     Transforme seus links longos em URLs curtas, inteligentes e fáceis de compartilhar. Simplifique o acesso e aumente o alcance do seu conteúdo!
                 </p>
 
+
                 <section class="w-full max-w-4xl flex flex-col gap-5  items-center">
                     @include('client.components.forms.form-url')
                 </section>
+
             </div>
 
         </section>

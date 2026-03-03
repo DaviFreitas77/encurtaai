@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <button id="submit-form" class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Criar link curto</button>
+        <button id="submit-form" class="bg-[var(--color-primary)]  text-white rounded-md w-full  py-4 font-bold cursor-pointer ">Criar link curto</button>
     </section>
 </form>
 
