@@ -1,11 +1,12 @@
 import { toggle_modal_limited_url } from "./modals.js";
+import { copyText } from "./app.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("CONFIRMAÇÃO: O script form-url.js FOI CARREGADO!");
     const form = document.getElementById("form_shortened_url");
     const linkShortened = document.getElementById("link_shortened");
     const divLinkShortened = document.getElementById("div-link-shortened");
     const submitButton = document.getElementById("submit-form");
+    const btnCopyLink = document.querySelector(".copyLink")
 
     function clearErrors() {
         const allErrorElements = form.querySelectorAll("[data-error-for]");
@@ -27,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
         linkShortened.textContent = url;
         linkShortened.classList.remove("hidden");
     }
+
+
+    btnCopyLink.addEventListener("click", () => {
+        copyText(linkShortened.textContent)
+    })
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();

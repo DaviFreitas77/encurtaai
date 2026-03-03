@@ -9,6 +9,7 @@ use App\Http\Requests\URL\CreateUrlRequest;
 use App\Services\UrlService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class urlController
 
@@ -29,7 +30,7 @@ class urlController
             }
         }
 
-        $data = $$request->validated();
+        $data = $request->validated();
 
         $url = $this->urlService->create_shoterned_url($data);
 
@@ -47,6 +48,8 @@ class urlController
     {
 
         $data = $request->validated();
+
+        Log::info($data);
 
         $shotenUrl = $this->urlService->create_shoterned_url(['url_original' => $data['url_qr_code']]);
 

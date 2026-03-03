@@ -2,6 +2,8 @@
 
 :root {
     --color-primary: #2c5f9b;
+    --color-primary-50: #e6eff8;
+    --color-primary-100:#c6ddf1;
 
     /* Cores claras (modo claro) */
     --color-background: #fff;

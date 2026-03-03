@@ -1,13 +1,13 @@
 <div id="modal-limited-url" class="hidden fixed inset-0 z-50  items-center justify-center bg-black/50 p-4">
 
 
-   <div class="w-full max-w-3xl rounded-lg shadow-2xl bg-white p-6 relative">
+   <div class="w-full max-w-4xl rounded-lg shadow-2xl bg-white  relative">
 
 
       <button class="close-modal-url-limited absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-3xl font-bold transition-colors">&times;</button>
 
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-         <div class="flex flex-col">
+      <div class="grid md:grid-cols-2 gap-8 ">
+         <div class="flex flex-col p-5 mt-5">
             <h2 class="text-2xl font-bold text-gray-800">Crie sua conta e aproveite ao máximo!</h2>
             <p class="text-sm text-gray-600 mt-2 mb-6">
                Você atingiu o limite de URLs para visitantes. Crie uma conta gratuita para ter acesso a recursos incríveis:
@@ -41,10 +41,10 @@
             </ul>
 
             <div class="flex flex-col gap-3">
-               <button id="openModalLogin" class="close-modal-url-limited bg-[var(--color-primary)] hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-md font-semibold w-full">Criar Conta Grátis</button>
+               <button id="openModalLogin" class="close-modal-url-limited bg-[var(--color-primary)] hover:opacity-85 cursor-pointer transition-colors text-white px-6 py-3 rounded-md font-semibold w-full">Criar Conta Grátis</button>
             </div>
          </div>
-         <img src="{{ asset('image/sistema.png') }}" alt="Ilustração da plataforma Encurtaái" class="w-full rounded-lg shadow-lg hidden md:block" />
+         <img src="{{ asset('image/auth.png') }}" alt="Ilustração da plataforma Encurtaái" class="w-full rounded-lg  hidden md:block" />
       </div>
    </div>
 </div>

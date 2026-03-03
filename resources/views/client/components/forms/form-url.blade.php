@@ -1,8 +1,12 @@
-<form  method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
+<form method="POST" id="form_shortened_url" class=" w-full max-w-[700px] text-sm">
     @csrf
 
-    <div id="div-link-shortened" class="w-full my-4 border border-green-200  bg-green-50 hidden justify-center items-center rounded-md  ">
-        <a id="link_shortened" target="_blank" class="w-full hidden min-w-[700px] p-3 text-center text-black font-medium rounded-md"></a>
+    <div id="div-link-shortened" class="w-full my-4 border border-[var(--color-primary-100)]  bg-[var(--color-primary-50)] h-12 hidden justify-center items-center rounded-md  cursor-pointer relative">
+        <a id="link_shortened" target="_blank" class="w-full   min-w-[700px] p-3 text-center text-black font-medium rounded-md"></a>
+
+        <div class="text-end absolute right-2 top-1.5">
+            <button type="button" class="copyLink bg-[var(--color-primary)] text-white px-8 py-2 rounded-md font-semibold text-sm cursor-pointer hover:opacity-85">Copiar</button>
+        </div>
     </div>
 
     <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-full my-8">
@@ -30,7 +34,7 @@
     <section id="section-form-url">
         <div>
             <p class="mb-2 text-start">Encurte seu link longo</p>
-            <input type="text" name="url_original" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black">
+            <input type="text" name="url_original" placeholder="Cole sua URL aqui..." class="outline-none w-full border border-gray-200 py-4 px-3 rounded-md bg-white text-black">
             <p data-error-for="url_original" class="text-red-500 text-sm mt-1 text-start"></p>
             <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
             </div>
@@ -43,14 +47,14 @@
                     name="url_original"
                     disabled
                     value="encurtaai/"
-                    class="outline-none w-full border border-gray-200 p-3 rounded-md disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500" />
+                    class="outline-none w-full border border-gray-200 py-4 px-3 rounded-md disabled:bg-gray-100 disabled:cursor-not-allowed disabled:text-gray-500" />
                 <p data-error-for="url_original" class="text-red-500 text-sm mt-1"></p>
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
                 </div>
             </div>
             <div class="w-full">
                 <p class="mb-2 text-start">Personalize seu link</p>
-                <input type="text" name="slug" placeholder="ex: social" class="outline-none w-full border border-gray-200 p-3 rounded-md bg-white text-black">
+                <input type="text" name="slug" placeholder="ex: social" class="outline-none w-full border border-gray-200 py-4 px-3 rounded-md bg-white text-black">
                 <p data-error-for="slug" class="text-red-500 text-sm mt-1 text-start"></p>
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-center w-full mt-5 gap-5">
                 </div>
@@ -73,5 +77,5 @@
 
         <button id="submit-form-qr-code" class="bg-[var(--color-primary)]  text-white rounded-md w-full  p-3 font-bold cursor-pointer ">Gerar QR Code</button>
     </section>
-   
+
 </form>

@@ -6,7 +6,7 @@
         Preencha os campos abaixo para começar a usar a plataforma.
       </p>
       <div class="flex flex-col sm:flex-row gap-3 mt-4 text-sm">
-        <button class="bg-white border border-gray-200 w-full flex items-center justify-center gap-2 px-4 py-4  rounded-sm hover:bg-gray-100 transition font-medium mt-4 text-sm">
+        <button class="bg-white border border-gray-200 w-full flex items-center justify-center gap-2 px-4 py-4 cursor-pointer hover:opacity-85  rounded-sm hover:bg-gray-100 transition font-medium mt-4 text-sm">
           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-5 h-5">
             <g>
               <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -18,7 +18,7 @@
           </svg>
           Entrar com Google
         </button>
-        <button class="bg-gray-800 text-white w-full flex items-center justify-center gap-2 px-4 py-4   rounded-sm hover:bg-gray-700 transition font-medium mt-4">
+        <button class="bg-gray-800 text-white w-full flex items-center justify-center gap-2 px-4 py-4 cursor-pointer hover:opacity-85  rounded-sm hover:bg-gray-700 transition font-medium mt-4">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
           </svg>
@@ -48,7 +48,7 @@
         </div>
       </div>
       <div class="flex w-full">
-        <button type="submit" class="bg-[var(--color-primary)] transition-colors text-white px-6 py-4 rounded-sm font-semibold w-full">Entrar</button>
+        <button type="submit" class="bg-[var(--color-primary)] transition-colors cursor-pointer hover:opacity-85  text-white px-6 py-4 rounded-sm font-semibold w-full">Cadastre-se</button>
       </div>
       <p class="mt-4 text-center text-sm">
         Já tem conta?
