@@ -26,7 +26,9 @@ export default defineConfig({
                 'resources/js/sidebar.js',
                 'resources/js/segmentedControl.js',
                 'resources/js/generate-qr-code.js',
-                'resources/js/control-form.js'
+                'resources/js/control-form.js',
+                'resources/js/toaster.js',
+                
             ],
             refresh: true,
         }),

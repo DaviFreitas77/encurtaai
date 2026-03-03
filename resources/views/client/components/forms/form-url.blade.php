@@ -9,14 +9,14 @@
         </div>
     </div>
 
-    <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-full my-8">
+    <div id="segmented-control" class="flex w-full max-w-xs p-1 mx-auto space-x-1 bg-gray-200 rounded-md my-8">
 
-        <button id="choice-shoterned-url" type="button" class="w-full px-4 py-2 text-sm font-semibold text-white  bg-[var(--color-primary)] rounded-full focus:outline-none">
+        <button id="choice-shoterned-url" type="button" class="w-full px-4 py-2 text-sm font-semibold text-white  bg-[var(--color-primary)] rounded-md focus:outline-none">
             Encurtar link
         </button>
 
         @auth
-        <button id="choice-qr-code" type="button" class="w-full px-4 py-2 text-sm font-semibold text-gray-500 rounded-full  focus:outline-none">
+        <button id="choice-qr-code" type="button" class="w-full px-4 py-2 text-sm font-semibold text-gray-500 rounded-md  focus:outline-none">
             Gerar QR Code
         </button>
         @else
@@ -24,7 +24,7 @@
             disabled
             type="button"
             title="Faça login para gerar QR Codes"
-            class="w-full px-4 py-2 text-sm font-semibold text-gray-400 bg-gray-100 rounded-full focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
+            class="w-full px-4 py-2 text-sm font-semibold text-gray-400 bg-gray-100 rounded-md focus:outline-none disabled:cursor-not-allowed disabled:opacity-75"
             aria-selected="false">
             Gerar QR Code
         </button>

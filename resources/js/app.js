@@ -1,9 +1,15 @@
 export const copyText = async (text) => {
+
     try {
         await navigator.clipboard.writeText(text)
-        alert("texto copiado")
+        toast({
+            title: "Sucesso",
+            description: "Texto copiado",
+            type: "success"
+        });
     } catch (error) {
-        console.log("error ao copiar texto")
+        console.log(error)
     }
 
 }
+

@@ -18,7 +18,10 @@
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js', 'resources/js/modals.js'])
+
+
+
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/form-url.js','resources/js/redirect.js', 'resources/js/modals.js','resources/js/toaster.js'])
 </head>
 
 <body class="max-w-[1920px] mx-auto font-[montserrat] ">
@@ -40,7 +43,7 @@
                     <p class="text-sm text-gray-500">+5000 links criados</p>
                 </div>
 
-                <h1 class="shine-text text-5xl   font-bold  w-full text-center">
+                <h1 class="shine-text text-4xl lg:text-5xl   font-bold  w-full text-center">
                     Seu link, mais curto & inteligente.
                 </h1>
                 <p class="max-w-[630px] text-[#031f39] font-medium  text-center text-sm">
@@ -73,6 +76,13 @@
         </section>
 
     </main>
+    <div id="toaster"
+        class="fixed top-6 right-6 z-50 flex flex-col gap-3 pointer-events-none">
+    </div>
+
+
+
 </body>
+
 
 </html>
