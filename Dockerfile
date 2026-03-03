@@ -1,4 +1,17 @@
 
+FROM node:20 AS node-build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+
 FROM php:8.2-fpm
 
 RUN apt-get update && apt-get install -y \
