@@ -5,9 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     server: {
         host: '0.0.0.0', 
-        https: false,    
+        https: true,    
         hmr: {
-            host: 'localhost', 
+            host: 'https://encurtaai-production-5c91.up.railway.app', 
         },
         watch: {
             usePolling: true, 
