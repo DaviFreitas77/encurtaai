@@ -16,6 +16,7 @@ class urlController
 {
     public function __construct(private UrlService $urlService) {}
 
+    
     public function shortenedUrl(CreateUrlRequest $request)
     {
         if (!Auth::check()) {
