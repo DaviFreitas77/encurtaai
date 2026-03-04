@@ -38,6 +38,8 @@ RUN composer install --no-interaction --optimize-autoloader --no-scripts
 
 COPY . .
 
+COPY --from=node-build /app/public/build /var/www/html/public/build
+
 RUN composer dump-autoload --optimize --no-scripts
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
